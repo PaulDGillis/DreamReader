@@ -7,7 +7,7 @@ import com.pgillis.dream.core.model.Book
 
 fun Book.asEntity(): Triple<BookEntity, MetaDataEntity, List<ManifestEntity>> =
     Triple(
-        BookEntity(id, spine),
+        BookEntity(id, spine, coverUri),
         metaData.asEntity(id),
         manifest.asManifestEntity(id)
     )

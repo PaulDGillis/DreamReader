@@ -9,10 +9,11 @@ androidxNavigation = "2.8.3"
 androidxHiltNavigationCompose = "1.2.0"
 androidxLifecycle = "2.8.7"
 androidxTracing = "1.2.0"
+coil = "3.0.0-rc02"
 filekit = "0.8.7"
 hilt = "2.52"
 hiltExt = "1.2.0"
-ksoup = "0.1.9"
+ksoup = "0.2.0"
 kotlinxCoroutines = "1.9.0"
 moduleGraph = "2.7.1"
 okio = "3.9.1"
@@ -53,6 +54,10 @@ androidx-tracing-ktx = { group = "androidx.tracing", name = "tracing-ktx", versi
 
 # Compose File Selection
 filekit = { group = "io.github.vinceglb", name = "filekit-compose", version.ref = "filekit" }
+
+# Compose image loading library
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
 # Ksoup
 ksoup = { group = "com.fleeksoft.ksoup", name = "ksoup-okio", version.ref = "ksoup" }

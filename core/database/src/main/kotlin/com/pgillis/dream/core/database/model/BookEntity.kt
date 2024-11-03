@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 @Entity
 data class BookEntity(
     @PrimaryKey val id: String,
-    val spine: LinkedHashSet<String>
+    val spine: LinkedHashSet<String>,
+    val coverUri: String?
 )

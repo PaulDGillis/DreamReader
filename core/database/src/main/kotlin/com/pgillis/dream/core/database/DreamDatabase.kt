@@ -1,5 +1,6 @@
 package com.pgillis.dream.core.database
 
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -11,8 +12,11 @@ import com.pgillis.dream.core.database.util.SpineConverter
 
 @Database(
     entities = [BookEntity::class, MetaDataEntity::class, ManifestEntity::class],
-    version = 1,
-    exportSchema = true
+    version = 2,
+    exportSchema = true,
+    autoMigrations = [
+        AutoMigration(from = 1, to = 2)
+    ]
 )
 @TypeConverters(SpineConverter::class)
 abstract class DreamDatabase: RoomDatabase() {

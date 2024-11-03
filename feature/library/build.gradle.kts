@@ -16,4 +16,8 @@ dependencies {
 
     // Compose File UI Picker
     implementation(libs.filekit)
+
+    // Compose Image Loading
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
 }
