@@ -31,13 +31,11 @@ import io.github.vinceglb.filekit.core.PlatformDirectory
 
 @Composable
 fun LibraryScreen(
-    viewModel: LibraryViewModel = hiltViewModel(),
-    onDirectorySelected: (PlatformDirectory) -> String?
+    viewModel: LibraryViewModel = hiltViewModel()
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     LibraryScreen(state = state, onDirectorySelected = {
-        val realUri = onDirectorySelected(it) ?: return@LibraryScreen
-        viewModel.onDirectorySelected(realUri)
+        viewModel.onDirectorySelected(it)
     })
 }
 

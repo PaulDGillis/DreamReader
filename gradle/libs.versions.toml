@@ -17,6 +17,7 @@ kotlinxCoroutines = "1.9.0"
 moduleGraph = "2.7.1"
 okio = "3.9.1"
 secrets = "2.0.1"
+simpleStorage = "2.0.0"
 
 # Versions of Dependencies of the included build-logic
 androidxComposeBom = "2024.10.01"
@@ -64,6 +65,8 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 
 # File I/O
 okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
+# Simple Storage, because Android File I/O is overcomplicated
+simple-storage = { group = "com.anggrayudi", name = "storage", version.ref = "simpleStorage" }
 
 # Accompanist Permissions
 accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }

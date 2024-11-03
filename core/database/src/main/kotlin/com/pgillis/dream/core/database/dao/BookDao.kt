@@ -14,15 +14,15 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BookDao {
     @Transaction
-    @Query("SELECT * FROM BookEntity JOIN ManifestEntity ON ManifestEntity.bookId = BookEntity.id")
+    @Query("SELECT * FROM BookEntity")
     fun getBooks(): Flow<List<BookWithManifest>>
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertBooks(books: List<BookEntity>)
+    fun insertBooks(book: BookEntity)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMetadata(metadata: List<MetaDataEntity>)
+    fun insertMetadata(metadata: MetaDataEntity)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertManifest(manifest: List<ManifestEntity>)

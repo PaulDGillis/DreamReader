@@ -1,46 +1,48 @@
 package com.pgillis.dream.core.file
 
+import android.content.Context
+import androidx.documentfile.provider.DocumentFile
+import com.anggrayudi.storage.file.getBasePath
 import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.io.SourceReader
 import com.fleeksoft.ksoup.io.from
 import com.fleeksoft.ksoup.parser.Parser
+import com.pgillis.dream.core.file.platform.AndroidFileManager
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
-import okio.FileSystem
-import okio.Path
-import okio.Path.Companion.toPath
-import okio.buffer
-import okio.openZip
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.mapNotNull
+import javax.inject.Inject
 
-object EpubParser {
-    fun parse(epubPath: Path): Book? {
-        // Open epub as if it were a zip
-        val fileSystem = FileSystem.SYSTEM
-        val zipFileSystem = fileSystem.openZip(epubPath)
+class EpubParser @Inject constructor(
+    @ApplicationContext private val context: Context,
+    private val fileManager: AndroidFileManager
+) {
+    fun loadLibrary(treeUri: String) = fileManager.decompressEpubs(treeUri).mapNotNull { if (it != null) parse(it) else null }
+
+    fun parse(epubCacheDirectory: DocumentFile): Book? {
         // Read zip directory file paths
-        val paths: Set<Path> = zipFileSystem.listRecursively("/".toPath())
-            .filter { zipFileSystem.metadata(it).isRegularFile }
-            .toSet()
+        val files = fileManager.listFiles(epubCacheDirectory).associateBy {
+            it.getBasePath(context).split(epubCacheDirectory.getBasePath(context))[1]
+        }
 
         // Check CONTAINER_PATH exists in epub
-        val containerPath = "/META-INF/container.xml".toPath()
-        if (containerPath !in paths) return null // TODO Failed
+        val containerPath = "/META-INF/container.xml"
+        if (!files.containsKey(containerPath)) return null // TODO Failed
 
         // Find root epub file in CONTAINER_PATH
-        val rootFileStr = zipFileSystem.source(containerPath).buffer().use { source ->
-            Ksoup.parse(sourceReader = SourceReader.from(source),
-                baseUri = epubPath.toString(), parser = Parser.xmlParser())
+        val rootFileStr = fileManager.openBufferedStream(files[containerPath]!!).use { source ->
+            Ksoup.parse(sourceReader = SourceReader.from(source), baseUri =  "", parser = Parser.xmlParser())
         }.let {
             "/" + (it.selectFirst("rootfile")?.attribute("full-path")?.value ?: return null)
         }
 
         // Check rootFileStr exists in epub
-        val rootFilePath = rootFileStr.toPath()
-        if (rootFilePath !in paths) return null
+        if (!files.containsKey(rootFileStr)) return null
 
-        val rootFile = zipFileSystem.source(rootFilePath).buffer().use { source ->
+        val rootFile = fileManager.openBufferedStream(files[rootFileStr]!!).use { source ->
             Ksoup.parse(sourceReader = SourceReader.from(source),
-                baseUri = epubPath.toString(), parser = Parser.xmlParser())
+                baseUri = "", parser = Parser.xmlParser())
         }
 
         // Parse Metadata

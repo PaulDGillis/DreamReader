@@ -10,32 +10,23 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import okio.FileSystem
-import okio.Path
 import javax.inject.Inject
 
-class BookRepo @Inject constructor(private val bookDao: BookDao) {
+class BookRepo @Inject constructor(
+    private val bookDao: BookDao,
+    private val parser: EpubParser
+) {
 
     fun getBooks(): Flow<List<Book>> = bookDao.getBooks().map { it.map(BookWithManifest::asBook) }
 
-    suspend fun insertOrSkipBookDir(libraryPath: Path) = withContext(Dispatchers.IO) {
-        val fileSystem = FileSystem.SYSTEM
-        val libraryDir = fileSystem.list(libraryPath)
+    suspend fun insertOrSkipBookDir(treeUri: String) = withContext(Dispatchers.IO) {
+        parser.loadLibrary(treeUri).collect { book ->
+            val (bookEntity, metaDataEntity, manifestEntity) = book.asEntity()
 
-        val library = libraryDir.mapNotNull {
-            val file = fileSystem.metadataOrNull(it)
-            if (file?.isRegularFile == true) {
-                EpubParser.parse(it)?.asEntity()
-            } else null
+//            bookDao.deleteOldBooks(bookEntities.map { it.id }) TODO delete book mechanism
+            bookDao.insertBooks(bookEntity)
+            bookDao.insertMetadata(metaDataEntity)
+            bookDao.insertManifest(manifestEntity)
         }
-
-        val bookEntities = library.map { it.first }
-        val metaDataEntities = library.map { it.second }
-        val manifestEntities = library.flatMap { it.third }
-
-        bookDao.deleteOldBooks(bookEntities.map { it.id })
-        bookDao.insertBooks(bookEntities)
-        bookDao.insertMetadata(metaDataEntities)
-        bookDao.insertManifest(manifestEntities)
     }
 }

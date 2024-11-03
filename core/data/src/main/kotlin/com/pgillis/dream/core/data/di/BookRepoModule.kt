@@ -2,6 +2,7 @@ package com.pgillis.dream.core.data.di
 
 import com.pgillis.dream.core.data.BookRepo
 import com.pgillis.dream.core.database.dao.BookDao
+import com.pgillis.dream.core.file.EpubParser
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,5 +12,8 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 internal object BookRepoModule {
     @Provides
-    fun providesBookRepo(bookDao: BookDao) = BookRepo(bookDao)
+    fun providesBookRepo(
+        bookDao: BookDao,
+        parser: EpubParser
+    ) = BookRepo(bookDao, parser)
 }
