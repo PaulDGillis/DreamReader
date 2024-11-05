@@ -1,6 +1,7 @@
 package com.pgillis.dream.feature.library
 
 import android.net.Uri
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,7 +20,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -27,7 +27,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil3.compose.AsyncImage
 import coil3.compose.rememberAsyncImagePainter
 import coil3.request.ImageRequest
 import com.pgillis.dream.core.designsystem.theme.DreamReaderTheme
@@ -116,26 +115,20 @@ private fun LibraryBooks(
         horizontalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterHorizontally),
         verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top)
     ) {
-        items(state.books) { book ->
-            Card(Modifier.aspectRatio(0.5f)) {
-                Column(Modifier.padding(10.dp)) {
-                    val cacheFile = remember {
-                        book.coverUri?.let {
-                            Uri.parse(it)
-                        }
+        items(state.books, key = { it.id }) { book ->
+            Card(Modifier.aspectRatio(0.4f)) {
+                val imagePainter = rememberAsyncImagePainter(
+                    ImageRequest.Builder(LocalContext.current)
+                        .data(book.coverUri?.let { Uri.parse(it) })
+//                        .placeholder(R.drawable.book)
+                        .build()
+                )
+                Column(verticalArrangement = Arrangement.SpaceBetween) {
+                    Image(imagePainter, null)
+                    Column(Modifier.padding(10.dp)) {
+                        Text(book.metaData.title, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        Text(book.metaData.creator, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     }
-                    if (cacheFile != null) {
-                        val imagePainter = rememberAsyncImagePainter(
-                            ImageRequest.Builder(LocalContext.current)
-                                .data(cacheFile)
-//                            .placeholder(R.drawable.ic_user_place_holder)
-                                .build()
-                        )
-                        AsyncImage(imagePainter, null)
-                    }
-
-                    Text(book.metaData.title, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                    Text(book.metaData.creator, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 }
             }
         }

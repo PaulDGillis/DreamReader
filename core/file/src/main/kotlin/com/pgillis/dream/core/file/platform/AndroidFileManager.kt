@@ -77,7 +77,7 @@ class AndroidFileManager @Inject constructor(
         val targetFolder = rootTargetFolder.findFolder(documentFile.baseName).let { target ->
             if (target == null || !target.exists()) {
                 rootTargetFolder.createDirectory(documentFile.baseName)
-            } else target
+            } else return flowOf(target)
         } ?: return flowOf(null)
 
 
