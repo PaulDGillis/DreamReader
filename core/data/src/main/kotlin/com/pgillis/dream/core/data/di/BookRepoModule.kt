@@ -1,4 +1,3 @@
-package com.pgillis.dream.core.data.di
 
 import com.pgillis.dream.core.data.BookRepo
 import com.pgillis.dream.core.database.dao.BookDao

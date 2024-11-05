@@ -1,7 +1,6 @@
 package com.pgillis.dream.feature.library
 
 import android.net.Uri
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +9,8 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -22,13 +23,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil3.compose.rememberAsyncImagePainter
+import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
+import com.eygraber.compose.placeholder.PlaceholderHighlight
+import com.eygraber.compose.placeholder.material3.fade
+import com.eygraber.compose.placeholder.material3.placeholder
 import com.pgillis.dream.core.designsystem.theme.DreamReaderTheme
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
@@ -118,16 +123,23 @@ private fun LibraryBooks(
         verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top)
     ) {
         items(state.books, key = { it.id }) { book ->
-            Card(Modifier.aspectRatio(0.4f)) {
-                val imagePainter = rememberAsyncImagePainter(
-                    ImageRequest.Builder(LocalContext.current)
-                        .data(book.coverUri?.let { Uri.parse(it) })
-//                        .placeholder(R.drawable.book)
-                        .build()
-                )
-                Column(verticalArrangement = Arrangement.SpaceBetween) {
-                    Image(imagePainter, null)
-                    Column(Modifier.padding(10.dp)) {
+            Card {
+                Column(modifier = Modifier.wrapContentSize(),
+                    verticalArrangement = Arrangement.Top) {
+                    AsyncImage(
+                        modifier = Modifier.wrapContentWidth()
+                            .aspectRatio(0.666f)
+                            .placeholder(
+                                visible = book.coverUri == null,
+                                highlight = PlaceholderHighlight.fade()
+                            ),
+                        model = ImageRequest.Builder(LocalContext.current)
+                                    .data(book.coverUri?.let { Uri.parse(it) })
+                                    .build(),
+                        contentDescription = null,
+                        contentScale = ContentScale.FillBounds
+                    )
+                    Column(Modifier.padding(5.dp)) {
                         Text(book.metaData.title, maxLines = 1, overflow = TextOverflow.Ellipsis)
                         Text(book.metaData.creator, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     }
@@ -144,14 +156,14 @@ fun LibraryScreenPreview() {
         LibraryScreen(
             state = LibraryUIState.Success(listOf(
                 Book(
-                    id = "",
+                    id = "Book1",
                     metaData = MetaData("Title", "lang", "creator"),
                     manifest = emptyMap(),
                     spine = LinkedHashSet(),
                     coverUri = null
                 ),
                 Book(
-                    id = "",
+                    id = "Book2",
                     metaData = MetaData("Title", "lang", "creator"),
                     manifest = emptyMap(),
                     spine = LinkedHashSet(),

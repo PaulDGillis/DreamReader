@@ -1,6 +1,10 @@
 package com.pgillis.dream.core.file
 
 import dev.zwander.kotlin.file.IPlatformFile
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.combine
 
 internal fun IPlatformFile.listFilesRecursively(): List<IPlatformFile> =
     listFiles()
@@ -11,15 +15,35 @@ internal fun IPlatformFile.listFilesRecursively(): List<IPlatformFile> =
             } else listOf(file)
         } ?: emptyList()
 
-internal fun IPlatformFile.listFilesRecursivelyAsMap(): Map<String, IPlatformFile> {
-    val outMap = mutableMapOf<String, IPlatformFile>()
-    listFiles()
-        ?.filter { it.nameWithoutExtension != ".cache" }
-        ?.forEach { file ->
-            val result = if (file.isDirectory()) {
-                file.listFilesRecursivelyAsMap().mapKeys { (key, _) -> "${file.getName()}/$key" }
-            } else mapOf(Pair(file.getName(), file))
-            outMap.putAll(result)
+internal fun IPlatformFile.listEpubFilesRecursively(): Flow<IPlatformFile> = callbackFlow {
+    val allFiles = listFiles()?.filter { it.nameWithoutExtension != ".cache"}
+    allFiles
+        ?.filter { it.isFile() && it.getName().contains(".epub") }
+        ?.forEach { trySend(it) }
+
+    val fileFlows = allFiles
+        ?.filter { it.isDirectory() }
+        ?.map { dir -> dir.listEpubFilesRecursively() }
+        ?.combine {
+
         }
-    return outMap
+    combine(fileFlows) {
+        it.toList()
+    }
+
+    awaitClose()
+//        ?.flatMap { file ->
+//            if (file.isDirectory()) {
+//                file.listEpubFilesRecursively().collect { emit() }
+//            } else listOf(file)
+//        } ?: emptyList()
+}
+
+internal fun IPlatformFile.findChildByPath(path: String): IPlatformFile? {
+    val pathParts = path.split("/")
+    var current = this
+    pathParts.forEachIndexed { index, pathPart ->
+        current = current.child(pathPart, isDirectory = pathParts.lastIndex != index) ?: return null
+    }
+    return current
 }

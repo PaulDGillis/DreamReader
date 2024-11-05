@@ -2,30 +2,40 @@ package com.pgillis.dream.feature.library
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pgillis.dream.core.data.BookRepo
+import com.pgillis.dream.core.database.dao.BookDao
+import com.pgillis.dream.core.database.model.BookWithManifest
+import com.pgillis.dream.core.database.model.asBook
+import com.pgillis.dream.core.database.model.asBookEntity
+import com.pgillis.dream.core.database.model.asManifestDataEntities
+import com.pgillis.dream.core.database.model.asMetaDataEntity
 import com.pgillis.dream.core.datastore.SettingsStore
+import com.pgillis.dream.core.file.FileManager
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.Settings
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.zwander.kotlin.file.FileUtils
+import dev.zwander.kotlin.file.IPlatformFile
 import dev.zwander.kotlin.file.filekit.toKmpFile
 import io.github.vinceglb.filekit.core.PlatformDirectory
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LibraryViewModel @Inject constructor(
-    settingsStore: SettingsStore,
-    private val bookRepo: BookRepo
+    private val settingsStore: SettingsStore,
+    private val bookDao: BookDao,
+    private val fileManager: FileManager
 ): ViewModel() {
     private val settings: Flow<Settings> = settingsStore.settings
-    private val books: Flow<List<Book>> = bookRepo.getBooks()
+    private val books: Flow<List<Book>> = bookDao.getBooks().map { it.map(BookWithManifest::asBook) }
 
     val uiState: StateFlow<LibraryUIState> = settings.combine(books) { settings, books ->
         when {
@@ -39,11 +49,26 @@ class LibraryViewModel @Inject constructor(
         viewModelScope.launch {
             val libraryDirStr = settings.first().libraryDir ?: return@launch
             val libraryDir = FileUtils.fromString(libraryDirStr, true) ?: return@launch
-            bookRepo.insertOrSkipBookDir(libraryDir)
+            updateLibrary(libraryDir)
         }
     }
 
-    fun onDirectorySelected(directory: PlatformDirectory) = viewModelScope.launch {
-        bookRepo.insertOrSkipBookDir(directory.toKmpFile())
+    fun onDirectorySelected(directory: PlatformDirectory) {
+        val libraryDirectory = directory.toKmpFile()
+        viewModelScope.launch(Dispatchers.IO) {
+            settingsStore.update { it.copy(libraryDir = libraryDirectory.getPath()) }
+        }
+        updateLibrary(libraryDirectory)
+    }
+
+    private fun updateLibrary(libraryDirectory: IPlatformFile) = viewModelScope.launch(Dispatchers.IO) {
+        val idsToKeep = mutableSetOf<String>()
+        fileManager.loadLibrary(libraryDirectory).collect { book ->
+            idsToKeep.add(book.id)
+            bookDao.insertBook(book.asBookEntity())
+            bookDao.insertMetadata(book.asMetaDataEntity())
+            bookDao.insertManifest(book.asManifestDataEntities())
+        }
+        bookDao.deleteOldBooks(idsToKeep)
     }
 }

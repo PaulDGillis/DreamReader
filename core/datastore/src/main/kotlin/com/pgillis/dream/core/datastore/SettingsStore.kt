@@ -6,11 +6,9 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.pgillis.dream.core.model.Settings
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SettingsStore @Inject constructor(
@@ -28,10 +26,9 @@ class SettingsStore @Inject constructor(
         )
     }
 
-    fun update(
-        coroutineScope: CoroutineScope,
+    suspend fun update(
         transaction: (Settings) -> Settings
-    ) = coroutineScope.launch {
+    ) {
         settings.collectLatest { oldSettings ->
             val newSettings = transaction(oldSettings)
             dataStore.edit { prefs ->

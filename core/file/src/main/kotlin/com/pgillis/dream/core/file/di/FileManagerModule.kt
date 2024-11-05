@@ -1,6 +1,7 @@
 package com.pgillis.dream.core.file.di
 
-import com.pgillis.dream.core.file.EpubParser
+import com.pgillis.dream.core.file.FileManager
+import com.pgillis.dream.core.file.parser.EpubParser
 import com.pgillis.dream.core.file.platform.CompressionManager
 import dagger.Module
 import dagger.Provides
@@ -9,9 +10,10 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-object EpubParserModule {
+object FileManagerModule {
     @Provides
-    fun providesEpubParser(
-        compressionManager: CompressionManager
-    ) = EpubParser(compressionManager)
+    fun providesFileManager(
+        compressionManager: CompressionManager,
+        parser: EpubParser
+    ) = FileManager(compressionManager, parser)
 }

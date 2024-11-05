@@ -10,7 +10,11 @@ android {
 dependencies {
     api(projects.core.data)
     api(projects.core.datastore)
+    debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.lifecycle.runtimeCompose)
+
+    // Compose Placeholder
+    implementation(libs.compose.placeholder)
 
     // Compose File UI Picker
     implementation(libs.filekit)

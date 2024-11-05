@@ -19,14 +19,14 @@ interface BookDao {
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertBooks(book: List<BookEntity>)
+    fun insertBook(book: BookEntity)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMetadata(metadata: List<MetaDataEntity>)
+    fun insertMetadata(metadata: MetaDataEntity)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertManifest(manifest: List<ManifestEntity>)
 
     @Query("DELETE FROM BookEntity WHERE BookEntity.id NOT IN(:bookIds)")
-    fun deleteOldBooks(bookIds: List<String>)
+    fun deleteOldBooks(bookIds: Set<String>)
 }

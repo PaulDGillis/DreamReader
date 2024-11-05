@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal abstract class AndroidCompressionManagerModule {
+internal abstract class CompressionManagerModule {
     @Binds
     abstract fun bindsCompressionManager(
         androidCompressionManager: AndroidCompressionManager

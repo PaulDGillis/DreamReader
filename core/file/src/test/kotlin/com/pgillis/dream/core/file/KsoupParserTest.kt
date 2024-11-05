@@ -1,12 +1,13 @@
 package com.pgillis.dream.core.file
 
+import com.pgillis.dream.core.file.parser.KsoupParser
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import okio.Path
 import org.junit.Before
 import org.junit.Test
 
-class EpubParserTest {
+class KsoupParserTest {
     // Moby Dick is open domain, this is probably best test to start
 
     private lateinit var assetToTest: Path
@@ -19,7 +20,7 @@ class EpubParserTest {
 
     @Test
     fun openMobyDick() = runTest(testDispatcher) {
-        val result = EpubParser.parse(assetToTest)
+        val result = KsoupParser.parse(assetToTest)
         println(result?.toString() ?: "Failed")
         assert(result != null)
     }

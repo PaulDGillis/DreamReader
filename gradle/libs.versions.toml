@@ -10,6 +10,7 @@ androidxHiltNavigationCompose = "1.2.0"
 androidxLifecycle = "2.8.7"
 androidxTracing = "1.2.0"
 coil = "3.0.0-rc02"
+composePlaceholder = "1.0.8"
 filekit = "0.8.7"
 kmpfile = "0.6.1"
 kotlinx-io = "0.5.4"
@@ -53,6 +54,9 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "androidxNavigation" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 androidx-tracing-ktx = { group = "androidx.tracing", name = "tracing-ktx", version.ref = "androidxTracing" }
+
+# Compose Placeholder
+compose-placeholder = { group = "com.eygraber", name = "compose-placeholder-material3", version.ref = "composePlaceholder" }
 
 # Compose File Selection
 filekit = { group = "io.github.vinceglb", name = "filekit-compose", version.ref = "filekit" }
