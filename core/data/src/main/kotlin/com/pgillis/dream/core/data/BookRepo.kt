@@ -1,17 +1,18 @@
 package com.pgillis.dream.core.data
 
-import android.content.Intent
 import com.pgillis.dream.core.data.model.asBook
-import com.pgillis.dream.core.data.model.asEntity
+import com.pgillis.dream.core.data.model.asBookEntity
+import com.pgillis.dream.core.data.model.asManifestDataEntities
+import com.pgillis.dream.core.data.model.asMetaDataEntity
 import com.pgillis.dream.core.database.dao.BookDao
 import com.pgillis.dream.core.database.model.BookWithManifest
 import com.pgillis.dream.core.datastore.SettingsStore
 import com.pgillis.dream.core.file.EpubParser
 import com.pgillis.dream.core.model.Book
-import dev.zwander.kotlin.file.filekit.toKmpFile
-import io.github.vinceglb.filekit.core.PlatformDirectory
+import dev.zwander.kotlin.file.IPlatformFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -24,27 +25,20 @@ class BookRepo @Inject constructor(
 
     fun getBooks(): Flow<List<Book>> = bookDao.getBooks().map { it.map(BookWithManifest::asBook) }
 
-    suspend fun insertOrSkipBookDir(libraryPlatformDirectory: PlatformDirectory) = withContext(Dispatchers.IO) {
+    suspend fun insertOrSkipBookDir(libraryDirectory: IPlatformFile) = withContext(Dispatchers.IO) {
 
-        val libraryDirectoryFile = libraryPlatformDirectory.toKmpFile()
-        settingsStore.update(this) { it.copy(libraryDir = libraryDirectoryFile.getPath()) }
+        settingsStore.update(this) { it.copy(libraryDir = libraryDirectory.getPath()) }
 
-        parser.loadLibrary(libraryDirectoryFile).collect { book ->
-            val (bookEntity, metaDataEntity, manifestEntity) = book.asEntity()
+        combine(parser.loadLibrary(libraryDirectory)) { it.toList() }
+            .collect { books ->
+                val bookEntities = books.map { it.asBookEntity() }
+                val metadataEntities = books.map { it.asMetaDataEntity() }
+                val manifestEntities = books.flatMap { it.asManifestDataEntities() }
 
-//            bookDao.deleteOldBooks(bookEntities.map { it.id }) TODO delete book mechanism
-            bookDao.insertBooks(bookEntity)
-            bookDao.insertMetadata(metaDataEntity)
-            bookDao.insertManifest(manifestEntity)
-        }
-    }
-
-    fun persistPermissions(directoryFile: PlatformDirectory) {
-        val contentResolver = context.contentResolver
-
-        val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
-                Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-        // Check for the freshest data.
-        contentResolver.takePersistableUriPermission(directoryFile.uri, takeFlags)
+                bookDao.deleteOldBooks(books.map { it.id }) // TODO delete book mechanism
+                bookDao.insertBooks(bookEntities)
+                bookDao.insertMetadata(metadataEntities)
+                bookDao.insertManifest(manifestEntities)
+            }
     }
 }

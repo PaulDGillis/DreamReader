@@ -1,67 +1,73 @@
 package com.pgillis.dream.core.file
 
-import android.content.Context
 import android.util.Log
-import androidx.documentfile.provider.DocumentFile
 import androidx.tracing.trace
-import com.anggrayudi.storage.file.getBasePath
 import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.io.SourceReader
 import com.fleeksoft.ksoup.io.from
 import com.fleeksoft.ksoup.parser.Parser
-import com.pgillis.dream.core.file.platform.FileManager
+import com.pgillis.dream.core.file.platform.CompressionManager
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.zwander.kotlin.file.IPlatformFile
+import dev.zwander.kotlin.file.okio.toOkioSource
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.mapNotNull
 import javax.inject.Inject
 
 class EpubParser @Inject constructor(
-    @ApplicationContext private val context: Context,
-    private val fileManager: FileManager
+    private val compressionManager: CompressionManager
 ) {
-    fun loadLibrary(libraryDir: IPlatformFile) = trace("Dream LoadLibrary") {
-        val bookFiles = fileManager.listFilesRecursively(libraryDir).filter { it.getName().contains(".epub") }
-        fileManager.decompressEpubs(libraryDir).mapNotNull {
-            if (it != null) {
-                try {
-                    parse(it)
-                } catch (e: Exception) {
-                    Log.e("Dream LoadLibrary", e.message ?: "Unknown error")
-                    null
+    fun loadLibrary(libraryDir: IPlatformFile): List<Flow<Book>> = trace("Dream LoadLibrary") {
+        val libraryCacheFolder = libraryDir.child(".cache", isDirectory = true) ?: return@trace emptyList()
+        libraryDir.listFilesRecursively()
+            .filter { it.isFile() && it.getName().contains("epub") }
+            .mapNotNull { file ->
+                libraryCacheFolder.child(file.getName(), isDirectory = true)?.let { bookCacheFolder ->
+                    Pair(file, bookCacheFolder)
                 }
-            } else { null }
-        }
+            }.map { (file, bookCacheFolder) ->
+                compressionManager.decompressOrFind(file, bookCacheFolder)
+                    .filterNotNull()
+                    .mapNotNull { bookFile ->
+                        try {
+                            parse(bookFile)
+                        } catch (e: Exception) {
+                            Log.e("Dream LoadLibrary", e.message ?: "Unknown error")
+                            null
+                        }
+                    }
+            }
     }
 
-    private fun parse(epubCacheDirectory: DocumentFile): Book = trace("Dream parseDocFile") {
-        val epubName = epubCacheDirectory.name
+    private fun parse(bookCacheDirectory: IPlatformFile): Book = trace("Dream parseDocFile") {
+        val epubName = bookCacheDirectory.nameWithoutExtension
         // Read zip directory file paths
-        val files = fileManager.listFiles(epubCacheDirectory).associateBy {
-            it.getBasePath(context).split(epubCacheDirectory.getBasePath(context))[1]
-        }
+        val files = bookCacheDirectory.listFilesRecursivelyAsMap().mapKeys { (key, _) -> "/$key" }
+//            ?.associateBy {
+//            it.getName()
+//            it.getBasePath(context).split(epubCacheDirectory.getBasePath(context))[1]
+//        }!!
 
         // Check CONTAINER_PATH exists in epub
-        val containerPath = files["/META-INF/container.xml"] //?: throw Exception("Can't find META-INF in .cache/$epubName")
+        val containerXmlFile = files["/META-INF/container.xml"] //?: throw Exception("Can't find META-INF in .cache/$epubName")
 
         // Find root epub file in CONTAINER_PATH or attempt to manually find a .opf
-        val rootFileStr = if (containerPath != null) {
-            fileManager.openBufferedStream(containerPath).use { source ->
-                Ksoup.parse(
-                    sourceReader = SourceReader.from(source),
-                    baseUri = "",
-                    parser = Parser.xmlParser()
-                )
-            }.let {
-                "/" + (it.selectFirst("rootfile")
-                    ?.attribute("full-path")
-                    ?.value
-                    ?: throw Exception("Can't find epub's rootfile full-path"))
-            }
-        } else {
-            files.keys.find { it.contains(".opf") }
+        val rootFileStr = containerXmlFile?.openInputStream()?.toOkioSource()?.use { source ->
+    //            fileManager.openBufferedStream(containerPath).use { source ->
+            Ksoup.parse(
+                sourceReader = SourceReader.from(source),
+                baseUri = "",
+                parser = Parser.xmlParser()
+            )
+        }?.let {
+            "/" + (it.selectFirst("rootfile")
+                ?.attribute("full-path")
+                ?.value
+                ?: throw Exception("Can't find epub's rootfile full-path"))
         }
+            ?: files.keys.find { it.contains(".opf") }
 
         // Check rootFileStr exists in epub
         val temp = rootFileStr?.removePrefix("/")?.split("/")?.toMutableList()
@@ -69,10 +75,10 @@ class EpubParser @Inject constructor(
         val rootFileDir = temp?.joinToString(separator = "/", prefix = "/")
         val rootFile = files[rootFileStr] ?: throw Exception("Can't find rootFile in .cache/$epubName")
 
-        val rootFileDocument = fileManager.openBufferedStream(rootFile).use { source ->
+        val rootFileDocument = rootFile.openInputStream()?.toOkioSource()?.use { source ->
             Ksoup.parse(sourceReader = SourceReader.from(source),
                 baseUri = "", parser = Parser.xmlParser())
-        }
+        } ?: throw Exception("Unable to open rootFile")
 
         // Parse Metadata
         val children = rootFileDocument.selectFirst("metadata")?.children() ?: throw Exception("Can't find metadata in .cache/$epubName/$rootFileStr")
@@ -97,7 +103,7 @@ class EpubParser @Inject constructor(
         val manifestChildren = rootFileDocument.selectFirst("manifest")?.children() ?: throw Exception("Can't find manifest in .cache/$epubName/$rootFileStr")
         val manifestItems = manifestChildren.associate { it.attr("id") to it.attr("href") }
 
-        val coverUri = manifestItems[cover]?.let { files["$rootFileDir/$it"]?.uri }
+        val coverUri = manifestItems[cover]?.let { files["$rootFileDir/$it"]?.getPath() }
 
         // Parse Spine
         val spineChildren = rootFileDocument.selectFirst("spine")?.children() ?: throw Exception("Can't find spine in .cache/$epubName/$rootFileStr")

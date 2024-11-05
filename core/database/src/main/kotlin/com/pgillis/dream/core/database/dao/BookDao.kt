@@ -19,10 +19,10 @@ interface BookDao {
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertBooks(book: BookEntity)
+    fun insertBooks(book: List<BookEntity>)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMetadata(metadata: MetaDataEntity)
+    fun insertMetadata(metadata: List<MetaDataEntity>)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertManifest(manifest: List<ManifestEntity>)

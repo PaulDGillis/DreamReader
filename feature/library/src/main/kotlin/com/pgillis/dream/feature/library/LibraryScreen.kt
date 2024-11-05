@@ -147,14 +147,14 @@ fun LibraryScreenPreview() {
                     id = "",
                     metaData = MetaData("Title", "lang", "creator"),
                     manifest = emptyMap(),
-                    spine = LinkedHashSet<String>(),
+                    spine = LinkedHashSet(),
                     coverUri = null
                 ),
                 Book(
                     id = "",
                     metaData = MetaData("Title", "lang", "creator"),
                     manifest = emptyMap(),
-                    spine = LinkedHashSet<String>(),
+                    spine = LinkedHashSet(),
                     coverUri = null
                 )
             ))

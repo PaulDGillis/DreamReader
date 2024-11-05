@@ -12,6 +12,7 @@ androidxTracing = "1.2.0"
 coil = "3.0.0-rc02"
 filekit = "0.8.7"
 kmpfile = "0.6.1"
+kotlinx-io = "0.5.4"
 hilt = "2.52"
 hiltExt = "1.2.0"
 ksoup = "0.2.0"
@@ -57,6 +58,7 @@ androidx-tracing-ktx = { group = "androidx.tracing", name = "tracing-ktx", versi
 filekit = { group = "io.github.vinceglb", name = "filekit-compose", version.ref = "filekit" }
 kmpfile = { group = "dev.zwander", name = "kmpfile", version.ref = "kmpfile" }
 kmpfile-filekit = { group = "dev.zwander", name = "kmpfile-filekit", version.ref = "kmpfile" }
+kmpfile-okio = { group = "dev.zwander", name = "kmpfile-okio", version.ref = "kmpfile" }
 # Compose image loading library
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
@@ -72,6 +74,7 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 
 # File I/O
 okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
+kotlinx-io = { group = "org.jetbrains.kotlinx", name = "kotlinx-io-core", version.ref = "kotlinx-io" }
 # Simple Storage, because Android File I/O is overcomplicated
 simple-storage = { group = "com.anggrayudi", name = "storage", version.ref = "simpleStorage" }
 
