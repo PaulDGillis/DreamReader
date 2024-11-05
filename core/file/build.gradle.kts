@@ -21,6 +21,7 @@ dependencies {
     implementation(libs.okio)
     implementation(libs.ksoup)
     implementation(libs.simple.storage)
+    implementation(libs.kmpfile)
     implementation(libs.androidx.tracing.ktx)
 
     testImplementation(libs.kotlinx.coroutines.test)

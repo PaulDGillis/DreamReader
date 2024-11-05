@@ -12,6 +12,7 @@ import com.anggrayudi.storage.file.findFolder
 import com.anggrayudi.storage.file.openInputStream
 import com.anggrayudi.storage.result.ZipDecompressionResult
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dev.zwander.kotlin.file.IPlatformFile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.mapNotNull
@@ -22,18 +23,7 @@ import javax.inject.Inject
 class AndroidFileManager @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
-    fun persistPermissions(treeUri: Uri): String {
-        val contentResolver = context.contentResolver
-
-        val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
-                Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-        // Check for the freshest data.
-        contentResolver.takePersistableUriPermission(treeUri, takeFlags)
-
-        return treeUri.toString() // DocumentFileCompat.fromUri(context, treeUri)?.getAbsolutePath(context)
-    }
-
-    internal fun decompressEpubs(treeUri: String): Flow<DocumentFile?> {
+    internal fun decompressEpubs(libraryDir: IPlatformFile): Flow<DocumentFile?> {
         val treeDirectory = DocumentFileCompat.fromUri(context, Uri.parse(treeUri))
         if (treeDirectory != null) {
             val fileFlows = listFiles(treeDirectory).map {
@@ -44,7 +34,7 @@ class AndroidFileManager @Inject constructor(
         return flowOf(null)
     }
 
-    internal fun listFiles(treeDirectory: DocumentFile): List<DocumentFile> {
+    private fun listFiles(treeDirectory: DocumentFile): List<DocumentFile> {
         // TODO maybe should be val other = DocumentFileCompat.getAccessibleAbsolutePaths(context)
         if (!treeDirectory.isDirectory) return emptyList()
 

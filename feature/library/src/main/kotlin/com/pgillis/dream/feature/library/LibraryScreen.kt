@@ -38,10 +38,12 @@ import io.github.vinceglb.filekit.core.PlatformDirectory
 
 @Composable
 fun LibraryScreen(
-    viewModel: LibraryViewModel = hiltViewModel()
+    viewModel: LibraryViewModel = hiltViewModel(),
+    onDirectorySelected: (PlatformDirectory) -> Unit,
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     LibraryScreen(state = state, onDirectorySelected = {
+        onDirectorySelected(it) // This goes back to platform binding to see if permission request is needed
         viewModel.onDirectorySelected(it)
     })
 }

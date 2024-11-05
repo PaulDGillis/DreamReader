@@ -10,8 +10,6 @@ android {
 dependencies {
     api(projects.core.data)
     api(projects.core.datastore)
-    api(projects.core.file)
-    implementation(libs.okio)
     implementation(libs.androidx.lifecycle.runtimeCompose)
 
     // Compose File UI Picker

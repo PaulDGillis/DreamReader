@@ -6,8 +6,11 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.pgillis.dream.core.model.Settings
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SettingsStore @Inject constructor(
@@ -25,15 +28,18 @@ class SettingsStore @Inject constructor(
         )
     }
 
-    suspend fun update(
-        theme: Settings.Theme? = null,
-        libraryDir: String? = null
-    ) {
-        dataStore.edit { prefs ->
-            if (theme != null)
-                prefs[THEME] = theme.ordinal
-            if (libraryDir != null)
-                prefs[LIBRARY_DIR] = libraryDir
+    fun update(
+        coroutineScope: CoroutineScope,
+        transaction: (Settings) -> Settings
+    ) = coroutineScope.launch {
+        settings.collectLatest { oldSettings ->
+            val newSettings = transaction(oldSettings)
+            dataStore.edit { prefs ->
+                if (oldSettings.libraryDir != newSettings.libraryDir)
+                    prefs[LIBRARY_DIR] = newSettings.libraryDir ?: ""
+                if (oldSettings.theme != newSettings.theme)
+                    prefs[THEME] = newSettings.theme.ordinal
+            }
         }
     }
 }

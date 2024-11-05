@@ -11,6 +11,7 @@ androidxLifecycle = "2.8.7"
 androidxTracing = "1.2.0"
 coil = "3.0.0-rc02"
 filekit = "0.8.7"
+kmpfile = "0.6.1"
 hilt = "2.52"
 hiltExt = "1.2.0"
 ksoup = "0.2.0"
@@ -54,7 +55,8 @@ androidx-tracing-ktx = { group = "androidx.tracing", name = "tracing-ktx", versi
 
 # Compose File Selection
 filekit = { group = "io.github.vinceglb", name = "filekit-compose", version.ref = "filekit" }
-
+kmpfile = { group = "dev.zwander", name = "kmpfile", version.ref = "kmpfile" }
+kmpfile-filekit = { group = "dev.zwander", name = "kmpfile-filekit", version.ref = "kmpfile" }
 # Compose image loading library
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }

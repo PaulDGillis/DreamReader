@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.ui.platform.LocalContext
 import com.pgillis.dream.core.designsystem.theme.DreamReaderTheme
 import com.pgillis.dream.feature.library.LibraryScreen
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.vinceglb.filekit.core.FileKit
+import io.github.vinceglb.filekit.core.PlatformDirectory
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -17,7 +19,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DreamReaderTheme {
-                LibraryScreen()
+                val context = LocalContext.current
+                LibraryScreen() { platformDirectory: PlatformDirectory ->
+                    platformDirectory.requestPlatformPermission(context)
+                }
             }
         }
     }

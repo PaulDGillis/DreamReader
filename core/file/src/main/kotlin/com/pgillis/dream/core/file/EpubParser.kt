@@ -9,19 +9,21 @@ import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.io.SourceReader
 import com.fleeksoft.ksoup.io.from
 import com.fleeksoft.ksoup.parser.Parser
-import com.pgillis.dream.core.file.platform.AndroidFileManager
+import com.pgillis.dream.core.file.platform.FileManager
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dev.zwander.kotlin.file.IPlatformFile
 import kotlinx.coroutines.flow.mapNotNull
 import javax.inject.Inject
 
 class EpubParser @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val fileManager: AndroidFileManager
+    private val fileManager: FileManager
 ) {
-    fun loadLibrary(treeUri: String) = trace("Dream LoadLibrary") {
-        fileManager.decompressEpubs(treeUri).mapNotNull {
+    fun loadLibrary(libraryDir: IPlatformFile) = trace("Dream LoadLibrary") {
+        val bookFiles = fileManager.listFilesRecursively(libraryDir).filter { it.getName().contains(".epub") }
+        fileManager.decompressEpubs(libraryDir).mapNotNull {
             if (it != null) {
                 try {
                     parse(it)

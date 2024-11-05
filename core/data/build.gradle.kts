@@ -8,8 +8,12 @@ android {
 }
 
 dependencies {
+    api(projects.core.datastore)
     api(projects.core.database)
     api(projects.core.file)
     api(projects.core.model)
     implementation(libs.okio)
+    implementation(libs.filekit)
+    implementation(libs.kmpfile)
+    implementation(libs.kmpfile.filekit)
 }
