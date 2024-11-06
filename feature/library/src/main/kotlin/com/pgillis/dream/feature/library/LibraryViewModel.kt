@@ -65,9 +65,11 @@ class LibraryViewModel @Inject constructor(
         val idsToKeep = mutableSetOf<String>()
         fileManager.loadLibrary(libraryDirectory).collect { book ->
             idsToKeep.add(book.id)
-            bookDao.insertBook(book.asBookEntity())
-            bookDao.insertMetadata(book.asMetaDataEntity())
-            bookDao.insertManifest(book.asManifestDataEntities())
+            bookDao.insertBook(
+                book.asBookEntity(),
+                book.asMetaDataEntity(),
+                book.asManifestDataEntities()
+            )
         }
         bookDao.deleteOldBooks(idsToKeep)
     }

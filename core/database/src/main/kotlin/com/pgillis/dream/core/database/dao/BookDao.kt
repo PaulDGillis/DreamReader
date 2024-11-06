@@ -18,6 +18,12 @@ interface BookDao {
     fun getBooks(): Flow<List<BookWithManifest>>
 
     @Transaction
+    fun insertBook(book: BookEntity, metadata: MetaDataEntity, manifest: List<ManifestEntity>) {
+        insertBook(book)
+        insertMetadata(metadata)
+        insertManifest(manifest)
+    }
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertBook(book: BookEntity)
 

@@ -33,10 +33,19 @@ object KsoupParser: EpubParser {
             creator = opfDocument.selectFirst("metadata > dc\\:creator")?.text() ?: ""
         )
 
+        val coverManifestId = opfDocument.selectFirst("metadata > meta[name='cover'][content]")
+            ?.attr("content")
+
+        var propertyCover: String? = null
+
         // Parse Manifest
         val manifestItems = opfDocument.select("manifest > item[id][href]")
             .associate {
-                it.attr("id") to it.attr("href")
+                val id = it.attr("id")
+                if (it.hasAttr("properties") && it.attr("properties") == coverManifestId) {
+                    propertyCover = id
+                }
+                id to it.attr("href")
             }
 
         // Parse Spine
@@ -48,9 +57,10 @@ object KsoupParser: EpubParser {
         val spine = LinkedHashSet<String>(spineItems)
 
         val bookId = opfDocument.selectFirst("metadata > dc\\:identifier")?.text()!!
-        val coverManifestId = opfDocument.selectFirst("metadata > meta[name='cover'][content]")
-            ?.attr("content")
+
         val coverFile = manifestItems[coverManifestId]?.let { opfRelativePath ->
+            opfParent?.findChildByPath(opfRelativePath)
+        } ?: manifestItems[propertyCover]?.let { opfRelativePath ->
             opfParent?.findChildByPath(opfRelativePath)
         }
 

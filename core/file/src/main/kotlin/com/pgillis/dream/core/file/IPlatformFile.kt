@@ -1,10 +1,9 @@
 package com.pgillis.dream.core.file
 
 import dev.zwander.kotlin.file.IPlatformFile
-import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.launch
 
 internal fun IPlatformFile.listFilesRecursively(): List<IPlatformFile> =
     listFiles()
@@ -15,28 +14,24 @@ internal fun IPlatformFile.listFilesRecursively(): List<IPlatformFile> =
             } else listOf(file)
         } ?: emptyList()
 
-internal fun IPlatformFile.listEpubFilesRecursively(): Flow<IPlatformFile> = callbackFlow {
+internal fun IPlatformFile.listEpubFilesRecursively(): Flow<IPlatformFile> = channelFlow {
     val allFiles = listFiles()?.filter { it.nameWithoutExtension != ".cache"}
-    allFiles
-        ?.filter { it.isFile() && it.getName().contains(".epub") }
-        ?.forEach { trySend(it) }
 
-    val fileFlows = allFiles
-        ?.filter { it.isDirectory() }
-        ?.map { dir -> dir.listEpubFilesRecursively() }
-        ?.combine {
-
-        }
-    combine(fileFlows) {
-        it.toList()
+    launch {
+        allFiles
+            ?.filter { it.isFile() && it.getName().contains(".epub") }
+            ?.forEach { send(it) }
     }
 
-    awaitClose()
-//        ?.flatMap { file ->
-//            if (file.isDirectory()) {
-//                file.listEpubFilesRecursively().collect { emit() }
-//            } else listOf(file)
-//        } ?: emptyList()
+    allFiles
+        ?.filter { it.isDirectory() }
+        ?.forEach { dir ->
+            launch {
+                dir.listEpubFilesRecursively().collect {
+                    send(it)
+                }
+            }
+        }
 }
 
 internal fun IPlatformFile.findChildByPath(path: String): IPlatformFile? {

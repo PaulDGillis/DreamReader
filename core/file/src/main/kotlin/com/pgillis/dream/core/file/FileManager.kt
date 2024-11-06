@@ -20,7 +20,6 @@ class FileManager @Inject constructor(
         val libraryCacheFolder = libraryDir.child(".cache", isDirectory = true) ?: return emptyFlow()
 
         return libraryDir.listEpubFilesRecursively()
-//                .filter { it.isFile() && it.getName().contains("epub") }
             .flatMapMerge { file ->
                 val bookCacheFolder = libraryCacheFolder.child(file.getName(), isDirectory = true) ?: return@flatMapMerge emptyFlow()
 
