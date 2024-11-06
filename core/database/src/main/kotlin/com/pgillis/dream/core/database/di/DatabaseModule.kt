@@ -3,23 +3,22 @@ package com.pgillis.dream.core.database.di
 import android.content.Context
 import androidx.room.Room
 import com.pgillis.dream.core.database.DreamDatabase
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import com.pgillis.dream.core.database.dao.BookDao
+import org.koin.core.annotation.Factory
+import org.koin.core.annotation.Module
+import org.koin.core.annotation.Single
 
 @Module
-@InstallIn(SingletonComponent::class)
-internal object DatabaseModule {
-    @Provides
-    @Singleton
+class DatabaseModule {
+    @Single
     fun providesDatabase(
-        @ApplicationContext context: Context
+        context: Context
     ): DreamDatabase = Room.databaseBuilder(
         context,
         DreamDatabase::class.java,
         "dream-database"
     ).build()
+
+    @Factory
+    fun providesBookDao(database: DreamDatabase): BookDao = database.bookDao()
 }

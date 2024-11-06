@@ -7,11 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.ui.platform.LocalContext
 import com.pgillis.dream.core.designsystem.theme.DreamReaderTheme
 import com.pgillis.dream.feature.library.LibraryScreen
-import dagger.hilt.android.AndroidEntryPoint
 import io.github.vinceglb.filekit.core.FileKit
 import io.github.vinceglb.filekit.core.PlatformDirectory
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

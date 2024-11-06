@@ -8,8 +8,9 @@ android {
 }
 
 dependencies {
-    api(projects.core.data)
+    api(projects.core.database)
     api(projects.core.datastore)
+    api(projects.core.file)
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.lifecycle.runtimeCompose)
 

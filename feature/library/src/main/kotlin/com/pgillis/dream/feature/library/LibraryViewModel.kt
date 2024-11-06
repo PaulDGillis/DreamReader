@@ -12,7 +12,6 @@ import com.pgillis.dream.core.datastore.SettingsStore
 import com.pgillis.dream.core.file.FileManager
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.Settings
-import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.zwander.kotlin.file.FileUtils
 import dev.zwander.kotlin.file.IPlatformFile
 import dev.zwander.kotlin.file.filekit.toKmpFile
@@ -26,10 +25,10 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import org.koin.android.annotation.KoinViewModel
 
-@HiltViewModel
-class LibraryViewModel @Inject constructor(
+@KoinViewModel
+class LibraryViewModel(
     private val settingsStore: SettingsStore,
     private val bookDao: BookDao,
     private val fileManager: FileManager

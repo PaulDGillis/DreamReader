@@ -10,9 +10,10 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.mapNotNull
-import javax.inject.Inject
+import org.koin.core.annotation.Single
 
-class FileManager @Inject constructor(
+@Single
+class FileManager(
     private val compressionManager: CompressionManager,
     private val parser: EpubParser
 ) {

@@ -5,16 +5,14 @@ import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
 import com.anggrayudi.storage.file.decompressZip
 import com.anggrayudi.storage.result.ZipDecompressionResult
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.zwander.kotlin.file.IPlatformFile
 import dev.zwander.kotlin.file.PlatformUriFile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.mapNotNull
-import javax.inject.Inject
 
-class AndroidCompressionManager @Inject constructor(
-    @ApplicationContext private val context: Context
+class AndroidCompressionManager(
+    private val context: Context
 ): CompressionManager {
     override fun decompressOrFind(
         file: IPlatformFile,

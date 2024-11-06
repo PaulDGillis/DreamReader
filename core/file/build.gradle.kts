@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.dream.android.library)
-    alias(libs.plugins.dream.hilt)
+    alias(libs.plugins.dream.koin)
 }
 
 android {

@@ -15,7 +15,6 @@
  */
 
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `kotlin-dsl`
@@ -92,6 +91,10 @@ gradlePlugin {
         register("hilt") {
             id = "dream.hilt"
             implementationClass = "HiltConventionPlugin"
+        }
+        register("koin") {
+            id = "dream.koin"
+            implementationClass = "KoinConventionPlugin"
         }
         register("androidRoom") {
             id = "dream.android.room"

@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.dream.android.application.flavors)
 //    alias(libs.plugins.dream.android.application.jacoco)
 //    alias(libs.plugins.dream.android.application.firebase)
-    alias(libs.plugins.dream.hilt)
+    alias(libs.plugins.dream.koin)
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -17,7 +17,7 @@ android {
         versionName = "0.1.2" // X.Y.Z; X = Major, Y = minor, Z = Patch level
 
         // Custom test runner to set up Hilt dependency graph
-        testInstrumentationRunner = "com.pgillis.dream.core.testing.NiaTestRunner"
+//        testInstrumentationRunner = "com.pgillis.dream.core.testing.NiaTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -46,6 +46,7 @@ android {
             excludes.add("/META-INF/{AL2.0,LGPL2.1}")
         }
     }
+    @Suppress("UnstableApiUsage")
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
@@ -67,7 +68,7 @@ dependencies {
     implementation(libs.androidx.compose.runtime.tracing)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
-    implementation(libs.androidx.hilt.navigation.compose)
+
     implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.navigation.compose)
 

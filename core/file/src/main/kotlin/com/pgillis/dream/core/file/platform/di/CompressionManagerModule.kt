@@ -1,17 +1,14 @@
 package com.pgillis.dream.core.file.platform.di
 
+import android.content.Context
 import com.pgillis.dream.core.file.platform.AndroidCompressionManager
 import com.pgillis.dream.core.file.platform.CompressionManager
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import org.koin.core.annotation.Module
+import org.koin.core.annotation.Single
 
 @Module
-@InstallIn(SingletonComponent::class)
-internal abstract class CompressionManagerModule {
-    @Binds
-    abstract fun bindsCompressionManager(
-        androidCompressionManager: AndroidCompressionManager
-    ): CompressionManager
+class CompressionManagerModule {
+    @Single(binds = [CompressionManager::class])
+    fun providesCompressionManager(context: Context): CompressionManager =
+        AndroidCompressionManager(context)
 }

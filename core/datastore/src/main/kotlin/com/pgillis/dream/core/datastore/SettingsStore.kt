@@ -9,10 +9,12 @@ import com.pgillis.dream.core.model.Settings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
+import org.koin.core.annotation.InjectedParam
+import org.koin.core.annotation.Single
 
-class SettingsStore @Inject constructor(
-    private val dataStore: DataStore<Preferences>
+@Single
+class SettingsStore(
+    @InjectedParam private val dataStore: DataStore<Preferences>
 ) {
     companion object {
         val THEME = intPreferencesKey("THEME")
