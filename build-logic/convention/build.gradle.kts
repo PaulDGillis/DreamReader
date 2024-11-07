@@ -14,37 +14,25 @@
  * limitations under the License.
  */
 
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     `kotlin-dsl`
 }
 
 group = "com.pgillis.dream.buildlogic"
 
-// Configure the build-logic plugins to target JDK 17
-// This matches the JDK used to build the project, and is not related to what is running on device.
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
-kotlin {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_17
-    }
-}
-
 dependencies {
-    compileOnly(libs.android.gradlePlugin)
-    compileOnly(libs.android.tools.common)
-    compileOnly(libs.compose.gradlePlugin)
-    compileOnly(libs.firebase.crashlytics.gradlePlugin)
-    compileOnly(libs.firebase.performance.gradlePlugin)
-    compileOnly(libs.kotlin.gradlePlugin)
-    compileOnly(libs.ksp.gradlePlugin)
-    compileOnly(libs.room.gradlePlugin)
+    compileOnly(libs.plugins.android.application.toDep())
+    compileOnly(libs.plugins.android.library.toDep())
+    compileOnly(libs.plugins.compose.multiplatform.toDep())
+    compileOnly(libs.plugins.kotlin.multiplatform.toDep())
+    compileOnly(libs.plugins.compose.compiler.toDep())
+    compileOnly(libs.plugins.ksp.toDep())
+    compileOnly(libs.plugins.room.toDep())
     implementation(libs.truth)
+}
+
+fun Provider<PluginDependency>.toDep() = map {
+    "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}"
 }
 
 tasks {
@@ -88,10 +76,6 @@ gradlePlugin {
             id = "dream.android.test"
             implementationClass = "AndroidTestConventionPlugin"
         }
-        register("hilt") {
-            id = "dream.hilt"
-            implementationClass = "HiltConventionPlugin"
-        }
         register("koin") {
             id = "dream.koin"
             implementationClass = "KoinConventionPlugin"
@@ -100,10 +84,6 @@ gradlePlugin {
             id = "dream.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
-        register("androidFirebase") {
-            id = "dream.android.application.firebase"
-            implementationClass = "AndroidApplicationFirebaseConventionPlugin"
-        }
         register("androidFlavors") {
             id = "dream.android.application.flavors"
             implementationClass = "AndroidApplicationFlavorsConventionPlugin"
@@ -111,10 +91,6 @@ gradlePlugin {
         register("androidLint") {
             id = "dream.android.lint"
             implementationClass = "AndroidLintConventionPlugin"
-        }
-        register("jvmLibrary") {
-            id = "dream.jvm.library"
-            implementationClass = "JvmLibraryConventionPlugin"
         }
     }
 }
