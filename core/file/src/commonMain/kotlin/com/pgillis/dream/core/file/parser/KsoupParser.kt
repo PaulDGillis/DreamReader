@@ -1,6 +1,6 @@
 package com.pgillis.dream.core.file.parser
 
-import androidx.tracing.trace
+//import androidx.tracing.trace
 import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.io.SourceReader
 import com.fleeksoft.ksoup.io.from
@@ -15,7 +15,7 @@ import org.koin.core.annotation.Single
 
 @Single(binds = [EpubParser::class])
 class KsoupParser: EpubParser {
-    override fun parse(bookCacheDirectory: IPlatformFile): Book = trace("Dream parseDocFile") {
+    override fun parse(bookCacheDirectory: IPlatformFile): Book { //= trace("Dream parseDocFile") {
         // Find root epub file in CONTAINER_PATH or attempt to manually find a .opf
         val opfFile = bookCacheDirectory.findOpfFile()
         val opfParent = opfFile.getParentFile()
@@ -67,7 +67,7 @@ class KsoupParser: EpubParser {
         }
 
         // Off to read it
-        return@trace Book(
+        return Book(
             bookId,
             metadata,
             manifestItems,

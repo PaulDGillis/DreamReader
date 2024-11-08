@@ -92,5 +92,13 @@ gradlePlugin {
             id = "dream.android.lint"
             implementationClass = "AndroidLintConventionPlugin"
         }
+        register("kotlinMultiplatform"){
+            id = "dream.kotlin.multiplatform"
+            implementationClass = "KotlinMultiplatformConventionPlugin"
+        }
+        register("composeMultiplatform"){
+            id = "dream.compose.multiplatform"
+            implementationClass = "ComposeMultiplatformConventionPlugin"
+        }
     }
 }

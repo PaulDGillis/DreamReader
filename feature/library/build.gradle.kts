@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.dream.android.feature)
-    alias(libs.plugins.dream.android.library.compose)
+    alias(libs.plugins.dream.kotlin.multiplatform)
+    alias(libs.plugins.dream.compose.multiplatform)
 }
 
 android {
@@ -12,7 +12,7 @@ dependencies {
     api(projects.core.datastore)
     api(projects.core.file)
     debugImplementation(libs.androidx.compose.ui.tooling)
-    implementation(libs.androidx.lifecycle.runtimeCompose)
+//    implementation(libs.androidx.lifecycle.runtimeCompose)
 
     // Compose Placeholder
     implementation(libs.compose.placeholder)

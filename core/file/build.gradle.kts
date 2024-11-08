@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.dream.android.library)
+    alias(libs.plugins.dream.kotlin.multiplatform)
     alias(libs.plugins.dream.koin)
 }
 
@@ -16,15 +16,22 @@ android {
     }
 }
 
-dependencies {
-    api(projects.core.model)
-    implementation(libs.okio)
-    implementation(libs.kotlinx.io)
-    implementation(libs.ksoup)
-    implementation(libs.simple.storage)
-    implementation(libs.kmpfile)
-    implementation(libs.kmpfile.okio)
-    implementation(libs.androidx.tracing.ktx)
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
 
-    testImplementation(libs.kotlinx.coroutines.test)
+            dependencies {
+                api(projects.core.model)
+                implementation(libs.okio)
+                implementation(libs.kotlinx.io)
+                implementation(libs.ksoup)
+                implementation(libs.simple.storage)
+                implementation(libs.kmpfile)
+                implementation(libs.kmpfile.okio)
+            //    implementation(libs.androidx.tracing.ktx)
+
+                testImplementation(libs.kotlinx.coroutines.test)
+            }
+        }
+    }
 }

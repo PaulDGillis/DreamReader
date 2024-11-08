@@ -21,13 +21,28 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class KoinConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply("com.google.devtools.ksp")
+
             dependencies {
-                add("ksp", libs.findLibrary("koin.ksp.compiler").get())
+                listOf(
+                    "kspCommonMainMetadata",
+                    "kspDesktop",
+                    "kspAndroid",
+//                    "kspIosX64",
+                    "kspIosArm64",
+                    "kspIosSimulatorArm64",
+//                    "kspMacosX64",
+//                    "kspMacosArm64",
+//                    "kspLinuxX64",
+//                    "kspMingwX64"
+                ).forEach {
+                    add(it, libs.findLibrary("koin.ksp.compiler").get())
+                }
             }
 
             extensions.configure<KspExtension> {
@@ -35,21 +50,26 @@ class KoinConventionPlugin : Plugin<Project> {
             }
 
             // Add support for Jvm Module, base on org.jetbrains.kotlin.jvm
-            pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
-                dependencies {
-                    add("implementation", libs.findLibrary("koin.compose").get())
-                    add("implementation", libs.findLibrary("koin.compose.viewmodel").get())
-                    add("implementation", libs.findLibrary("koin.compose.viewmodel.navigation").get())
+            pluginManager.withPlugin(libs.findPlugin("kotlin.multiplatform").get().get().pluginId) {
+                extensions.configure<KotlinMultiplatformExtension> {
+                    sourceSets.commonMain.dependencies {
+                        implementation(libs.findLibrary("koin.compose").get())
+                        implementation(libs.findLibrary("koin.compose.viewmodel").get())
+                        api(libs.findLibrary("koin.annotations").get())
+//                        implementation(libs.findLibrary("koin.compose.viewmodel.navigation").get())
+                    }
                 }
             }
 
             /** Add support for Android modules, based on [AndroidBasePlugin] */
-            pluginManager.withPlugin("com.android.base") {
-                dependencies {
-                    add("implementation", libs.findLibrary("koin.android").get())
-                    add("api", libs.findLibrary("koin.annotations").get())
-                }
-            }
+//            pluginManager.withPlugin("com.android.base") {
+//                extensions.configure<KotlinMultiplatformExtension> {
+//                    sourceSets.androidMain.dependencies {
+//                        implementation(libs.findLibrary("koin.android").get())
+//                        api(libs.findLibrary("koin.annotations").get())
+//                    }
+//                }
+//            }
         }
     }
 }

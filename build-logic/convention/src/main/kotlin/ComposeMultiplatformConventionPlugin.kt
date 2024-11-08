@@ -19,7 +19,6 @@ import com.pgillis.dream.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class ComposeMultiplatformConventionPlugin : Plugin<Project> {
@@ -30,9 +29,7 @@ class ComposeMultiplatformConventionPlugin : Plugin<Project> {
                 apply(libs.findPlugin("compose.compiler").get().get().pluginId)
             }
 
-            val composeDeps = extensions.getByType<ComposeExtension>().dependencies
-
-            extensions.configure<KotlinMultiplatformExtension>() {
+            extensions.configure<KotlinMultiplatformExtension> {
                 configureKotlinComposeMultiplatform(this)
             }
         }

@@ -21,6 +21,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class AndroidRoomConventionPlugin : Plugin<Project> {
 
@@ -41,9 +42,28 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-                add("implementation", libs.findLibrary("room.runtime").get())
-                add("implementation", libs.findLibrary("room.ktx").get())
-                add("ksp", libs.findLibrary("room.compiler").get())
+                listOf(
+                    "kspCommonMainMetadata",
+                    "kspDesktop",
+                    "kspAndroid",
+//                    "kspIosX64",
+                    "kspIosArm64",
+                    "kspIosSimulatorArm64"
+                ).forEach {
+                    add(it, libs.findLibrary("room.compiler").get())
+                }
+            }
+
+            extensions.configure<KotlinMultiplatformExtension> {
+                sourceSets.apply {
+                    commonMain.dependencies {
+                        implementation(libs.findLibrary("room.runtime").get())
+                        implementation(libs.findLibrary("sqlite.bundled").get())
+                    }
+                    androidMain.dependencies {
+                        implementation(libs.findLibrary("room.ktx").get())
+                    }
+                }
             }
         }
     }

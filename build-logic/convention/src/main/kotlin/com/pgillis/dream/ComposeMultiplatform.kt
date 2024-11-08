@@ -18,11 +18,10 @@ package com.pgillis.dream
 
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
-import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
+import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.model.ComposeCompiler
 
 /**
  * Configure Compose-specific options
@@ -30,49 +29,43 @@ import org.jetbrains.kotlin.gradle.model.ComposeCompiler
 internal fun Project.configureKotlinComposeMultiplatform(
     extension: KotlinMultiplatformExtension
 ) = extension.apply {
+//    androidTarget {
+//        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+//        compilerOptions {
+//            jvmTarget.set(JvmTarget.JVM_11)
+//        }
+//    }
 
-    androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
-        }
-    }
+//    macosX64()
+//    macosArm64()
+//    linuxX64()
+//    mingwX64()
 
-    macosX64()
-    macosArm64()
-    linuxX64()
-    mingwX64()
+//    listOf(
+//        iosX64(),
+//        iosArm64(),
+//        iosSimulatorArm64()
+//    ).forEach { iosTarget ->
+//        iosTarget.binaries.framework {
+//            baseName = path.substringAfterLast(":")
+//            isStatic = true
+//        }
+//    }
+//
+//    jvm("desktop")
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = path.substringAfterLast(":")
-            isStatic = true
-        }
-    }
-
-    jvm("desktop")
-
-    pluginManager.withPlugin("org.jetbrains.compose") {
-        this.
-        val composeDeps = extensions.getByType<ComposeExtension>()
-    }
-
+    val compose = extensions.getByType<ComposeExtension>().dependencies
 
     sourceSets.apply {
         named("desktopMain") {
             dependencies {
                 implementation(compose.desktop.currentOs)
-                implementation(libs.findLibrary("kotlinx.coroutines.swing").get())
             }
         }
 
         androidMain.dependencies {
             implementation(compose.preview)
-            implementation(libs.findLibrary("androidx.activity:activity-compose").get())
+            implementation(libs.findLibrary("androidx.activity.compose").get())
         }
 
         commonMain.dependencies {
