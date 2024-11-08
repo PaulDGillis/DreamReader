@@ -16,18 +16,16 @@
 
 package com.pgillis.dream
 
-import com.android.build.api.dsl.LibraryExtension
+import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompilerOptions
 
 /**
  * Configure base Kotlin with Android options
  */
 internal fun Project.configureKotlinAndroid(
-    extension: LibraryExtension,
+    extension: CommonExtension<*, *, *, *, *, *>,
 ) = extension.apply {
     compileSdk = 35
 

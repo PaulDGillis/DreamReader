@@ -9,7 +9,11 @@ android {
     namespace = "com.pgillis.dream.core.database"
 }
 
-dependencies {
-    api(projects.core.model)
-    implementation(libs.kotlinx.serialization.json)
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            api(projects.core.model)
+            implementation(libs.kotlinx.serialization.json)
+        }
+    }
 }

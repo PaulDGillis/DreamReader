@@ -19,13 +19,13 @@ internal fun Project.configureKotlinMultiplatform(
     }
 
     jvm("desktop")
-    macosX64()
-    macosArm64()
+//    macosX64()
+//    macosArm64()
 //  Would support targets if I could, so many libraries are missing these two targets
 //    linuxX64()
 //    mingwX64()
 
-    listOf(iosX64(), iosArm64(), iosSimulatorArm64())
+//    listOf(iosX64(), iosArm64(), iosSimulatorArm64())
 
     applyDefaultHierarchyTemplate()
 
@@ -34,16 +34,17 @@ internal fun Project.configureKotlinMultiplatform(
             dependencies {
                 implementation(libs.findLibrary("kotlinx.coroutines.core").get())
             }
+        }
 
-            androidMain {
-                dependencies {
-                    implementation(libs.findLibrary("kotlinx.coroutines.android").get())
-                }
+        androidMain {
+            dependencies {
+                implementation(libs.findLibrary("kotlinx.coroutines.android").get())
+//                    coreLibraryDesugaring(libs.findLibrary("android.desugarJdkLibs").get())
             }
+        }
 
-            named("desktopMain").dependencies {
+        named("desktopMain").dependencies {
 //                implementation(libs.findLibrary("kotlinx.coroutines.swing").get())
-            }
         }
     }
 }

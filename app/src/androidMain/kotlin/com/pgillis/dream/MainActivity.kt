@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DreamReaderTheme {
                 val context = LocalContext.current
-                LibraryScreen() { platformDirectory: PlatformDirectory ->
+                LibraryScreen { platformDirectory: PlatformDirectory ->
                     platformDirectory.requestPlatformPermission(context)
                 }
             }

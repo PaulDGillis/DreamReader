@@ -18,23 +18,36 @@ import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.pgillis.dream.configureGradleManagedDevices
 import com.pgillis.dream.configureKotlinAndroid
+import com.pgillis.dream.configureKotlinComposeMultiplatform
+import com.pgillis.dream.configureKotlinMultiplatform
 import com.pgillis.dream.configurePrintApksTask
+import com.pgillis.dream.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-class AndroidApplicationConventionPlugin : Plugin<Project> {
+class MultiplatformApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
                 apply("com.android.application")
-                apply("org.jetbrains.kotlin.android")
-                apply("dream.android.lint")
-//                apply("com.dropbox.dependency-guard")
+                apply(libs.findPlugin("kotlin.multiplatform").get().get().pluginId)
+//                apply(libs.findPlugin("android.library").get().get().pluginId)
+//                apply(libs.findPlugin("dream.compose.multiplatform").get().get().pluginId)
+                apply(libs.findPlugin("compose.multiplatform").get().get().pluginId)
+                apply(libs.findPlugin("compose.compiler").get().get().pluginId)
+//                apply(libs.findPlugin("compose.compiler").get().get().pluginId)
+//                apply("dream.android.lint")
+            }
+
+            extensions.configure<KotlinMultiplatformExtension> {
+                configureKotlinMultiplatform(this)
+                configureKotlinComposeMultiplatform(this)
             }
 
             extensions.configure<ApplicationExtension> {
-//                configureKotlinAndroid(this)
+                configureKotlinAndroid(this)
                 defaultConfig.targetSdk = 34
                 @Suppress("UnstableApiUsage")
                 testOptions.animationsDisabled = true

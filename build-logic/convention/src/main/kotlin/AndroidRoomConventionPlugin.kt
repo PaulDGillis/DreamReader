@@ -47,8 +47,8 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
                     "kspDesktop",
                     "kspAndroid",
 //                    "kspIosX64",
-                    "kspIosArm64",
-                    "kspIosSimulatorArm64"
+//                    "kspIosArm64",
+//                    "kspIosSimulatorArm64"
                 ).forEach {
                     add(it, libs.findLibrary("room.compiler").get())
                 }

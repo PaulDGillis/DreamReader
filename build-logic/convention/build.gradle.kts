@@ -44,37 +44,13 @@ tasks {
 
 gradlePlugin {
     plugins {
-        register("androidApplicationCompose") {
-            id = "dream.android.application.compose"
-            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        register("multiplatformApplication") {
+            id = "dream.multiplatform.application"
+            implementationClass = "MultiplatformApplicationConventionPlugin"
         }
-        register("androidApplication") {
-            id = "dream.android.application"
-            implementationClass = "AndroidApplicationConventionPlugin"
-        }
-        register("androidApplicationJacoco") {
-            id = "dream.android.application.jacoco"
-            implementationClass = "AndroidApplicationJacocoConventionPlugin"
-        }
-        register("androidLibraryCompose") {
-            id = "dream.android.library.compose"
-            implementationClass = "AndroidLibraryComposeConventionPlugin"
-        }
-        register("androidLibrary") {
-            id = "dream.android.library"
-            implementationClass = "AndroidLibraryConventionPlugin"
-        }
-        register("androidFeature") {
-            id = "dream.android.feature"
-            implementationClass = "AndroidFeatureConventionPlugin"
-        }
-        register("androidLibraryJacoco") {
-            id = "dream.android.library.jacoco"
-            implementationClass = "AndroidLibraryJacocoConventionPlugin"
-        }
-        register("androidTest") {
-            id = "dream.android.test"
-            implementationClass = "AndroidTestConventionPlugin"
+        register("kotlinFeature") {
+            id = "dream.compose.feature"
+            implementationClass = "KmpFeatureConventionPlugin"
         }
         register("koin") {
             id = "dream.koin"
@@ -83,14 +59,6 @@ gradlePlugin {
         register("androidRoom") {
             id = "dream.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
-        }
-        register("androidFlavors") {
-            id = "dream.android.application.flavors"
-            implementationClass = "AndroidApplicationFlavorsConventionPlugin"
-        }
-        register("androidLint") {
-            id = "dream.android.lint"
-            implementationClass = "AndroidLintConventionPlugin"
         }
         register("kotlinMultiplatform"){
             id = "dream.kotlin.multiplatform"

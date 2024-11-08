@@ -17,10 +17,11 @@
 package com.pgillis.dream
 
 import org.gradle.api.Project
+import org.gradle.api.provider.Provider
+import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
@@ -29,40 +30,9 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 internal fun Project.configureKotlinComposeMultiplatform(
     extension: KotlinMultiplatformExtension
 ) = extension.apply {
-//    androidTarget {
-//        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-//        compilerOptions {
-//            jvmTarget.set(JvmTarget.JVM_11)
-//        }
-//    }
-
-//    macosX64()
-//    macosArm64()
-//    linuxX64()
-//    mingwX64()
-
-//    listOf(
-//        iosX64(),
-//        iosArm64(),
-//        iosSimulatorArm64()
-//    ).forEach { iosTarget ->
-//        iosTarget.binaries.framework {
-//            baseName = path.substringAfterLast(":")
-//            isStatic = true
-//        }
-//    }
-//
-//    jvm("desktop")
-
     val compose = extensions.getByType<ComposeExtension>().dependencies
 
     sourceSets.apply {
-        named("desktopMain") {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
-        }
-
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.findLibrary("androidx.activity.compose").get())
@@ -77,7 +47,30 @@ internal fun Project.configureKotlinComposeMultiplatform(
             implementation(compose.components.uiToolingPreview)
             implementation(libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
             implementation(libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
+            implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
         }
 
+        named("desktopMain").dependencies{
+            implementation(compose.desktop.currentOs)
+        }
+    }
+
+    extensions.configure<ComposeCompilerGradlePluginExtension> {
+        fun Provider<String>.onlyIfTrue() = flatMap { provider { it.takeIf(String::toBoolean) } }
+        fun Provider<*>.relativeToRootProject(dir: String) = flatMap {
+            rootProject.layout.buildDirectory.dir(projectDir.toRelativeString(rootDir))
+        }.map { it.dir(dir) }
+
+        project.providers.gradleProperty("enableComposeCompilerMetrics").onlyIfTrue()
+            .relativeToRootProject("compose-metrics")
+            .let(metricsDestination::set)
+
+        project.providers.gradleProperty("enableComposeCompilerReports").onlyIfTrue()
+            .relativeToRootProject("compose-reports")
+            .let(reportsDestination::set)
+
+//        stabilityConfigurationFile =
+//            rootProject.layout.projectDirectory.file("compose_compiler_config.conf")
     }
 }

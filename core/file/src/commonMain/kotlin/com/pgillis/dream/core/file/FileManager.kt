@@ -1,6 +1,5 @@
 package com.pgillis.dream.core.file
 
-import android.util.Log
 import com.pgillis.dream.core.file.parser.EpubParser
 import com.pgillis.dream.core.file.platform.CompressionManager
 import com.pgillis.dream.core.model.Book
@@ -30,7 +29,7 @@ class FileManager(
                         try {
                             parser.parse(bookFile)
                         } catch (e: Exception) {
-                            Log.e("Dream LoadLibrary", e.message ?: "Unknown error")
+                            // TODO log
                             null
                         }
                     }

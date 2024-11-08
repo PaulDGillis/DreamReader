@@ -1,6 +1,6 @@
 package com.pgillis.dream.feature.library
 
-import android.net.Uri
+//import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,7 +24,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -39,7 +38,7 @@ import com.pgillis.dream.core.model.MetaData
 import com.pgillis.dream.core.ui.DevicePreviews
 import io.github.vinceglb.filekit.compose.rememberDirectoryPickerLauncher
 import io.github.vinceglb.filekit.core.PlatformDirectory
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun LibraryScreen(
@@ -126,19 +125,19 @@ private fun LibraryBooks(
             Card {
                 Column(modifier = Modifier.wrapContentSize(),
                     verticalArrangement = Arrangement.Top) {
-                    AsyncImage(
-                        modifier = Modifier.wrapContentWidth()
-                            .aspectRatio(0.666f)
-                            .placeholder(
-                                visible = book.coverUri == null,
-                                highlight = PlaceholderHighlight.fade()
-                            ),
-                        model = ImageRequest.Builder(LocalContext.current)
-                                    .data(book.coverUri?.let { Uri.parse(it) })
-                                    .build(),
-                        contentDescription = null,
-                        contentScale = ContentScale.FillBounds
-                    )
+//                    AsyncImage(
+//                        modifier = Modifier.wrapContentWidth()
+//                            .aspectRatio(0.666f)
+//                            .placeholder(
+//                                visible = book.coverUri == null,
+//                                highlight = PlaceholderHighlight.fade()
+//                            ),
+//                        model = ImageRequest.Builder(LocalContext.current)
+//                                    .data(book.coverUri?.let { Uri.parse(it) })
+//                                    .build(),
+//                        contentDescription = null,
+//                        contentScale = ContentScale.FillBounds
+//                    )
                     Column(Modifier.padding(5.dp)) {
                         Text(book.metaData.title, maxLines = 1, overflow = TextOverflow.Ellipsis)
                         Text(book.metaData.creator, maxLines = 1, overflow = TextOverflow.Ellipsis)

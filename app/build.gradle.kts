@@ -1,16 +1,20 @@
 import com.pgillis.dream.NiaBuildType
+import com.pgillis.dream.libs
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    alias(libs.plugins.dream.android.application)
-    alias(libs.plugins.dream.android.application.compose)
-    alias(libs.plugins.dream.android.application.flavors)
-//    alias(libs.plugins.dream.android.application.jacoco)
-//    alias(libs.plugins.dream.android.application.firebase)
+    alias(libs.plugins.dream.multiplatform.application)
+//    alias(libs.plugins.dream.android.application.compose)
+//    alias(libs.plugins.dream.android.application.flavors)
     alias(libs.plugins.dream.koin)
     alias(libs.plugins.kotlin.serialization)
 }
 
 android {
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
+    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+
     defaultConfig {
         applicationId = "com.pgillis.dream"
         versionCode = 8
@@ -55,25 +59,31 @@ android {
     namespace = "com.pgillis.dream"
 }
 
-dependencies {
-    implementation(projects.core.designsystem)
-    implementation(projects.feature.library)
+kotlin {
+    sourceSets {
+        val desktopMain by getting
 
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material3.adaptive)
-    implementation(libs.androidx.compose.material3.adaptive.layout)
-    implementation(libs.androidx.compose.material3.adaptive.navigation)
-    implementation(libs.androidx.compose.material3.windowSizeClass)
-    implementation(libs.androidx.compose.runtime.tracing)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.core.splashscreen)
+        commonMain.dependencies {
+            implementation(projects.core.designsystem)
+            implementation(projects.feature.library)
+//                implementation(libs.koin.annotations)
 
-    implementation(libs.androidx.lifecycle.runtimeCompose)
-    implementation(libs.androidx.navigation.compose)
+            implementation("io.github.vinceglb:filekit-compose:0.8.7")
+//            implementation(libs.androidx.activity.compose)
+//            implementation(libs.androidx.compose.material3)
+//            implementation(libs.androidx.compose.material3.adaptive)
+//            implementation(libs.androidx.compose.material3.adaptive.layout)
+//            implementation(libs.androidx.compose.material3.adaptive.navigation)
+//            implementation(libs.androidx.compose.material3.windowSizeClass)
+//            implementation(libs.androidx.compose.runtime.tracing)
+//            implementation(libs.androidx.core.ktx)
+//            implementation(libs.androidx.core.splashscreen)
+//
+//            implementation(libs.androidx.lifecycle.runtimeCompose)
+//            implementation(libs.androidx.navigation.compose)
 
-    // Compose File UI Picker
-    implementation(libs.filekit)
+                // Compose File UI Picker
+//            implementation(libs.filekit)
 
 //    implementation(libs.androidx.core.ktx)
 //    implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -90,4 +100,19 @@ dependencies {
 //    androidTestImplementation(libs.androidx.ui.test.junit4)
 //    debugImplementation(libs.androidx.ui.tooling)
 //    debugImplementation(libs.androidx.ui.test.manifest)
+
+        }
+    }
+}
+
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "com.pgillis.dream"
+            packageVersion = "1.0.0"
+        }
+    }
 }
