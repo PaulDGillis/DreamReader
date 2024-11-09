@@ -14,8 +14,6 @@
  *   limitations under the License.
  */
 
-import com.android.build.gradle.LibraryExtension
-import com.pgillis.dream.configureGradleManagedDevices
 import com.pgillis.dream.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -29,30 +27,20 @@ class KmpFeatureConventionPlugin : Plugin<Project> {
                 apply(libs.findPlugin("dream.kotlin.multiplatform").get().get().pluginId)
                 apply(libs.findPlugin("dream.compose.multiplatform").get().get().pluginId)
                 apply(libs.findPlugin("dream.koin").get().get().pluginId)
-//                apply(libs.findPlugin("org.jetbrains.kotlin.plugin.serialization").get().get().pluginId)
                 apply(libs.findPlugin("kotlin.serialization").get().get().pluginId)
             }
 
-            extensions.configure<LibraryExtension> {
-                testOptions.animationsDisabled = true
-                configureGradleManagedDevices(this)
-            }
+//            extensions.configure<LibraryExtension> {
+//                testOptions.animationsDisabled = true
+//                configureGradleManagedDevices(this)
+//            }
 
             extensions.configure<KotlinMultiplatformExtension> {
                 sourceSets.apply {
                     commonMain.dependencies {
                         implementation(project(":core:ui"))
                         implementation(project(":core:designsystem"))
-
-                        //                add("implementation", libs.findLibrary("koin-androidx-compose-navigation").get())
-                        //                add("implementation", libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
-                        //                add("implementation", libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
-                        //                add("implementation", libs.findLibrary("androidx.navigation.compose").get())
-                        //                add("implementation", libs.findLibrary("androidx.tracing.ktx").get())
                         implementation(libs.findLibrary("kotlinx.serialization.json").get())
-
-                        //                add("testImplementation", libs.findLibrary("androidx.navigation.testing").get())
-                        //                add("androidTestImplementation", libs.findLibrary("androidx.lifecycle.runtimeTesting").get())
                     }
                 }
             }

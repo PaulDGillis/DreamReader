@@ -16,6 +16,7 @@
 
 import androidx.room.gradle.RoomExtension
 import com.google.devtools.ksp.gradle.KspExtension
+import com.pgillis.dream.kspTargets
 import com.pgillis.dream.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -27,8 +28,10 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply("androidx.room")
-            pluginManager.apply("com.google.devtools.ksp")
+            with(pluginManager) {
+                apply("androidx.room")
+                apply("com.google.devtools.ksp")
+            }
 
             extensions.configure<KspExtension> {
                 arg("room.generateKotlin", "true")
@@ -42,14 +45,7 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-                listOf(
-                    "kspCommonMainMetadata",
-                    "kspDesktop",
-                    "kspAndroid",
-//                    "kspIosX64",
-//                    "kspIosArm64",
-//                    "kspIosSimulatorArm64"
-                ).forEach {
+                kspTargets.forEach {
                     add(it, libs.findLibrary("room.compiler").get())
                 }
             }

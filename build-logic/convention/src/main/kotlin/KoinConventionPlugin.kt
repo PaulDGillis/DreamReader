@@ -15,39 +15,17 @@
  */
 
 import com.google.devtools.ksp.gradle.KspExtension
+import com.pgillis.dream.kspTargets
 import com.pgillis.dream.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class KoinConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply("com.google.devtools.ksp")
-
-            dependencies {
-                listOf(
-                    "kspCommonMainMetadata",
-                    "kspDesktop",
-                    "kspAndroid",
-//                    "kspIosX64",
-//                    "kspIosArm64",
-//                    "kspIosSimulatorArm64",
-//                    "kspMacosX64",
-//                    "kspMacosArm64",
-//                    "kspLinuxX64",
-//                    "kspMingwX64"
-                ).forEach {
-                    add(it, libs.findLibrary("koin.ksp.compiler").get())
-                }
-            }
-
-            extensions.configure<KspExtension> {
-                arg("KOIN_CONFIG_CHECK","true")
-                arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
-            }
+            pluginManager.apply(libs.findPlugin("ksp").get().get().pluginId)
 
             // Add support for Jvm Module, base on org.jetbrains.kotlin.jvm
             pluginManager.withPlugin(libs.findPlugin("kotlin.multiplatform").get().get().pluginId) {
@@ -61,10 +39,20 @@ class KoinConventionPlugin : Plugin<Project> {
                         }
                         androidMain.dependencies {
                             implementation(libs.findLibrary("koin.android").get())
-                            api(libs.findLibrary("koin.annotations").get())
                         }
                     }
                 }
+            }
+
+            dependencies.apply {
+                kspTargets.forEach {
+                    add(it, libs.findLibrary("koin.ksp.compiler").get())
+                }
+            }
+
+            extensions.configure<KspExtension> {
+                arg("KOIN_CONFIG_CHECK","true")
+                arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
             }
         }
     }

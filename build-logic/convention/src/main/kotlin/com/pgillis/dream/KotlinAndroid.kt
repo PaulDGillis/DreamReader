@@ -27,7 +27,7 @@ import org.gradle.kotlin.dsl.dependencies
 internal fun Project.configureKotlinAndroid(
     extension: CommonExtension<*, *, *, *, *, *>,
 ) = extension.apply {
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 29

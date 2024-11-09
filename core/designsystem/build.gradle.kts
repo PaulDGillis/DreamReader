@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.android
-
 plugins {
     alias(libs.plugins.dream.kotlin.multiplatform)
     alias(libs.plugins.dream.compose.multiplatform)

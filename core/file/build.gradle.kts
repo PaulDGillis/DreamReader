@@ -23,12 +23,16 @@ kotlin {
             implementation(libs.okio)
             implementation(libs.kotlinx.io)
             implementation(libs.ksoup)
-            implementation(libs.simple.storage)
+
             implementation(libs.kmpfile)
             implementation(libs.kmpfile.okio)
         //    implementation(libs.androidx.tracing.ktx)
 
 //            testImplementation(libs.kotlinx.coroutines.test)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.simple.storage)
         }
     }
 }

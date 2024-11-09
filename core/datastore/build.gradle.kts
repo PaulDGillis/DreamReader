@@ -6,6 +6,7 @@ plugins {
 android {
     namespace = "com.pgillis.dream.core.datastore"
 }
+
 kotlin {
     sourceSets {
         commonMain.dependencies {

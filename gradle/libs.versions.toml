@@ -24,13 +24,10 @@ secrets = "2.0.1"
 simpleStorage = "2.0.0"
 
 # Versions of Dependencies of the included build-logic
-androidxComposeBom = "2024.10.01"
-androidDesugarJdkLibs = "2.1.2"
-androidGradlePlugin = "8.7.2"
+androidDesugarJdkLibs = "2.1.3"
+androidGradlePlugin = "8.5.2"
 androidxMacroBenchmark = "1.3.3"
 androidTools = "31.7.2"
-firebaseCrashlyticsPlugin = "3.0.2"
-firebasePerfPlugin = "1.4.2"
 kotlin = "2.0.21"
 kotlinxSerializationJson = "1.7.3"
 ksp = "2.0.21-1.0.25"
@@ -103,10 +100,6 @@ androidx-datastore-core-okio = { group = "androidx.datastore", name = "datastore
 androidx-datastore-preferences-core = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "androidxDatastore" }
 
 # Dependencies of the included build-logic
-#androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
@@ -140,13 +133,7 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 
 # Plugins defined by this project
 dream-multiplatform-application = { id = "dream.multiplatform.application" }
-dream-android-application-compose = { id = "dream.android.application.compose" }
-dream-android-application-flavors = { id = "dream.android.application.flavors" }
-dream-android-application-jacoco = { id = "dream.android.application.jacoco" }
 dream-compose-feature = { id = "dream.compose.feature" }
-dream-android-library = { id = "dream.android.library" }
-dream-android-library-compose = { id = "dream.android.library.compose" }
-dream-android-library-jacoco = { id = "dream.android.library.jacoco" }
 dream-android-lint = { id = "dream.android.lint" }
 dream-android-room = { id = "dream.android.room" }
 dream-android-test = { id = "dream.android.test" }

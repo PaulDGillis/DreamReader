@@ -23,3 +23,17 @@ import org.gradle.kotlin.dsl.getByType
 
 val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+val Project.kspTargets: List<String>
+    get() = listOf(
+        "kspCommonMainMetadata",
+        "kspDesktop",
+        "kspAndroid",
+    //    "kspIosX64",
+    //    "kspIosArm64",
+    //    "kspIosSimulatorArm64"
+//        "kspMacosX64",
+//        "kspMacosArm64",
+//        "kspLinuxX64",
+//        "kspMingwX64"
+    )

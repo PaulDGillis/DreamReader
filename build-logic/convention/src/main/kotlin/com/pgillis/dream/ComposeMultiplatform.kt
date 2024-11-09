@@ -33,11 +33,6 @@ internal fun Project.configureKotlinComposeMultiplatform(
     val compose = extensions.getByType<ComposeExtension>().dependencies
 
     sourceSets.apply {
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.findLibrary("androidx.activity.compose").get())
-        }
-
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -53,6 +48,11 @@ internal fun Project.configureKotlinComposeMultiplatform(
 
         named("desktopMain").dependencies{
             implementation(compose.desktop.currentOs)
+        }
+
+        androidMain.dependencies {
+            implementation(compose.preview)
+            implementation(libs.findLibrary("androidx.activity.compose").get())
         }
     }
 

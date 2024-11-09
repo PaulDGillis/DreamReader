@@ -18,7 +18,6 @@ import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.pgillis.dream.configureGradleManagedDevices
 import com.pgillis.dream.configureKotlinAndroid
-import com.pgillis.dream.configureKotlinComposeMultiplatform
 import com.pgillis.dream.configureKotlinMultiplatform
 import com.pgillis.dream.configurePrintApksTask
 import com.pgillis.dream.libs
@@ -31,15 +30,17 @@ class MultiplatformApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("com.android.application")
                 apply(libs.findPlugin("kotlin.multiplatform").get().get().pluginId)
-                apply(libs.findPlugin("compose.multiplatform").get().get().pluginId)
-                apply(libs.findPlugin("compose.compiler").get().get().pluginId)
+                apply("com.android.application")
             }
 
             extensions.configure<KotlinMultiplatformExtension> {
                 configureKotlinMultiplatform(this)
-                configureKotlinComposeMultiplatform(this)
+            }
+
+            with(pluginManager) {
+                apply(libs.findPlugin("dream.compose.multiplatform").get().get().pluginId)
+                apply(libs.findPlugin("dream.koin").get().get().pluginId)
             }
 
             extensions.configure<ApplicationExtension> {
@@ -49,6 +50,7 @@ class MultiplatformApplicationConventionPlugin : Plugin<Project> {
                 testOptions.animationsDisabled = true
                 configureGradleManagedDevices(this)
             }
+
             extensions.configure<ApplicationAndroidComponentsExtension> {
                 configurePrintApksTask(this)
 //                configureBadgingTasks(extensions.getByType<BaseExtension>(), this)
