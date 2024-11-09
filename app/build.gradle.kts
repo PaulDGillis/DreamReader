@@ -1,5 +1,5 @@
+
 import com.pgillis.dream.NiaBuildType
-import com.pgillis.dream.libs
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
@@ -66,32 +66,12 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.core.designsystem)
             implementation(projects.feature.library)
-//                implementation(libs.koin.annotations)
 
-            implementation("io.github.vinceglb:filekit-compose:0.8.7")
-//            implementation(libs.androidx.activity.compose)
-//            implementation(libs.androidx.compose.material3)
-//            implementation(libs.androidx.compose.material3.adaptive)
-//            implementation(libs.androidx.compose.material3.adaptive.layout)
-//            implementation(libs.androidx.compose.material3.adaptive.navigation)
-//            implementation(libs.androidx.compose.material3.windowSizeClass)
-//            implementation(libs.androidx.compose.runtime.tracing)
-//            implementation(libs.androidx.core.ktx)
 //            implementation(libs.androidx.core.splashscreen)
-//
-//            implementation(libs.androidx.lifecycle.runtimeCompose)
 //            implementation(libs.androidx.navigation.compose)
 
-                // Compose File UI Picker
-//            implementation(libs.filekit)
-
-//    implementation(libs.androidx.core.ktx)
-//    implementation(libs.androidx.lifecycle.runtime.ktx)
-//    implementation(libs.androidx.activity.compose)
-//    implementation(platform(libs.androidx.compose.bom))
-//    implementation(libs.androidx.ui)
-//    implementation(libs.androidx.ui.graphics)
-//    implementation(libs.androidx.ui.tooling.preview)
+            // Compose File UI Picker
+            implementation(libs.filekit)
 
 //    testImplementation(libs.junit)
 //    androidTestImplementation(libs.androidx.junit)
@@ -107,7 +87,7 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "com.pgillis.dream.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

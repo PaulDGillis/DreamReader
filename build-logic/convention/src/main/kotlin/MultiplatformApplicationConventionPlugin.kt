@@ -33,12 +33,8 @@ class MultiplatformApplicationConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.application")
                 apply(libs.findPlugin("kotlin.multiplatform").get().get().pluginId)
-//                apply(libs.findPlugin("android.library").get().get().pluginId)
-//                apply(libs.findPlugin("dream.compose.multiplatform").get().get().pluginId)
                 apply(libs.findPlugin("compose.multiplatform").get().get().pluginId)
                 apply(libs.findPlugin("compose.compiler").get().get().pluginId)
-//                apply(libs.findPlugin("compose.compiler").get().get().pluginId)
-//                apply("dream.android.lint")
             }
 
             extensions.configure<KotlinMultiplatformExtension> {

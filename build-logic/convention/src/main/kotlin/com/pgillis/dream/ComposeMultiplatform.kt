@@ -45,8 +45,8 @@ internal fun Project.configureKotlinComposeMultiplatform(
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
-            implementation(libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
+            implementation(libs.findLibrary("androidx.lifecycle.viewmodel.compose").get())
+            implementation(libs.findLibrary("androidx.lifecycle.runtime.compose").get())
             implementation(compose.material3)
             implementation(compose.materialIconsExtended)
         }
@@ -54,6 +54,10 @@ internal fun Project.configureKotlinComposeMultiplatform(
         named("desktopMain").dependencies{
             implementation(compose.desktop.currentOs)
         }
+    }
+
+    dependencies.apply {
+        add("debugImplementation", compose.uiTooling)
     }
 
     extensions.configure<ComposeCompilerGradlePluginExtension> {

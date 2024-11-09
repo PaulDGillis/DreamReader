@@ -30,21 +30,17 @@ internal fun Project.configureKotlinMultiplatform(
     applyDefaultHierarchyTemplate()
 
     sourceSets.apply {
-        commonMain {
-            dependencies {
-                implementation(libs.findLibrary("kotlinx.coroutines.core").get())
-            }
+        commonMain.dependencies {
+            implementation(libs.findLibrary("kotlinx.coroutines.core").get())
         }
 
-        androidMain {
-            dependencies {
-                implementation(libs.findLibrary("kotlinx.coroutines.android").get())
-//                    coreLibraryDesugaring(libs.findLibrary("android.desugarJdkLibs").get())
-            }
+        androidMain.dependencies {
+            runtimeOnly(libs.findLibrary("kotlinx.coroutines.android").get())
+//            coreLibraryDesugaring(libs.findLibrary("android.desugarJdkLibs").get())
         }
 
         named("desktopMain").dependencies {
-//                implementation(libs.findLibrary("kotlinx.coroutines.swing").get())
+            runtimeOnly(libs.findLibrary("kotlinx.coroutines.swing").get())
         }
     }
 }

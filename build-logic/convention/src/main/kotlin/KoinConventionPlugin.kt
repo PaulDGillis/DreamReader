@@ -46,6 +46,7 @@ class KoinConventionPlugin : Plugin<Project> {
 
             extensions.configure<KspExtension> {
                 arg("KOIN_CONFIG_CHECK","true")
+                arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
             }
 
             // Add support for Jvm Module, base on org.jetbrains.kotlin.jvm

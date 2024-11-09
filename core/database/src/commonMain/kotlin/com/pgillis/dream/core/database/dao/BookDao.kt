@@ -18,21 +18,21 @@ interface BookDao {
     fun getBooks(): Flow<List<BookWithManifest>>
 
     @Transaction
-    fun insertBook(book: BookEntity, metadata: MetaDataEntity, manifest: List<ManifestEntity>) {
+    suspend fun insertBook(book: BookEntity, metadata: MetaDataEntity, manifest: List<ManifestEntity>) {
         insertBook(book)
         insertMetadata(metadata)
         insertManifest(manifest)
     }
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertBook(book: BookEntity)
+    suspend fun insertBook(book: BookEntity)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMetadata(metadata: MetaDataEntity)
+    suspend fun insertMetadata(metadata: MetaDataEntity)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertManifest(manifest: List<ManifestEntity>)
+    suspend fun insertManifest(manifest: List<ManifestEntity>)
 
     @Query("DELETE FROM BookEntity WHERE BookEntity.id NOT IN(:bookIds)")
-    fun deleteOldBooks(bookIds: Set<String>)
+    suspend fun deleteOldBooks(bookIds: Set<String>)
 }
