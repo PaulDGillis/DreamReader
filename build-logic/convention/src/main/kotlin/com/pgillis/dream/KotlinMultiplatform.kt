@@ -19,13 +19,24 @@ internal fun Project.configureKotlinMultiplatform(
     }
 
     jvm("desktop")
+//    I want to support these targets, but many libraries are missing these targets sadly
+//    Also seems material3 and compose in general doesn't really have great native desktop support
 //    macosX64()
 //    macosArm64()
-//  Would support targets if I could, so many libraries are missing these two targets
 //    linuxX64()
 //    mingwX64()
 
-//    listOf(iosX64(), iosArm64(), iosSimulatorArm64())
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+            isStatic = true
+            optimized = true
+        }
+    }
 
     applyDefaultHierarchyTemplate()
 

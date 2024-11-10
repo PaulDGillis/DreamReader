@@ -17,6 +17,7 @@ import dev.zwander.kotlin.file.IPlatformFile
 import dev.zwander.kotlin.file.filekit.toKmpFile
 import io.github.vinceglb.filekit.core.PlatformDirectory
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

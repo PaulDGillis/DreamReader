@@ -29,9 +29,9 @@ val Project.kspTargets: List<String>
         "kspCommonMainMetadata",
         "kspDesktop",
         "kspAndroid",
-    //    "kspIosX64",
-    //    "kspIosArm64",
-    //    "kspIosSimulatorArm64"
+        "kspIosX64",
+        "kspIosArm64",
+        "kspIosSimulatorArm64",
 //        "kspMacosX64",
 //        "kspMacosArm64",
 //        "kspLinuxX64",
