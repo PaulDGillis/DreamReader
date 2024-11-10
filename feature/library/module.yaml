@@ -1,0 +1,18 @@
+product:
+  type: lib
+  platforms: [jvm, android, iosSimulatorArm64]
+
+dependencies:
+  - ../database
+  - ../datastore
+  - ../file
+  - $compose.foundation
+  - $compose.material3
+  - com.eygraber:compose-placeholder-material3:1.0.8
+  - io.github.vinceglb:filekit-compose:0.8.7
+  - dev.zwander:kmpfile-filekit:0.6.1
+  - io.coil-kt.coil3:coil-compose:3.0.2
+
+settings:
+  compose:
+    enabled: true

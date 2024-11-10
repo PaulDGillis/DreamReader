@@ -1,0 +1,14 @@
+product:
+  type: lib
+  platforms: [jvm, android, iosSimulatorArm64]
+
+dependencies:
+  - ../model
+  - com.squareup.okio:okio:3.9.1
+  - org.jetbrains.kotlinx:kotlinx-io-core:0.5.4
+  - com.fleeksoft.ksoup:ksoup-okio:0.2.0
+  - dev.zwander:kmpfile:0.6.1: exported
+  - dev.zwander:kmpfile-okio:0.6.1
+
+dependencies@android:
+  - com.anggrayudi:storage:2.0.0

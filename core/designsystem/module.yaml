@@ -1,0 +1,11 @@
+product:
+  type: lib
+  platforms: [jvm, android, iosSimulatorArm64]
+
+dependencies:
+  - $compose.foundation
+  - $compose.material3
+
+settings:
+  compose:
+    enabled: true
