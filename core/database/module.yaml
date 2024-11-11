@@ -6,11 +6,16 @@ dependencies:
   - ../model
   - androidx.room:room-runtime:2.7.0-alpha11
   - androidx.sqlite:sqlite-bundled:2.5.0-alpha11
+  - io.insert-koin:koin-compose:4.0.0
+  - io.insert-koin:koin-annotations:2.0.0-Beta1: compile-only
 
 settings:
   kotlin:
     ksp:
       processors:
         - androidx.room:room-compiler:2.7.0-alpha11
+        - io.insert-koin:koin-ksp-compiler:2.0.0-Beta1
       processorOptions:
         room.schemaLocation: ./schema
+        KOIN_CONFIG_CHECK: true
+        KOIN_USE_COMPOSE_VIEWMODEL: true

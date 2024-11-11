@@ -3,16 +3,29 @@ product:
   platforms: [jvm, android, iosSimulatorArm64]
 
 dependencies:
-  - ../database
-  - ../datastore
-  - ../file
+  - ../../core/model
+  - ../../core/database
+  - ../../core/datastore
+  - ../../core/file
   - $compose.foundation
   - $compose.material3
   - com.eygraber:compose-placeholder-material3:1.0.8
   - io.github.vinceglb:filekit-compose:0.8.7
   - dev.zwander:kmpfile-filekit:0.6.1
   - io.coil-kt.coil3:coil-compose:3.0.2
+  - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0
+  - org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.3
+  - org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.8.3
+  - io.insert-koin:koin-compose-viewmodel:4.0.0
+  - io.insert-koin:koin-compose:4.0.0
+  - io.insert-koin:koin-annotations:2.0.0-Beta1: compile-only
 
 settings:
-  compose:
-    enabled: true
+  compose: enabled
+  kotlin:
+    ksp:
+      processors:
+        - io.insert-koin:koin-ksp-compiler:2.0.0-Beta1
+      processorOptions:
+        KOIN_CONFIG_CHECK: true
+        KOIN_USE_COMPOSE_VIEWMODEL: true

@@ -3,63 +3,25 @@ product:
   platforms: [jvm, android, iosSimulatorArm64]
 
 dependencies:
+  - ../feature/library
+  - ../core/datastore
+  - ../core/designsystem
+  - ../core/file
   - $compose.foundation
   - $compose.material3
+  - io.insert-koin:koin-compose:4.0.0
+  - io.insert-koin:koin-annotations:2.0.0-Beta1: compile-only
+  - io.github.vinceglb:filekit-compose:0.8.7
 
 dependencies@jvm:
   - $compose.desktop.currentOs
 
 settings:
-  compose:
-    enabled: true
-#    commonMain.dependencies {
-#            implementation(libs.findLibrary("kotlinx.coroutines.core").get())
-#        }
-#
-#        androidMain.dependencies {
-#            runtimeOnly(libs.findLibrary("kotlinx.coroutines.android").get())
-#//            coreLibraryDesugaring(libs.findLibrary("android.desugarJdkLibs").get())
-#        }
-#
-#        named("desktopMain").dependencies {
-#            runtimeOnly(libs.findLibrary("kotlinx.coroutines.swing").get())
-#        }
-#sourceSets.apply {
-#                        commonMain.dependencies {
-#                            implementation(libs.findLibrary("koin.compose").get())
-#                            implementation(libs.findLibrary("koin.compose.viewmodel").get())
-#                            api(libs.findLibrary("koin.annotations").get())
-#//                        implementation(libs.findLibrary("koin.compose.viewmodel.navigation").get())
-#                        }
-#                        androidMain.dependencies {
-#                            implementation(libs.findLibrary("koin.android").get())
-#                        }
-#                    }
-#                }
-#            }
-#
-#            dependencies.apply {
-#                kspTargets.forEach {
-#                    add(it, libs.findLibrary("koin.ksp.compiler").get())
-#                }
-#            }
-#
-#            extensions.configure<KspExtension> {
-#                arg("KOIN_CONFIG_CHECK","true")
-#                arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
-#            }
-
-#implementation(libs.findLibrary("androidx.lifecycle.viewmodel.compose").get())
-#            implementation(libs.findLibrary("androidx.lifecycle.runtime.compose").get())
-#            implementation(compose.material3)
-#            implementation(compose.materialIconsExtended)
-#        }
-#
-#        named("desktopMain").dependencies{
-#            implementation(compose.desktop.currentOs)
-#        }
-#
-#        androidMain.dependencies {
-#            implementation(compose.preview)
-#            implementation(libs.findLibrary("androidx.activity.compose").get())
-#        }
+  compose: enabled
+  kotlin:
+    ksp:
+      processors:
+        - io.insert-koin:koin-ksp-compiler:2.0.0-Beta1
+      processorOptions:
+        KOIN_CONFIG_CHECK: true
+        KOIN_USE_COMPOSE_VIEWMODEL: true

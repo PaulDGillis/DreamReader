@@ -24,10 +24,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.pgillis.dream.core.designsystem.theme.DreamReaderTheme
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
-import com.pgillis.dream.core.ui.DevicePreviews
 import io.github.vinceglb.filekit.compose.rememberDirectoryPickerLauncher
 import io.github.vinceglb.filekit.core.PlatformDirectory
 import org.koin.compose.viewmodel.koinViewModel
@@ -140,27 +138,27 @@ private fun LibraryBooks(
     }
 }
 
-@DevicePreviews
-@Composable
-fun LibraryScreenPreview() {
-    DreamReaderTheme {
-        LibraryScreen(
-            state = LibraryUIState.Success(listOf(
-                Book(
-                    id = "Book1",
-                    metaData = MetaData("Title", "lang", "creator"),
-                    manifest = emptyMap(),
-                    spine = LinkedHashSet(),
-                    coverUri = null
-                ),
-                Book(
-                    id = "Book2",
-                    metaData = MetaData("Title", "lang", "creator"),
-                    manifest = emptyMap(),
-                    spine = LinkedHashSet(),
-                    coverUri = null
-                )
-            ))
-        )
-    }
-}
+//@Preview
+//@Composable
+//fun LibraryScreenPreview() {
+//    DreamReaderTheme {
+//        LibraryScreen(
+//            state = LibraryUIState.Success(listOf(
+//                Book(
+//                    id = "Book1",
+//                    metaData = MetaData("Title", "lang", "creator"),
+//                    manifest = emptyMap(),
+//                    spine = LinkedHashSet(),
+//                    coverUri = null
+//                ),
+//                Book(
+//                    id = "Book2",
+//                    metaData = MetaData("Title", "lang", "creator"),
+//                    manifest = emptyMap(),
+//                    spine = LinkedHashSet(),
+//                    coverUri = null
+//                )
+//            ))
+//        )
+//    }
+//}

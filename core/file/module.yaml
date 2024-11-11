@@ -9,6 +9,18 @@ dependencies:
   - com.fleeksoft.ksoup:ksoup-okio:0.2.0
   - dev.zwander:kmpfile:0.6.1: exported
   - dev.zwander:kmpfile-okio:0.6.1
+  - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0
+  - io.insert-koin:koin-core:4.0.0
+  - io.insert-koin:koin-annotations:2.0.0-Beta1: compile-only
 
 dependencies@android:
   - com.anggrayudi:storage:2.0.0
+
+settings:
+  kotlin:
+    ksp:
+      processors:
+        - io.insert-koin:koin-ksp-compiler:2.0.0-Beta1
+      processorOptions:
+        KOIN_CONFIG_CHECK: true
+        KOIN_USE_COMPOSE_VIEWMODEL: true
