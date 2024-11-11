@@ -4,13 +4,13 @@ product:
 
 dependencies:
   - ../feature/library
+  - ../core/database
   - ../core/datastore
   - ../core/designsystem
   - ../core/file
   - $compose.foundation
   - $compose.material3
   - io.insert-koin:koin-compose:4.0.0
-  - io.insert-koin:koin-annotations:2.0.0-Beta1: compile-only
   - io.github.vinceglb:filekit-compose:0.8.7
 
 dependencies@jvm:
@@ -18,10 +18,3 @@ dependencies@jvm:
 
 settings:
   compose: enabled
-  kotlin:
-    ksp:
-      processors:
-        - io.insert-koin:koin-ksp-compiler:2.0.0-Beta1
-      processorOptions:
-        KOIN_CONFIG_CHECK: true
-        KOIN_USE_COMPOSE_VIEWMODEL: true

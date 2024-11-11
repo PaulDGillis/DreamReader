@@ -1,17 +1,10 @@
 product: android/app
 
 dependencies:
-  - ../shared
+  ../shared
+  - androidx.activity:activity-compose:1.7.2
   - org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0: runtime-only
   - io.insert-koin:koin-android:4.0.0
-  - io.insert-koin:koin-annotations:2.0.0-Beta1: compile-only
 
 settings:
   compose: enabled
-  kotlin:
-    ksp:
-      processors:
-        - io.insert-koin:koin-ksp-compiler:2.0.0-Beta1
-      processorOptions:
-        KOIN_CONFIG_CHECK: true
-        KOIN_USE_COMPOSE_VIEWMODEL: true

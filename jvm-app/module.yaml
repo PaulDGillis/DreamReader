@@ -5,14 +5,6 @@ dependencies:
   - $compose.desktop.currentOs
   - org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.9.0: runtime-only
   - io.insert-koin:koin-compose:4.0.0
-  - io.insert-koin:koin-annotations:2.0.0-Beta1: compile-only
 
 settings:
   compose: enabled
-  kotlin:
-    ksp:
-      processors:
-        - io.insert-koin:koin-ksp-compiler:2.0.0-Beta1
-      processorOptions:
-        KOIN_CONFIG_CHECK: true
-        KOIN_USE_COMPOSE_VIEWMODEL: true

@@ -10,10 +10,8 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.mapNotNull
-import org.koin.core.annotation.Single
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@Single
 class FileManager(
     private val compressionManager: CompressionManager,
     private val parser: EpubParser
