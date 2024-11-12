@@ -10,9 +10,9 @@ import com.pgillis.dream.core.database.model.asManifestDataEntities
 import com.pgillis.dream.core.database.model.asMetaDataEntity
 import com.pgillis.dream.core.datastore.SettingsStore
 import com.pgillis.dream.core.file.FileManager
+import com.pgillis.dream.core.file.platform.asIPlatformFile
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.Settings
-import dev.zwander.kotlin.file.FileUtils
 import dev.zwander.kotlin.file.IPlatformFile
 import dev.zwander.kotlin.file.filekit.toKmpFile
 import io.github.vinceglb.filekit.core.PlatformDirectory
@@ -39,16 +39,15 @@ class LibraryViewModel(
 
     val uiState: StateFlow<LibraryUIState> = settings.combine(books) { settings, books ->
         when {
-            settings.libraryDir == null -> LibraryUIState.NeedsDirectory
             books.isNotEmpty() -> LibraryUIState.Success(books)
+            settings.libraryDir == null || settings.libraryDir?.isEmpty() == true -> LibraryUIState.NeedsDirectory
             else -> LibraryUIState.Loading
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), LibraryUIState.Loading)
 
     init {
         viewModelScope.launch {
-            val libraryDirStr = settings.first().libraryDir ?: return@launch
-            val libraryDir = FileUtils.fromString(libraryDirStr, true) ?: return@launch
+            val libraryDir = settings.first().libraryDir?.asIPlatformFile() ?: return@launch
             updateLibrary(libraryDir)
         }
     }

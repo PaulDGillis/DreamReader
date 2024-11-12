@@ -1,14 +1,20 @@
 package com.pgillis.dream.core.datastore.di
 
-//actual fun producePath(): String {
-//    producePath = {
-//        val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
-//            directory = NSDocumentDirectory,
-//            inDomain = NSUserDomainMask,
-//            appropriateForURL = null,
-//            create = false,
-//            error = null,
-//        )
-//        requireNotNull(documentDirectory).path + "/$dataStoreFileName"
-//    }
-//}
+import com.pgillis.dream.core.datastore.di.SettingsStoreModule.Companion.dataStoreFileName
+import kotlinx.cinterop.ExperimentalForeignApi
+import platform.Foundation.NSDocumentDirectory
+import platform.Foundation.NSFileManager
+import platform.Foundation.NSURL
+import platform.Foundation.NSUserDomainMask
+
+@OptIn(ExperimentalForeignApi::class)
+actual fun producePath(): String {
+    val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
+        directory = NSDocumentDirectory,
+        inDomain = NSUserDomainMask,
+        appropriateForURL = null,
+        create = false,
+        error = null,
+    )
+    return requireNotNull(documentDirectory).path + "/$dataStoreFileName"
+}

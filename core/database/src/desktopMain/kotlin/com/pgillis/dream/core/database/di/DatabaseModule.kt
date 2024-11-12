@@ -6,7 +6,7 @@ import com.pgillis.dream.core.database.DreamDatabase
 import java.io.File
 
 actual fun getDatabaseBuilder(): RoomDatabase.Builder<DreamDatabase> {
-    val dbFile = File(System.getProperty("java.io.tmpdir"), "dream-reader.db")
+    val dbFile = File(System.getProperty("java.io.tmpdir"), dbName)
     return Room.databaseBuilder<DreamDatabase>(
         name = dbFile.absolutePath,
     )

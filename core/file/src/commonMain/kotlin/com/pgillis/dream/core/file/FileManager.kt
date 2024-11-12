@@ -20,10 +20,13 @@ class FileManager(
 ) {
     fun loadLibrary(libraryDir: IPlatformFile): Flow<Book> {
         val libraryCacheFolder = libraryDir.child(".cache", isDirectory = true) ?: return emptyFlow()
+        if (!libraryCacheFolder.getExists()) {
+            libraryCacheFolder.mkdir()
+        }
 
         return libraryDir.listEpubFilesRecursively()
             .flatMapMerge { file ->
-                val bookCacheFolder = libraryCacheFolder.child(file.getName(), isDirectory = true) ?: return@flatMapMerge emptyFlow()
+                val bookCacheFolder = libraryCacheFolder.child(file.nameWithoutExtension, isDirectory = true) ?: return@flatMapMerge emptyFlow()
 
                 compressionManager.decompressOrFind(file, bookCacheFolder)
                     .filterNotNull()
