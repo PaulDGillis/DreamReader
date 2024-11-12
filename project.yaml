@@ -1,11 +1,11 @@
 modules:
   - android-app
-  - ios-app
-  - jvm-app
-  - shared
-  - feature/library
-  - core/model
   - core/database
   - core/datastore
   - core/designsystem
   - core/file
+  - core/model
+  - feature/library
+#  - ios-app
+  - jvm-app
+  - shared

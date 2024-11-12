@@ -16,7 +16,7 @@
 setlocal
 
 @rem The version of the Amper distribution to provision and use
-set amper_version=0.5.0
+set amper_version=1.0-SNAPSHOT
 @rem Establish chain of trust from here by specifying exact checksum of Amper distribution to be run
 set amper_sha256=054f8a3a009d1f5bd749efff7fc97fb3c773d3ad6505120eb320ddb2ed17fb9b
 
@@ -111,8 +111,8 @@ REM ********** Provision Amper distribution **********
 
 set amper_url=%AMPER_DOWNLOAD_ROOT%/org/jetbrains/amper/cli/%amper_version%/cli-%amper_version%-dist.tgz
 set amper_target_dir=%AMPER_BOOTSTRAP_CACHE_DIR%\amper-cli-%amper_version%
-call :download_and_extract "Amper distribution v%amper_version%" "%amper_url%" "%amper_target_dir%" "%amper_sha256%" "256"
-if errorlevel 1 goto fail
+REM call :download_and_extract "Amper distribution v%amper_version%" "%amper_url%" "%amper_target_dir%" "%amper_sha256%" "256"
+REM if errorlevel 1 goto fail
 
 REM ********** Provision JRE for Amper **********
 

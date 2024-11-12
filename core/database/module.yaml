@@ -2,17 +2,28 @@ product:
   type: lib
   platforms: [jvm, android, iosSimulatorArm64]
 
+module:
+  layout: gradle-kmp
+
 dependencies:
-  - ../model
+  - io.insert-koin:koin-compose:4.0.0
   - androidx.room:room-runtime:2.7.0-alpha11
   - androidx.sqlite:sqlite-bundled:2.5.0-alpha11
-  - io.insert-koin:koin-compose:4.0.0
 
 settings:
   kotlin:
     serialization: json
-    ksp:
-      processors:
-        - androidx.room:room-compiler:2.7.0-alpha11
-      processorOptions:
-        room.schemaLocation: ./schemas
+#    ksp:
+#      processors:
+#        - androidx.room:room-compiler:2.7.0-alpha11
+# we want separate schema locations for each platform, otherwise there might be concurrency issues
+#settings@jvm:
+#  kotlin:
+#    ksp:
+#      processorOptions:
+#        room.schemaLocation: ./generated-db-schema/jvm
+#settings@android:
+#  kotlin:
+#    ksp:
+#      processorOptions:
+#        room.schemaLocation: ./generated-db-schema/android

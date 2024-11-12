@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pgillis.dream.core.database.dao.BookDao
 import com.pgillis.dream.core.database.model.BookWithManifest
-import com.pgillis.dream.core.database.model.asBook
-import com.pgillis.dream.core.database.model.asBookEntity
-import com.pgillis.dream.core.database.model.asManifestDataEntities
-import com.pgillis.dream.core.database.model.asMetaDataEntity
+import com.pgillis.dream.feature.library.model.asBook
+import com.pgillis.dream.feature.library.model.asBookEntity
+import com.pgillis.dream.feature.library.model.asManifestDataEntities
+import com.pgillis.dream.feature.library.model.asMetaDataEntity
 import com.pgillis.dream.core.datastore.SettingsStore
 import com.pgillis.dream.core.file.FileManager
 import com.pgillis.dream.core.model.Book
