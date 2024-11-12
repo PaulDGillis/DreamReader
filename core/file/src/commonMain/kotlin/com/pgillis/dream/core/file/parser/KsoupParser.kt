@@ -11,6 +11,7 @@ import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
 import dev.zwander.kotlin.file.IPlatformFile
 import dev.zwander.kotlin.file.okio.toOkioSource
+import okio.use
 
 class KsoupParser: EpubParser {
     override fun parse(bookCacheDirectory: IPlatformFile): Book { //= trace("Dream parseDocFile") {

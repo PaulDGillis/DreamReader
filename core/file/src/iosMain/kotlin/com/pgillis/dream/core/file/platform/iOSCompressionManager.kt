@@ -8,8 +8,9 @@ import okio.Path
 import okio.Path.Companion.toPath
 import okio.buffer
 import okio.openZip
+import okio.use
 
-class JvmCompressionManager: CompressionManager {
+class iOSCompressionManager: CompressionManager {
     override fun decompressOrFind(
         file: IPlatformFile,
         bookCacheFolder: IPlatformFile
@@ -39,7 +40,6 @@ class JvmCompressionManager: CompressionManager {
         }
         emit(bookCacheFolder)
     }
-
 
     private fun Path.createParentDirectories() {
         this.parent?.let { parent ->
