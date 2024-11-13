@@ -25,7 +25,7 @@ dependencyResolutionManagement {
 rootProject.name = "DreamReader"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-include(":app")
+include(":composeApp")
 include(":core:database")
 include(":core:datastore")
 include(":core:designsystem")

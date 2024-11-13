@@ -7,7 +7,7 @@ android {
     buildFeatures {
         buildConfig = true
     }
-    namespace = "com.pgillis.paper.file"
+    namespace = "com.pgillis.dream.core.file"
     @Suppress("UnstableApiUsage")
     testOptions {
         unitTests {
@@ -33,6 +33,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.simple.storage)
+            implementation(libs.document.file)
         }
     }
 }

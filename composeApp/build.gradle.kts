@@ -3,10 +3,10 @@ import com.pgillis.dream.NiaBuildType
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    alias(libs.plugins.dream.multiplatform.application)
+    id("dream.multiplatform.application")
 //    alias(libs.plugins.dream.android.application.compose)
 //    alias(libs.plugins.dream.android.application.flavors)
-    alias(libs.plugins.dream.koin)
+    id("dream.koin")
     alias(libs.plugins.kotlin.serialization)
 }
 

@@ -11,6 +11,7 @@ androidxTracing = "1.2.0"
 coil = "3.0.2"
 composePlaceholder = "1.0.8"
 compose-multiplatform = "1.7.0"
+documentFile = "1.0.1"
 filekit = "0.8.7"
 kmpfile = "0.6.1"
 kotlinx-io = "0.5.4"
@@ -84,6 +85,7 @@ okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
 kotlinx-io = { group = "org.jetbrains.kotlinx", name = "kotlinx-io-core", version.ref = "kotlinx-io" }
 # Simple Storage, because Android File I/O is overcomplicated
 simple-storage = { group = "com.anggrayudi", name = "storage", version.ref = "simpleStorage" }
+document-file = { group = "androidx.documentfile", name = "documentfile", version.ref = "documentFile" }
 
 # Accompanist Permissions
 accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
