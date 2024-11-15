@@ -37,3 +37,6 @@ kotlin {
         }
     }
 }
+dependencies {
+    implementation(project(":shared"))
+}

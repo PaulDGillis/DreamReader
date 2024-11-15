@@ -12,6 +12,7 @@ kotlin {
             api(projects.core.database)
             api(projects.core.datastore)
             api(projects.core.file)
+            api(projects.shared)
 //            debugImplementation(libs.androidx.compose.ui.tooling)
 //    implementation(libs.androidx.lifecycle.runtimeCompose)
 

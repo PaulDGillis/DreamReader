@@ -1,0 +1,3745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:iosApp.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:Kotlin Debug"
+      name = "Kotlin Debug">
+      <Group
+         location = "container:../core"
+         name = "core">
+         <Group
+            location = "group:ui"
+            name = "ui">
+            <FileRef
+               location = "group:build.gradle.kts">
+            </FileRef>
+            <Group
+               location = "group:build"
+               name = "build">
+               <Group
+                  location = "group:generated"
+                  name = "generated">
+                  <Group
+                     location = "group:compose"
+                     name = "compose">
+                     <Group
+                        location = "group:resourceGenerator"
+                        name = "resourceGenerator">
+                        <Group
+                           location = "group:kotlin"
+                           name = "kotlin">
+                           <Group
+                              location = "group:iosArm64MainResourceCollectors"
+                              name = "iosArm64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:ui"
+                                       name = "ui">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:commonMainResourceCollectors"
+                              name = "commonMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:ui"
+                                       name = "ui">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ExpectResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:androidMainResourceCollectors"
+                              name = "androidMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:ui"
+                                       name = "ui">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:commonResClass"
+                              name = "commonResClass">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:ui"
+                                       name = "ui">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:Res.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosX64MainResourceCollectors"
+                              name = "iosX64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:ui"
+                                       name = "ui">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:desktopMainResourceCollectors"
+                              name = "desktopMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:ui"
+                                       name = "ui">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosSimulatorArm64MainResourceCollectors"
+                              name = "iosSimulatorArm64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:ui"
+                                       name = "ui">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                        <Group
+                           location = "group:assembledResources"
+                           name = "assembledResources">
+                           <Group
+                              location = "group:iosArm64Main"
+                              name = "iosArm64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.ui.generated.resources"
+                                    name = "dreamreader.core.ui.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:desktopMain"
+                              name = "desktopMain">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.ui.generated.resources"
+                                    name = "dreamreader.core.ui.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosX64Main"
+                              name = "iosX64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.ui.generated.resources"
+                                    name = "dreamreader.core.ui.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosSimulatorArm64Main"
+                              name = "iosSimulatorArm64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.ui.generated.resources"
+                                    name = "dreamreader.core.ui.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:processedResources"
+                  name = "processedResources">
+                  <Group
+                     location = "group:desktop"
+                     name = "desktop">
+                     <Group
+                        location = "group:main"
+                        name = "main">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.ui.generated.resources"
+                              name = "dreamreader.core.ui.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kotlin-multiplatform-resources"
+                  name = "kotlin-multiplatform-resources">
+                  <Group
+                     location = "group:assemble-hierarchically"
+                     name = "assemble-hierarchically">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.ui.generated.resources"
+                              name = "dreamreader.core.ui.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:iosSimulatorArm64"
+                        name = "iosSimulatorArm64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.ui.generated.resources"
+                              name = "dreamreader.core.ui.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:iosArm64"
+                        name = "iosArm64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.ui.generated.resources"
+                              name = "dreamreader.core.ui.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:zip-for-publication"
+                     name = "zip-for-publication">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <FileRef
+                           location = "group:ui.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:iosSimulatorArm64"
+                        name = "iosSimulatorArm64">
+                        <FileRef
+                           location = "group:ui.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:iosArm64"
+                        name = "iosArm64">
+                        <FileRef
+                           location = "group:ui.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:classes"
+                  name = "classes">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:klib"
+                              name = "klib">
+                              <FileRef
+                                 location = "group:ui.klib">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:desktop"
+                        name = "desktop">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:META-INF"
+                              name = "META-INF">
+                              <FileRef
+                                 location = "group:ui.kotlin_module">
+                              </FileRef>
+                           </Group>
+                           <Group
+                              location = "group:dreamreader"
+                              name = "dreamreader">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:ui"
+                                    name = "ui">
+                                    <Group
+                                       location = "group:generated"
+                                       name = "generated">
+                                       <Group
+                                          location = "group:resources"
+                                          name = "resources">
+                                          <FileRef
+                                             location = "group:Res$drawable.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$array.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$string.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$plurals.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$font.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:ActualResourceCollectorsKt.class">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:com"
+                              name = "com">
+                              <Group
+                                 location = "group:pgillis"
+                                 name = "pgillis">
+                                 <Group
+                                    location = "group:dream"
+                                    name = "dream">
+                                    <Group
+                                       location = "group:core"
+                                       name = "core">
+                                       <Group
+                                          location = "group:ui"
+                                          name = "ui">
+                                          <FileRef
+                                             location = "group:DevicePreviews.class">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kotlin"
+                  name = "kotlin">
+                  <Group
+                     location = "group:compileKotlinDesktop"
+                     name = "compileKotlinDesktop">
+                     <Group
+                        location = "group:cacheable"
+                        name = "cacheable">
+                        <FileRef
+                           location = "group:last-build.bin">
+                        </FileRef>
+                        <Group
+                           location = "group:caches-jvm"
+                           name = "caches-jvm">
+                           <Group
+                              location = "group:lookups"
+                              name = "lookups">
+                              <FileRef
+                                 location = "group:file-to-id.tab.values.at">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:counters.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.values.at">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.values.at">
+                              </FileRef>
+                           </Group>
+                           <Group
+                              location = "group:jvm"
+                              name = "jvm">
+                              <Group
+                                 location = "group:kotlin"
+                                 name = "kotlin">
+                                 <FileRef
+                                    location = "group:complementary-files.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.keystream">
+                                 </FileRef>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:inputs"
+                              name = "inputs">
+                              <FileRef
+                                 location = "group:source-to-output.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.values.at">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:classpath-snapshot"
+                        name = "classpath-snapshot">
+                        <FileRef
+                           location = "group:shrunk-classpath-snapshot.bin">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:local-state"
+                        name = "local-state">
+                        <FileRef
+                           location = "group:build-history.bin">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:libs"
+                  name = "libs">
+                  <FileRef
+                     location = "group:ui-desktop.jar">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tmp"
+                  name = "tmp">
+                  <Group
+                     location = "group:desktopJar"
+                     name = "desktopJar">
+                     <FileRef
+                        location = "group:MANIFEST.MF">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:commonMain"
+                  name = "commonMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:ui"
+                                    name = "ui">
+                                    <FileRef
+                                       location = "group:DevicePreviews.kt">
+                                    </FileRef>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:database"
+            name = "database">
+            <Group
+               location = "group:schemas"
+               name = "schemas">
+               <Group
+                  location = "group:com.pgillis.dream.core.database.DreamDatabase"
+                  name = "com.pgillis.dream.core.database.DreamDatabase">
+                  <FileRef
+                     location = "group:1.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:2.json">
+                  </FileRef>
+               </Group>
+            </Group>
+            <FileRef
+               location = "group:build.gradle.kts">
+            </FileRef>
+            <Group
+               location = "group:build"
+               name = "build">
+               <Group
+                  location = "group:generated"
+                  name = "generated">
+                  <Group
+                     location = "group:ksp"
+                     name = "ksp">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:iosX64Main"
+                           name = "iosX64Main">
+                           <Group
+                              location = "group:kotlin"
+                              name = "kotlin">
+                              <Group
+                                 location = "group:org"
+                                 name = "org">
+                                 <Group
+                                    location = "group:koin"
+                                    name = "koin">
+                                    <Group
+                                       location = "group:ksp"
+                                       name = "ksp">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <FileRef
+                                             location = "group:KoinMeta-1819905607.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:DatabaseModuleGencom$pgillis$dream$core$database$di.kt">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                              <Group
+                                 location = "group:com"
+                                 name = "com">
+                                 <Group
+                                    location = "group:pgillis"
+                                    name = "pgillis">
+                                    <Group
+                                       location = "group:dream"
+                                       name = "dream">
+                                       <Group
+                                          location = "group:core"
+                                          name = "core">
+                                          <Group
+                                             location = "group:database"
+                                             name = "database">
+                                             <FileRef
+                                                location = "group:AppDatabaseConstructor.kt">
+                                             </FileRef>
+                                             <FileRef
+                                                location = "group:DreamDatabase_AutoMigration_1_2_Impl.kt">
+                                             </FileRef>
+                                             <Group
+                                                location = "group:dao"
+                                                name = "dao">
+                                                <FileRef
+                                                   location = "group:BookDao_Impl.kt">
+                                                </FileRef>
+                                             </Group>
+                                             <FileRef
+                                                location = "group:DreamDatabase_Impl.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:desktop"
+                        name = "desktop">
+                        <Group
+                           location = "group:desktopMain"
+                           name = "desktopMain">
+                           <Group
+                              location = "group:kotlin"
+                              name = "kotlin">
+                              <Group
+                                 location = "group:org"
+                                 name = "org">
+                                 <Group
+                                    location = "group:koin"
+                                    name = "koin">
+                                    <Group
+                                       location = "group:ksp"
+                                       name = "ksp">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <FileRef
+                                             location = "group:KoinMeta-580582283.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:DatabaseModuleGencom$pgillis$dream$core$database$di.kt">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                              <Group
+                                 location = "group:com"
+                                 name = "com">
+                                 <Group
+                                    location = "group:pgillis"
+                                    name = "pgillis">
+                                    <Group
+                                       location = "group:dream"
+                                       name = "dream">
+                                       <Group
+                                          location = "group:core"
+                                          name = "core">
+                                          <Group
+                                             location = "group:database"
+                                             name = "database">
+                                             <FileRef
+                                                location = "group:AppDatabaseConstructor.kt">
+                                             </FileRef>
+                                             <Group
+                                                location = "group:dao"
+                                                name = "dao">
+                                                <FileRef
+                                                   location = "group:BookDao_Impl.kt">
+                                                </FileRef>
+                                             </Group>
+                                             <FileRef
+                                                location = "group:DreamDatabase_Impl.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:classes"
+                  name = "classes">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:klib"
+                              name = "klib">
+                              <FileRef
+                                 location = "group:database.klib">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kspCaches"
+                  name = "kspCaches">
+                  <Group
+                     location = "group:iosX64"
+                     name = "iosX64">
+                  </Group>
+                  <Group
+                     location = "group:desktop"
+                     name = "desktop">
+                     <Group
+                        location = "group:desktopMain"
+                        name = "desktopMain">
+                        <FileRef
+                           location = "group:ap-classpath-entries.bin">
+                        </FileRef>
+                        <FileRef
+                           location = "group:sealed">
+                        </FileRef>
+                        <FileRef
+                           location = "group:sourceToOutputs">
+                        </FileRef>
+                        <FileRef
+                           location = "group:classpath-structure.bin">
+                        </FileRef>
+                        <FileRef
+                           location = "group:classpath-entries.bin">
+                        </FileRef>
+                        <Group
+                           location = "group:logs"
+                           name = "logs">
+                        </Group>
+                        <FileRef
+                           location = "group:symbols">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:intermediates"
+                  name = "intermediates">
+                  <Group
+                     location = "group:room"
+                     name = "room">
+                     <Group
+                        location = "group:schemas"
+                        name = "schemas">
+                        <Group
+                           location = "group:kspKotlinIosX64"
+                           name = "kspKotlinIosX64">
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:iosMain"
+                  name = "iosMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:database"
+                                    name = "database">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:DatabaseModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:commonMain"
+                  name = "commonMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:database"
+                                    name = "database">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:DatabaseModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                    <Group
+                                       location = "group:util"
+                                       name = "util">
+                                       <FileRef
+                                          location = "group:SpineConverter.kt">
+                                       </FileRef>
+                                    </Group>
+                                    <Group
+                                       location = "group:dao"
+                                       name = "dao">
+                                       <FileRef
+                                          location = "group:BookDao.kt">
+                                       </FileRef>
+                                    </Group>
+                                    <Group
+                                       location = "group:model"
+                                       name = "model">
+                                       <FileRef
+                                          location = "group:BookEntity.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:ManifestEntity.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:BookWithManifest.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:CategoryEntity.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:MetaDataEntity.kt">
+                                       </FileRef>
+                                    </Group>
+                                    <FileRef
+                                       location = "group:DreamDatabase.kt">
+                                    </FileRef>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:desktopMain"
+                  name = "desktopMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:database"
+                                    name = "database">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:DatabaseModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:androidMain"
+                  name = "androidMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:database"
+                                    name = "database">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:DatabaseModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:designsystem"
+            name = "designsystem">
+            <FileRef
+               location = "group:build.gradle.kts">
+            </FileRef>
+            <Group
+               location = "group:build"
+               name = "build">
+               <Group
+                  location = "group:generated"
+                  name = "generated">
+                  <Group
+                     location = "group:compose"
+                     name = "compose">
+                     <Group
+                        location = "group:resourceGenerator"
+                        name = "resourceGenerator">
+                        <Group
+                           location = "group:kotlin"
+                           name = "kotlin">
+                           <Group
+                              location = "group:iosArm64MainResourceCollectors"
+                              name = "iosArm64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:designsystem"
+                                       name = "designsystem">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:commonMainResourceCollectors"
+                              name = "commonMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:designsystem"
+                                       name = "designsystem">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ExpectResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:androidMainResourceCollectors"
+                              name = "androidMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:designsystem"
+                                       name = "designsystem">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:commonResClass"
+                              name = "commonResClass">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:designsystem"
+                                       name = "designsystem">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:Res.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosX64MainResourceCollectors"
+                              name = "iosX64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:designsystem"
+                                       name = "designsystem">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:desktopMainResourceCollectors"
+                              name = "desktopMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:designsystem"
+                                       name = "designsystem">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosSimulatorArm64MainResourceCollectors"
+                              name = "iosSimulatorArm64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:core"
+                                    name = "core">
+                                    <Group
+                                       location = "group:designsystem"
+                                       name = "designsystem">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                        <Group
+                           location = "group:assembledResources"
+                           name = "assembledResources">
+                           <Group
+                              location = "group:iosArm64Main"
+                              name = "iosArm64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.designsystem.generated.resources"
+                                    name = "dreamreader.core.designsystem.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:desktopMain"
+                              name = "desktopMain">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.designsystem.generated.resources"
+                                    name = "dreamreader.core.designsystem.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosX64Main"
+                              name = "iosX64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.designsystem.generated.resources"
+                                    name = "dreamreader.core.designsystem.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosSimulatorArm64Main"
+                              name = "iosSimulatorArm64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.core.designsystem.generated.resources"
+                                    name = "dreamreader.core.designsystem.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:processedResources"
+                  name = "processedResources">
+                  <Group
+                     location = "group:desktop"
+                     name = "desktop">
+                     <Group
+                        location = "group:main"
+                        name = "main">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.designsystem.generated.resources"
+                              name = "dreamreader.core.designsystem.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kotlin-multiplatform-resources"
+                  name = "kotlin-multiplatform-resources">
+                  <Group
+                     location = "group:assemble-hierarchically"
+                     name = "assemble-hierarchically">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.designsystem.generated.resources"
+                              name = "dreamreader.core.designsystem.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:iosSimulatorArm64"
+                        name = "iosSimulatorArm64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.designsystem.generated.resources"
+                              name = "dreamreader.core.designsystem.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:iosArm64"
+                        name = "iosArm64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.core.designsystem.generated.resources"
+                              name = "dreamreader.core.designsystem.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:zip-for-publication"
+                     name = "zip-for-publication">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <FileRef
+                           location = "group:designsystem.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:iosSimulatorArm64"
+                        name = "iosSimulatorArm64">
+                        <FileRef
+                           location = "group:designsystem.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:iosArm64"
+                        name = "iosArm64">
+                        <FileRef
+                           location = "group:designsystem.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:classes"
+                  name = "classes">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:klib"
+                              name = "klib">
+                              <FileRef
+                                 location = "group:designsystem.klib">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:desktop"
+                        name = "desktop">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:META-INF"
+                              name = "META-INF">
+                              <FileRef
+                                 location = "group:designsystem.kotlin_module">
+                              </FileRef>
+                           </Group>
+                           <Group
+                              location = "group:dreamreader"
+                              name = "dreamreader">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:designsystem"
+                                    name = "designsystem">
+                                    <Group
+                                       location = "group:generated"
+                                       name = "generated">
+                                       <Group
+                                          location = "group:resources"
+                                          name = "resources">
+                                          <FileRef
+                                             location = "group:Res$drawable.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$array.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$string.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$plurals.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Res$font.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:ActualResourceCollectorsKt.class">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:com"
+                              name = "com">
+                              <Group
+                                 location = "group:pgillis"
+                                 name = "pgillis">
+                                 <Group
+                                    location = "group:dream"
+                                    name = "dream">
+                                    <Group
+                                       location = "group:core"
+                                       name = "core">
+                                       <Group
+                                          location = "group:designsystem"
+                                          name = "designsystem">
+                                          <Group
+                                             location = "group:theme"
+                                             name = "theme">
+                                             <FileRef
+                                                location = "group:ColorKt.class">
+                                             </FileRef>
+                                             <FileRef
+                                                location = "group:TypeKt.class">
+                                             </FileRef>
+                                             <FileRef
+                                                location = "group:ThemeKt.class">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kotlin"
+                  name = "kotlin">
+                  <Group
+                     location = "group:compileKotlinDesktop"
+                     name = "compileKotlinDesktop">
+                     <Group
+                        location = "group:cacheable"
+                        name = "cacheable">
+                        <FileRef
+                           location = "group:last-build.bin">
+                        </FileRef>
+                        <Group
+                           location = "group:caches-jvm"
+                           name = "caches-jvm">
+                           <Group
+                              location = "group:lookups"
+                              name = "lookups">
+                              <FileRef
+                                 location = "group:file-to-id.tab.values.at">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:counters.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.values.at">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.values.at">
+                              </FileRef>
+                           </Group>
+                           <Group
+                              location = "group:jvm"
+                              name = "jvm">
+                              <Group
+                                 location = "group:kotlin"
+                                 name = "kotlin">
+                                 <FileRef
+                                    location = "group:complementary-files.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:complementary-files.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:package-parts.tab.len">
+                                 </FileRef>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:inputs"
+                              name = "inputs">
+                              <FileRef
+                                 location = "group:source-to-output.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.values.at">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:classpath-snapshot"
+                        name = "classpath-snapshot">
+                        <FileRef
+                           location = "group:shrunk-classpath-snapshot.bin">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:local-state"
+                        name = "local-state">
+                        <FileRef
+                           location = "group:build-history.bin">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:libs"
+                  name = "libs">
+                  <FileRef
+                     location = "group:designsystem-desktop.jar">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tmp"
+                  name = "tmp">
+                  <Group
+                     location = "group:desktopJar"
+                     name = "desktopJar">
+                     <FileRef
+                        location = "group:MANIFEST.MF">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:commonMain"
+                  name = "commonMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:designsystem"
+                                    name = "designsystem">
+                                    <Group
+                                       location = "group:theme"
+                                       name = "theme">
+                                       <FileRef
+                                          location = "group:Color.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:Theme.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:Type.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:file"
+            name = "file">
+            <FileRef
+               location = "group:build.gradle.kts">
+            </FileRef>
+            <Group
+               location = "group:build"
+               name = "build">
+               <Group
+                  location = "group:generated"
+                  name = "generated">
+                  <Group
+                     location = "group:ksp"
+                     name = "ksp">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:iosX64Main"
+                           name = "iosX64Main">
+                           <Group
+                              location = "group:kotlin"
+                              name = "kotlin">
+                              <Group
+                                 location = "group:org"
+                                 name = "org">
+                                 <Group
+                                    location = "group:koin"
+                                    name = "koin">
+                                    <Group
+                                       location = "group:ksp"
+                                       name = "ksp">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <FileRef
+                                             location = "group:KoinDefault-1382171985.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:FileManagerModuleGencom$pgillis$dream$core$file$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:CompressionManagerModuleGencom$pgillis$dream$core$file$platform$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:EpubParserModuleGencom$pgillis$dream$core$file$parser$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:KoinMeta-1264429518.kt">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:desktop"
+                        name = "desktop">
+                        <Group
+                           location = "group:desktopMain"
+                           name = "desktopMain">
+                           <Group
+                              location = "group:kotlin"
+                              name = "kotlin">
+                              <Group
+                                 location = "group:org"
+                                 name = "org">
+                                 <Group
+                                    location = "group:koin"
+                                    name = "koin">
+                                    <Group
+                                       location = "group:ksp"
+                                       name = "ksp">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <FileRef
+                                             location = "group:KoinMeta-215454876.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:FileManagerModuleGencom$pgillis$dream$core$file$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:CompressionManagerModuleGencom$pgillis$dream$core$file$platform$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:EpubParserModuleGencom$pgillis$dream$core$file$parser$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:KoinDefault--1988474416.kt">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:classes"
+                  name = "classes">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:klib"
+                              name = "klib">
+                              <FileRef
+                                 location = "group:file.klib">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kspCaches"
+                  name = "kspCaches">
+                  <Group
+                     location = "group:iosX64"
+                     name = "iosX64">
+                  </Group>
+                  <Group
+                     location = "group:desktop"
+                     name = "desktop">
+                     <Group
+                        location = "group:desktopMain"
+                        name = "desktopMain">
+                        <FileRef
+                           location = "group:ap-classpath-entries.bin">
+                        </FileRef>
+                        <FileRef
+                           location = "group:sealed">
+                        </FileRef>
+                        <FileRef
+                           location = "group:sourceToOutputs">
+                        </FileRef>
+                        <FileRef
+                           location = "group:classpath-structure.bin">
+                        </FileRef>
+                        <FileRef
+                           location = "group:classpath-entries.bin">
+                        </FileRef>
+                        <Group
+                           location = "group:logs"
+                           name = "logs">
+                        </Group>
+                        <FileRef
+                           location = "group:symbols">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:iosMain"
+                  name = "iosMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:file"
+                                    name = "file">
+                                    <Group
+                                       location = "group:platform"
+                                       name = "platform">
+                                       <FileRef
+                                          location = "group:FileUtils.ios.kt">
+                                       </FileRef>
+                                       <Group
+                                          location = "group:di"
+                                          name = "di">
+                                          <FileRef
+                                             location = "group:CompressionManagerModule.ios.kt">
+                                          </FileRef>
+                                       </Group>
+                                       <FileRef
+                                          location = "group:iOSCompressionManager.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:commonMain"
+                  name = "commonMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:file"
+                                    name = "file">
+                                    <FileRef
+                                       location = "group:IPlatformFile.kt">
+                                    </FileRef>
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:FileManagerModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                    <Group
+                                       location = "group:platform"
+                                       name = "platform">
+                                       <Group
+                                          location = "group:di"
+                                          name = "di">
+                                          <FileRef
+                                             location = "group:CompressionManagerModule.kt">
+                                          </FileRef>
+                                       </Group>
+                                       <FileRef
+                                          location = "group:CompressionManager.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:FileUtils.kt">
+                                       </FileRef>
+                                    </Group>
+                                    <FileRef
+                                       location = "group:FileManager.kt">
+                                    </FileRef>
+                                    <Group
+                                       location = "group:parser"
+                                       name = "parser">
+                                       <Group
+                                          location = "group:di"
+                                          name = "di">
+                                          <FileRef
+                                             location = "group:EpubParserModule.kt">
+                                          </FileRef>
+                                       </Group>
+                                       <FileRef
+                                          location = "group:KsoupParser.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:EpubParser.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:assets"
+                     name = "assets">
+                     <FileRef
+                        location = "group:Moby_Dick.epub">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:desktopMain"
+                  name = "desktopMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:file"
+                                    name = "file">
+                                    <Group
+                                       location = "group:platform"
+                                       name = "platform">
+                                       <Group
+                                          location = "group:di"
+                                          name = "di">
+                                          <FileRef
+                                             location = "group:CompressionManagerModule.kt">
+                                          </FileRef>
+                                       </Group>
+                                       <FileRef
+                                          location = "group:FileUtils.desktop.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:JvmCompressionManager.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:commonTest"
+                  name = "commonTest">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:file"
+                                    name = "file">
+                                    <FileRef
+                                       location = "group:JvmUnitTestDemoAssetManager.kt">
+                                    </FileRef>
+                                    <FileRef
+                                       location = "group:KsoupParserTest.kt">
+                                    </FileRef>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:androidMain"
+                  name = "androidMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:file"
+                                    name = "file">
+                                    <Group
+                                       location = "group:platform"
+                                       name = "platform">
+                                       <Group
+                                          location = "group:di"
+                                          name = "di">
+                                          <FileRef
+                                             location = "group:CompressionManagerModule.kt">
+                                          </FileRef>
+                                       </Group>
+                                       <FileRef
+                                          location = "group:FileUtils.android.kt">
+                                       </FileRef>
+                                       <FileRef
+                                          location = "group:AndroidCompressionManager.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:datastore"
+            name = "datastore">
+            <FileRef
+               location = "group:build.gradle.kts">
+            </FileRef>
+            <Group
+               location = "group:build"
+               name = "build">
+               <Group
+                  location = "group:generated"
+                  name = "generated">
+                  <Group
+                     location = "group:ksp"
+                     name = "ksp">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:iosX64Main"
+                           name = "iosX64Main">
+                           <Group
+                              location = "group:kotlin"
+                              name = "kotlin">
+                              <Group
+                                 location = "group:org"
+                                 name = "org">
+                                 <Group
+                                    location = "group:koin"
+                                    name = "koin">
+                                    <Group
+                                       location = "group:ksp"
+                                       name = "ksp">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <FileRef
+                                             location = "group:KoinDefault--1987868662.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:SettingsStoreModuleGencom$pgillis$dream$core$datastore$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:KoinMeta-1706550626.kt">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:desktop"
+                        name = "desktop">
+                        <Group
+                           location = "group:desktopMain"
+                           name = "desktopMain">
+                           <Group
+                              location = "group:kotlin"
+                              name = "kotlin">
+                              <Group
+                                 location = "group:org"
+                                 name = "org">
+                                 <Group
+                                    location = "group:koin"
+                                    name = "koin">
+                                    <Group
+                                       location = "group:ksp"
+                                       name = "ksp">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <FileRef
+                                             location = "group:SettingsStoreModuleGencom$pgillis$dream$core$datastore$di.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:KoinMeta-752166532.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:KoinDefault--1484155570.kt">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:classes"
+                  name = "classes">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:klib"
+                              name = "klib">
+                              <FileRef
+                                 location = "group:datastore.klib">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kspCaches"
+                  name = "kspCaches">
+                  <Group
+                     location = "group:iosX64"
+                     name = "iosX64">
+                  </Group>
+                  <Group
+                     location = "group:desktop"
+                     name = "desktop">
+                     <Group
+                        location = "group:desktopMain"
+                        name = "desktopMain">
+                        <FileRef
+                           location = "group:ap-classpath-entries.bin">
+                        </FileRef>
+                        <FileRef
+                           location = "group:sealed">
+                        </FileRef>
+                        <FileRef
+                           location = "group:sourceToOutputs">
+                        </FileRef>
+                        <FileRef
+                           location = "group:classpath-structure.bin">
+                        </FileRef>
+                        <FileRef
+                           location = "group:classpath-entries.bin">
+                        </FileRef>
+                        <Group
+                           location = "group:logs"
+                           name = "logs">
+                        </Group>
+                        <FileRef
+                           location = "group:symbols">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:iosMain"
+                  name = "iosMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:datastore"
+                                    name = "datastore">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:SettingsStoreModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:commonMain"
+                  name = "commonMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:datastore"
+                                    name = "datastore">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:SettingsStoreModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                    <FileRef
+                                       location = "group:SettingsStore.kt">
+                                    </FileRef>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:desktopMain"
+                  name = "desktopMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:datastore"
+                                    name = "datastore">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:SettingsStoreModule.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:androidMain"
+                  name = "androidMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:datastore"
+                                    name = "datastore">
+                                    <Group
+                                       location = "group:di"
+                                       name = "di">
+                                       <FileRef
+                                          location = "group:SettingsStoreModule.android.kt">
+                                       </FileRef>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:model"
+            name = "model">
+            <FileRef
+               location = "group:build.gradle.kts">
+            </FileRef>
+            <Group
+               location = "group:build"
+               name = "build">
+               <Group
+                  location = "group:classes"
+                  name = "classes">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:klib"
+                              name = "klib">
+                              <FileRef
+                                 location = "group:model.klib">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:desktop"
+                        name = "desktop">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:META-INF"
+                              name = "META-INF">
+                              <FileRef
+                                 location = "group:model.kotlin_module">
+                              </FileRef>
+                           </Group>
+                           <Group
+                              location = "group:com"
+                              name = "com">
+                              <Group
+                                 location = "group:pgillis"
+                                 name = "pgillis">
+                                 <Group
+                                    location = "group:dream"
+                                    name = "dream">
+                                    <Group
+                                       location = "group:core"
+                                       name = "core">
+                                       <Group
+                                          location = "group:model"
+                                          name = "model">
+                                          <FileRef
+                                             location = "group:MetaData.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Settings$Companion.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Settings$Theme.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Settings.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:Book.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:MetaData$Companion.class">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:MetaData$$serializer.class">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kotlin"
+                  name = "kotlin">
+                  <Group
+                     location = "group:compileKotlinDesktop"
+                     name = "compileKotlinDesktop">
+                     <Group
+                        location = "group:cacheable"
+                        name = "cacheable">
+                        <FileRef
+                           location = "group:last-build.bin">
+                        </FileRef>
+                        <Group
+                           location = "group:caches-jvm"
+                           name = "caches-jvm">
+                           <Group
+                              location = "group:lookups"
+                              name = "lookups">
+                              <FileRef
+                                 location = "group:file-to-id.tab.values.at">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:counters.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:file-to-id.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.values.at">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:lookups.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:id-to-file.tab.values.at">
+                              </FileRef>
+                           </Group>
+                           <Group
+                              location = "group:jvm"
+                              name = "jvm">
+                              <Group
+                                 location = "group:kotlin"
+                                 name = "kotlin">
+                                 <FileRef
+                                    location = "group:subtypes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:source-to-classes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:internal-name-to-source.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:subtypes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.keystream.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-fq-name-to-source.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab_i.len">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab.values.at">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:class-attributes.tab.keystream">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:proto.tab_i">
+                                 </FileRef>
+                                 <FileRef
+                                    location = "group:supertypes.tab.keystream">
+                                 </FileRef>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:inputs"
+                              name = "inputs">
+                              <FileRef
+                                 location = "group:source-to-output.tab_i">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.keystream.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab_i.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.keystream">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.len">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:source-to-output.tab.values.at">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:classpath-snapshot"
+                        name = "classpath-snapshot">
+                        <FileRef
+                           location = "group:shrunk-classpath-snapshot.bin">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:local-state"
+                        name = "local-state">
+                        <FileRef
+                           location = "group:build-history.bin">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:libs"
+                  name = "libs">
+                  <FileRef
+                     location = "group:model-desktop.jar">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tmp"
+                  name = "tmp">
+                  <Group
+                     location = "group:desktopJar"
+                     name = "desktopJar">
+                     <FileRef
+                        location = "group:MANIFEST.MF">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:commonMain"
+                  name = "commonMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:core"
+                                 name = "core">
+                                 <Group
+                                    location = "group:model"
+                                    name = "model">
+                                    <FileRef
+                                       location = "group:Book.kt">
+                                    </FileRef>
+                                    <FileRef
+                                       location = "group:Settings.kt">
+                                    </FileRef>
+                                    <FileRef
+                                       location = "group:MetaData.kt">
+                                    </FileRef>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "container:../feature"
+         name = "feature">
+         <Group
+            location = "group:library"
+            name = "library">
+            <FileRef
+               location = "group:build.gradle.kts">
+            </FileRef>
+            <Group
+               location = "group:build"
+               name = "build">
+               <Group
+                  location = "group:generated"
+                  name = "generated">
+                  <Group
+                     location = "group:ksp"
+                     name = "ksp">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:iosX64Main"
+                           name = "iosX64Main">
+                           <Group
+                              location = "group:kotlin"
+                              name = "kotlin">
+                              <Group
+                                 location = "group:org"
+                                 name = "org">
+                                 <Group
+                                    location = "group:koin"
+                                    name = "koin">
+                                    <Group
+                                       location = "group:ksp"
+                                       name = "ksp">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <FileRef
+                                             location = "group:KoinDefault--235669175.kt">
+                                          </FileRef>
+                                          <FileRef
+                                             location = "group:KoinMeta-1045257055.kt">
+                                          </FileRef>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:compose"
+                     name = "compose">
+                     <Group
+                        location = "group:resourceGenerator"
+                        name = "resourceGenerator">
+                        <Group
+                           location = "group:kotlin"
+                           name = "kotlin">
+                           <Group
+                              location = "group:iosArm64MainResourceCollectors"
+                              name = "iosArm64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:feature"
+                                    name = "feature">
+                                    <Group
+                                       location = "group:library"
+                                       name = "library">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:commonMainResourceCollectors"
+                              name = "commonMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:feature"
+                                    name = "feature">
+                                    <Group
+                                       location = "group:library"
+                                       name = "library">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ExpectResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:androidMainResourceCollectors"
+                              name = "androidMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:feature"
+                                    name = "feature">
+                                    <Group
+                                       location = "group:library"
+                                       name = "library">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:commonResClass"
+                              name = "commonResClass">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:feature"
+                                    name = "feature">
+                                    <Group
+                                       location = "group:library"
+                                       name = "library">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:Res.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosX64MainResourceCollectors"
+                              name = "iosX64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:feature"
+                                    name = "feature">
+                                    <Group
+                                       location = "group:library"
+                                       name = "library">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:desktopMainResourceCollectors"
+                              name = "desktopMainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:feature"
+                                    name = "feature">
+                                    <Group
+                                       location = "group:library"
+                                       name = "library">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosSimulatorArm64MainResourceCollectors"
+                              name = "iosSimulatorArm64MainResourceCollectors">
+                              <Group
+                                 location = "group:dreamreader"
+                                 name = "dreamreader">
+                                 <Group
+                                    location = "group:feature"
+                                    name = "feature">
+                                    <Group
+                                       location = "group:library"
+                                       name = "library">
+                                       <Group
+                                          location = "group:generated"
+                                          name = "generated">
+                                          <Group
+                                             location = "group:resources"
+                                             name = "resources">
+                                             <FileRef
+                                                location = "group:ActualResourceCollectors.kt">
+                                             </FileRef>
+                                          </Group>
+                                       </Group>
+                                    </Group>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                        <Group
+                           location = "group:assembledResources"
+                           name = "assembledResources">
+                           <Group
+                              location = "group:iosArm64Main"
+                              name = "iosArm64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.feature.library.generated.resources"
+                                    name = "dreamreader.feature.library.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:desktopMain"
+                              name = "desktopMain">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.feature.library.generated.resources"
+                                    name = "dreamreader.feature.library.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosX64Main"
+                              name = "iosX64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.feature.library.generated.resources"
+                                    name = "dreamreader.feature.library.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                           <Group
+                              location = "group:iosSimulatorArm64Main"
+                              name = "iosSimulatorArm64Main">
+                              <Group
+                                 location = "group:composeResources"
+                                 name = "composeResources">
+                                 <Group
+                                    location = "group:dreamreader.feature.library.generated.resources"
+                                    name = "dreamreader.feature.library.generated.resources">
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kotlin-multiplatform-resources"
+                  name = "kotlin-multiplatform-resources">
+                  <Group
+                     location = "group:assemble-hierarchically"
+                     name = "assemble-hierarchically">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.feature.library.generated.resources"
+                              name = "dreamreader.feature.library.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:iosSimulatorArm64"
+                        name = "iosSimulatorArm64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.feature.library.generated.resources"
+                              name = "dreamreader.feature.library.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:iosArm64"
+                        name = "iosArm64">
+                        <Group
+                           location = "group:composeResources"
+                           name = "composeResources">
+                           <Group
+                              location = "group:dreamreader.feature.library.generated.resources"
+                              name = "dreamreader.feature.library.generated.resources">
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:zip-for-publication"
+                     name = "zip-for-publication">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <FileRef
+                           location = "group:library.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:iosSimulatorArm64"
+                        name = "iosSimulatorArm64">
+                        <FileRef
+                           location = "group:library.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:iosArm64"
+                        name = "iosArm64">
+                        <FileRef
+                           location = "group:library.kotlin_resources.zip">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:classes"
+                  name = "classes">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:iosX64"
+                        name = "iosX64">
+                        <Group
+                           location = "group:main"
+                           name = "main">
+                           <Group
+                              location = "group:klib"
+                              name = "klib">
+                              <FileRef
+                                 location = "group:library.klib">
+                              </FileRef>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:kspCaches"
+                  name = "kspCaches">
+                  <Group
+                     location = "group:iosX64"
+                     name = "iosX64">
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:commonMain"
+                  name = "commonMain">
+                  <Group
+                     location = "group:kotlin"
+                     name = "kotlin">
+                     <Group
+                        location = "group:com"
+                        name = "com">
+                        <Group
+                           location = "group:pgillis"
+                           name = "pgillis">
+                           <Group
+                              location = "group:dream"
+                              name = "dream">
+                              <Group
+                                 location = "group:feature"
+                                 name = "feature">
+                                 <Group
+                                    location = "group:library"
+                                    name = "library">
+                                    <FileRef
+                                       location = "group:LibraryViewModel.kt">
+                                    </FileRef>
+                                    <FileRef
+                                       location = "group:LibraryScreen.kt">
+                                    </FileRef>
+                                    <FileRef
+                                       location = "group:LibraryUIState.kt">
+                                    </FileRef>
+                                 </Group>
+                              </Group>
+                           </Group>
+                        </Group>
+                     </Group>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "container:../composeApp/src/commonMain"
+         name = "commonMain">
+         <Group
+            location = "group:kotlin"
+            name = "kotlin">
+            <Group
+               location = "group:com"
+               name = "com">
+               <Group
+                  location = "group:pgillis"
+                  name = "pgillis">
+                  <Group
+                     location = "group:dream"
+                     name = "dream">
+                     <FileRef
+                        location = "group:App.kt">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "container:../composeApp/src/iosMain"
+         name = "iosMain">
+         <Group
+            location = "group:kotlin"
+            name = "kotlin">
+            <Group
+               location = "group:com"
+               name = "com">
+               <Group
+                  location = "group:pgillis"
+                  name = "pgillis">
+                  <Group
+                     location = "group:dream"
+                     name = "dream">
+                     <FileRef
+                        location = "group:MainViewController.kt">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+   </Group>
+</Workspace>

@@ -13,6 +13,8 @@ import com.pgillis.dream.core.file.FileManager
 import com.pgillis.dream.core.file.platform.asIPlatformFile
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.Settings
+import com.pgillis.dream.shared.Platform
+import com.pgillis.dream.shared.IPlatform
 import dev.zwander.kotlin.file.IPlatformFile
 import dev.zwander.kotlin.file.filekit.toKmpFile
 import io.github.vinceglb.filekit.core.PlatformDirectory
@@ -53,7 +55,9 @@ class LibraryViewModel(
     }
 
     fun onDirectorySelected(directory: PlatformDirectory) {
-        val libraryDirectory = directory.toKmpFile()
+        val libraryDirectory = if (Platform == IPlatform.Ios) {
+            directory.path?.asIPlatformFile() ?: return
+        } else directory.toKmpFile()
         viewModelScope.launch(Dispatchers.IO) {
             settingsStore.update { it.copy(libraryDir = libraryDirectory.getPath()) }
         }

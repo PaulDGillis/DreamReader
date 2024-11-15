@@ -10,6 +10,7 @@ import dev.zwander.kotlin.file.PlatformUriFile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.mapNotNull
+import okio.Path.Companion.toPath
 
 class AndroidCompressionManager(
     private val context: Context
@@ -18,6 +19,9 @@ class AndroidCompressionManager(
         file: IPlatformFile,
         bookCacheFolder: IPlatformFile
     ): Flow<IPlatformFile?> {
+//        val okioPath = file.getPath().toPath()
+//        println(okioPath)
+//        content:/com.android.externalstorage.documents/tree/primary%3ADocuments%2FBooks/document/primary%3ADocuments%2FBooks%2FCarnegie%2C%20Dale%20-%20How%20to%20Win%20Friends%20and%20Influence%20People-HarperCollins%20Canada_HarperPerennial%20Classics%20(2014).epub
         if (bookCacheFolder.isDirectory() &&
             bookCacheFolder.listFiles()?.isNotEmpty() == true) {
             return flowOf(bookCacheFolder)

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D0C99B4C-E2CF-482B-8D01-E83DFE00DA3E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C358232E-97D1-4D10-B2B7-4F0252E3D436"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/FileManager.kt"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40F01D67-3F83-4880-B819-6057B108D928"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../feature/library/src/commonMain/kotlin/com/pgillis/dream/feature/library/LibraryViewModel.kt"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B27FC51-D3F3-4807-B2DA-D67C60DCAB3D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/FileManager.kt"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE - ae19e6a509744cd3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "kfun:com.pgillis.dream.core.file.$listEpubFilesRecursively$lambda$3$lambda$0COROUTINE$0.&lt;init&gt;#internal"
+                  moduleName = "DreamReader.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/projs/DreamReaderRedo/core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
+               <Location
+                  uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE - 73556b76bd6baa2e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "kfun:com.pgillis.dream.core.file.$listEpubFilesRecursively$lambda$3$lambda$0COROUTINE$0.invokeSuspend#internal"
+                  moduleName = "DreamReader.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/projs/DreamReaderRedo/core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
+               <Location
+                  uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE - 73556b76bd6baa2e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "kfun:com.pgillis.dream.core.file.$listEpubFilesRecursively$lambda$3$lambda$0COROUTINE$0.invokeSuspend#internal"
+                  moduleName = "DreamReader.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/projs/DreamReaderRedo/core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
+               <Location
+                  uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE - d2ce4c2c8aacbfd4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "kfun:com.pgillis.dream.core.file.listEpubFilesRecursively$lambda$3$lambda$0#internal"
+                  moduleName = "DreamReader.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/projs/DreamReaderRedo/core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
+               <Location
+                  uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE - a0a95b0197ddb2b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "kfun:com.pgillis.dream.core.file.listEpubFilesRecursively$lambda$3#internal"
+                  moduleName = "DreamReader.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/projs/DreamReaderRedo/core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
+               <Location
+                  uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE - ba239a2d686fa839"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "kfun:com.pgillis.dream.core.file.$listEpubFilesRecursively$lambda$3$lambda$0$FUNCTION_REFERENCE$2.invoke#internal"
+                  moduleName = "DreamReader.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/projs/DreamReaderRedo/core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
+               <Location
+                  uuid = "B0E0BEDE-97C9-4529-A3B3-2F0CFCA664BE - f3f57414d6e44997"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "kfun:com.pgillis.dream.core.file.$listEpubFilesRecursively$lambda$3$lambda$0$FUNCTION_REFERENCE$2.&lt;init&gt;#internal"
+                  moduleName = "DreamReader.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/projs/DreamReaderRedo/core/file/src/commonMain/kotlin/com/pgillis/dream/core/file/IPlatformFile.kt"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
