@@ -32,7 +32,7 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation(libs.simple.storage)
+//            implementation(libs.simple.storage)
             implementation(libs.document.file)
         }
     }

@@ -3,36 +3,57 @@ package com.pgillis.dream.core.file.platform
 import android.content.Context
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
-import okio.*
+import okio.FileHandle
+import okio.FileMetadata
+import okio.FileSystem
+import okio.IOException
+import okio.Path
 import okio.Path.Companion.toPath
+import okio.Sink
+import okio.Source
+import okio.sink
+import okio.source
 
 data class DTFSException(override val message: String? = null): Exception()
 
 class DocumentTreeFileSystem(
     private val context: Context,
-    rootFilePathStr: String
+    private val rootFilePathStr: String
 ): FileSystem() {
     private val rootDocumentFile = DocumentFile.fromTreeUri(context, rootFilePathStr.toUri())!!
-    private val rootDocumentFilePath = AndroidIOPath(rootFilePathStr.toPath().toString())
 
-    private fun AndroidIOPath.convertToRelativePath(): AndroidIOPath {
-        return if (fullPathStr.contains("content")) {
-            relativeToPath(rootDocumentFilePath)
-        } else this.copy(isRelative = true)
+    private fun String.convertToRelativePath(): String {
+        return if (contains("content")) {
+            substringAfterLast(rootFilePathStr)
+        } else this
     }
 
-    private fun DocumentFile.findFile(path: AndroidIOPath, mkdirs: Boolean = false): DocumentFile {
-        if (path.isEmpty) return this
+    private fun Path.convertToRelativePath(): Path {
+        return toString().replace(":/", "://").convertToRelativePath().toPath()
+    }
+
+    private val Path.pathPartsAsNames
+        get() = toString().let { pathName ->
+            pathName.split(Path.DIRECTORY_SEPARATOR)
+                .filter { it.isNotEmpty() }
+        }
+
+    private val Path.lastPart
+        get() = toString().split(Path.DIRECTORY_SEPARATOR).last().toPath()
+
+    private val DocumentFile.fileName
+        get() = uri.path!!.substringAfterLast(Path.DIRECTORY_SEPARATOR)
+
+    private fun DocumentFile.findFile(path: Path): DocumentFile {
+        val pathStr = path.toString()
+        if (pathStr == "/" || pathStr == "." || pathStr.isEmpty()) return this
         if (!path.isRelative) throw DTFSException("Can't use findFile on a non-relative path")
 
         var current = this
-        path.children.forEach { childName ->
-            if (childName.isEmpty) return@forEach
-            val temp = current.findFile(childName)
-            current = if (mkdirs && !temp.exists()) {
-                current.createDirectory(childName.toString())
-                    ?: throw DTFSException("Can't create directory with name $childName at $path")
-            } else temp
+        path.pathPartsAsNames.forEach { pathPart ->
+            if (pathPart.isEmpty()) return@forEach
+            current = current.listFiles().firstOrNull { it.fileName == pathPart }
+                ?: throw DTFSException("Can't find directory with name $pathPart at $path")
         }
         return current
     }
@@ -50,8 +71,14 @@ class DocumentTreeFileSystem(
     }
 
     override fun createDirectory(dir: Path, mustCreate: Boolean) {
-        val dirPath = AndroidIOPath(dir.toString()).convertToRelativePath()
-        rootDocumentFile.findFile(dirPath, true)
+        val dirPath = dir.convertToRelativePath()
+        var current = rootDocumentFile
+        dirPath.pathPartsAsNames.forEach { childName ->
+            if (childName.isEmpty()) return@forEach
+            current = current.listFiles().firstOrNull { it.fileName == childName }
+                ?: current.createDirectory(childName)
+                ?: throw DTFSException("Can't create directory with name $childName at $dirPath")
+        }
     }
 
     override fun createSymlink(source: Path, target: Path) {
@@ -59,7 +86,7 @@ class DocumentTreeFileSystem(
     }
 
     override fun delete(path: Path, mustExist: Boolean) {
-        val ioPath = AndroidIOPath(path.toString()).convertToRelativePath()
+        val ioPath = path.convertToRelativePath()
 
         try {
             rootDocumentFile.findFile(ioPath).delete()
@@ -72,7 +99,7 @@ class DocumentTreeFileSystem(
     }
 
     override fun list(dir: Path): List<Path> {
-        val ioPath = AndroidIOPath(dir.toString()).convertToRelativePath()
+        val ioPath = dir.convertToRelativePath()
         val docFile = rootDocumentFile.findFile(ioPath)
         if (docFile.isDirectory.not()) throw DTFSException("$dir is not a directory!")
         return docFile.listFiles().map { it.uri.toString().toPath() }
@@ -88,9 +115,9 @@ class DocumentTreeFileSystem(
     }
 
     override fun metadataOrNull(path: Path): FileMetadata? {
-        val ioPath = AndroidIOPath(path.toString()).convertToRelativePath()
+        val ioPath = path.convertToRelativePath()
         try {
-            val docFile = rootDocumentFile.findFile(ioPath, true)
+            val docFile = rootDocumentFile.findFile(ioPath)
             return FileMetadata(
                 isRegularFile = docFile.isFile,
                 isDirectory = docFile.isDirectory,
@@ -100,30 +127,28 @@ class DocumentTreeFileSystem(
                 lastAccessedAtMillis = null
             )
         } catch (e: DTFSException) {
-            e.printStackTrace()
             return null
         }
     }
 
     override fun openReadOnly(file: Path): FileHandle {
-        val ioPath = AndroidIOPath(file.toString()).convertToRelativePath()
+        val ioPath = file.convertToRelativePath()
         return DocumentFileHandle(context, rootDocumentFile.findFile(ioPath), readWrite = false)
     }
 
     override fun openReadWrite(file: Path, mustCreate: Boolean, mustExist: Boolean): FileHandle {
-        val ioPath = AndroidIOPath(file.toString()).convertToRelativePath()
+        val ioPath = file.convertToRelativePath()
         return DocumentFileHandle(context, rootDocumentFile.findFile(ioPath), readWrite = true)
     }
 
     override fun sink(file: Path, mustCreate: Boolean): Sink {
-        val ioPath = AndroidIOPath(file.toString()).convertToRelativePath()
-        val docFile = rootDocumentFile.findFile(ioPath, false)
+        val ioPath = file.convertToRelativePath()
+        val parentFolder = rootDocumentFile.findFile(ioPath.parent!!)
+        val fileNamePath = ioPath.lastPart
+        val docFile = parentFolder.listFiles().firstOrNull { it.name == fileNamePath.toString() }
+            ?: parentFolder.createFile("", fileNamePath.toString())
 
-        if (!docFile.exists()) throw IOException("Failed to create file $file")
-        if (docFile.isDirectory) {
-            throw IOException("HOW R U A DIRECTORY")
-        }
-
+        if (docFile?.exists() != true) throw IOException("Failed to create file $file")
         return docFile.uri.let { uri ->
             context.contentResolver.openOutputStream(uri)
         }?.sink()
@@ -131,7 +156,7 @@ class DocumentTreeFileSystem(
     }
 
     override fun source(file: Path): Source {
-        val ioPath = AndroidIOPath(file.toString()).convertToRelativePath()
+        val ioPath = file.convertToRelativePath()
         val docFile = rootDocumentFile.findFile(ioPath)
         if (docFile.isFile.not())
             throw DTFSException("$file is not a file!")

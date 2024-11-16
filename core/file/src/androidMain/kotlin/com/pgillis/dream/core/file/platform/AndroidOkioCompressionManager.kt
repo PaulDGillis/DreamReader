@@ -39,13 +39,13 @@ class AndroidOkioCompressionManager(
         try {
             paths.forEach { zipFilePath ->
                 zipFileSystem.source(zipFilePath).buffer().use { source ->
-                    val relativeFilePath = zipFilePath.toString().trimStart('/')
-                    val fileToWrite = bookCacheFolderPath.resolveFileToWrite(relativeFilePath)
+                    val relativeFilePath = zipFilePath.toString().trimStart('/').toPath()
+//                    val fileToWrite = bookCacheFolderPath.resolveFileToWrite(relativeFilePath)
 
-                    bookCacheFS.createParentDirectories(fileToWrite)
-                    bookCacheFS.sink(fileToWrite).buffer().use { sink ->
+                    bookCacheFS.createParentDirectories(relativeFilePath)
+                    bookCacheFS.sink(relativeFilePath).buffer().use { sink ->
                         val bytes = sink.writeAll(source)
-                        println("Unzipped: $relativeFilePath to $fileToWrite; $bytes bytes written")
+                        println("Unzipped: $relativeFilePath; $bytes bytes written")
                     }
                 }
             }
@@ -62,7 +62,9 @@ class AndroidOkioCompressionManager(
     }
 
     private fun DocumentTreeFileSystem.createParentDirectories(path: Path) {
-        val dirPath = (Path.DIRECTORY_SEPARATOR + path.toString().substringBeforeLast(Path.DIRECTORY_SEPARATOR)).toPath()
-        createDirectories(dirPath)
+        val dirPath = path.parent
+        if (dirPath != null && dirPath.toString() != ".") {
+            createDirectories(dirPath)
+        }
     }
 }

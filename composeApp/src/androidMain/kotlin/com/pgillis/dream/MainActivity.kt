@@ -1,5 +1,6 @@
 package com.pgillis.dream
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,7 +20,11 @@ class MainActivity : ComponentActivity() {
             DreamReaderTheme {
                 val context = LocalContext.current
                 LibraryScreen { platformDirectory: PlatformDirectory ->
-                    platformDirectory.requestPlatformPermission(context)
+                    // Persist library directory uri permission
+                    context.contentResolver.takePersistableUriPermission(
+                        platformDirectory.uri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                    )
                 }
             }
         }

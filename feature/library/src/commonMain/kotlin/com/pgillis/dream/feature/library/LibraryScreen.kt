@@ -45,7 +45,7 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun LibraryScreen(
     viewModel: LibraryViewModel = koinViewModel(),
-    onDirectorySelected: (PlatformDirectory) -> Unit,
+    onDirectorySelected: (PlatformDirectory) -> Unit = {},
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     LibraryScreen(state = state, onDirectorySelected = {

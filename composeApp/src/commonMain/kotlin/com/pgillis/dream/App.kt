@@ -24,9 +24,7 @@ fun App() {
                 )
             }
         ) {
-            LibraryScreen { _: PlatformDirectory ->
-//                    platformDirectory.requestPlatformPermission(context)
-            }
+            LibraryScreen()
         }
     }
 }
