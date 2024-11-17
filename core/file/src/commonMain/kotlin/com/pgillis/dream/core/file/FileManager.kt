@@ -1,45 +1,94 @@
 package com.pgillis.dream.core.file
 
 import com.pgillis.dream.core.file.parser.EpubParser
-import com.pgillis.dream.core.file.platform.CompressionManager
 import com.pgillis.dream.core.model.Book
-import dev.zwander.kotlin.file.IPlatformFile
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.flatMapMerge
-import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
+import okio.*
+import okio.Path.Companion.toPath
 import org.koin.core.annotation.Single
 
-@OptIn(ExperimentalCoroutinesApi::class)
+expect fun createFileSystemAt(path: String): FileSystem
+
 @Single
 class FileManager(
-    private val compressionManager: CompressionManager,
     private val parser: EpubParser
 ) {
-    fun loadLibrary(libraryDir: IPlatformFile): Flow<Book> {
-        val libraryCacheFolder = libraryDir.child(".cache", isDirectory = true) ?: return emptyFlow()
-        if (!libraryCacheFolder.getExists()) {
-            libraryCacheFolder.mkdir()
+    private val Path.nameWithoutExtension
+        get() = name.substringBeforeLast(".")
+    fun loadLibrary(libraryDir: String): Flow<Book> {
+        val libraryDirPath = libraryDir.toPath()
+        val libraryCacheFolder = libraryDirPath / ".cache".toPath()
+        val fs = createFileSystemAt(libraryDir)
+        if (!fs.exists(libraryCacheFolder)) {
+            fs.createDirectory(libraryCacheFolder)
         }
 
-        return libraryDir.listEpubFilesRecursively()
-            .flatMapMerge { file ->
-                val bookCacheFolder = libraryCacheFolder.child(file.nameWithoutExtension, isDirectory = true) ?: return@flatMapMerge emptyFlow()
-
-                compressionManager.decompressOrFind(file, bookCacheFolder)
-                    .filterNotNull()
-                    .mapNotNull { bookFile ->
-                        try {
-                            parser.parse(bookFile)
-                        } catch (e: Exception) {
-                            // TODO log
-                            e.printStackTrace()
-                            null
-                        }
+        return channelFlow {
+            fs.listRecursively(libraryDirPath)
+                .forEach { file ->
+                    launch {
+                        val bookCacheFolder = libraryCacheFolder / file.nameWithoutExtension
+                        decompressOrFind(file, bookCacheFolder)
+                            .mapNotNull { bookFile ->
+                                try {
+                                    parser.parse(bookFile)
+                                } catch (e: Exception) {
+                                    // TODO log
+                                    e.printStackTrace()
+                                    null
+                                }
+                            }.collect(::send)
                     }
-            }
+                }
+        }
+    }
 
+    private fun decompressOrFind(
+        file: Path,
+        bookCacheFolder: Path
+    ): Flow<Path> {
+        val fileSystem = createFileSystemAt(file.toString()) //DocumentTreeFileSystem(context, file.getPath())
+        val bookCacheFS = createFileSystemAt(bookCacheFolder.toString()) // DocumentTreeFileSystem(context, bookCacheFolder.getPath())
+
+        val zipFileSystem: FileSystem?
+        try {
+            zipFileSystem = fileSystem.openZip(file)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return flowOf()
+        }
+        val paths = zipFileSystem.listRecursively("/".toPath())
+            .filter { zipFileSystem.metadata(it).isRegularFile }
+            .toList()
+
+        return channelFlow {
+            paths.forEach { zipFilePath ->
+                launch {
+                    try {
+                        zipFileSystem.source(zipFilePath).buffer().use { source ->
+                            val relativeFilePath = zipFilePath.toString().trimStart('/').toPath()
+                            val fileToWrite = bookCacheFolder.resolve(relativeFilePath)
+
+                            bookCacheFS.createParentDirectories(fileToWrite)
+                            bookCacheFS.sink(fileToWrite).buffer().use { sink ->
+                                val bytes = sink.writeAll(source)
+                                println("Unzipped: $relativeFilePath; $bytes bytes written")
+                            }
+                        }
+                        send(bookCacheFolder)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun FileSystem.createParentDirectories(path: Path) {
+        val dirPath = path.parent
+        if (dirPath != null && dirPath.toString() != ".") {
+            createDirectories(dirPath)
+        }
     }
 }

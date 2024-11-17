@@ -1,4 +1,4 @@
-package com.pgillis.dream.core.file.platform
+package com.pgillis.dream.core.file
 
 import android.content.Context
 import androidx.core.net.toUri
@@ -29,7 +29,11 @@ class DocumentTreeFileSystem(
     }
 
     private fun Path.convertToRelativePath(): Path {
-        return toString().replace(":/", "://").convertToRelativePath().toPath()
+        val contentCorrection = toString().replace(":/", "://").convertToRelativePath()
+        val result = if (contentCorrection.firstOrNull() == '/') {
+            contentCorrection.substring(1)
+        } else contentCorrection
+        return result.toPath()
     }
 
     private val Path.pathPartsAsNames

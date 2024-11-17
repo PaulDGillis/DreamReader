@@ -1,8 +1,7 @@
-package com.pgillis.dream.core.file.platform
+package com.pgillis.dream.core.file
 
 import android.content.Context
 import android.system.Os.*
-import android.system.OsConstants
 import androidx.documentfile.provider.DocumentFile
 import okio.FileHandle
 import okio.IOException

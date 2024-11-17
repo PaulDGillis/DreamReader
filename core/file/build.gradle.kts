@@ -21,11 +21,8 @@ kotlin {
         commonMain.dependencies {
             api(projects.core.model)
             implementation(libs.okio)
-            implementation(libs.kotlinx.io)
             implementation(libs.ksoup)
 
-            implementation(libs.kmpfile)
-            implementation(libs.kmpfile.okio)
         //    implementation(libs.androidx.tracing.ktx)
 
 //            testImplementation(libs.kotlinx.coroutines.test)

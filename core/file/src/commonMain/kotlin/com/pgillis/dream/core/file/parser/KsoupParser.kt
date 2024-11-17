@@ -9,12 +9,11 @@ import com.pgillis.dream.core.file.findChildByPath
 import com.pgillis.dream.core.file.listFilesRecursively
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
-import dev.zwander.kotlin.file.IPlatformFile
-import dev.zwander.kotlin.file.okio.toOkioSource
+import okio.Path
 import okio.use
 
 class KsoupParser: EpubParser {
-    override fun parse(bookCacheDirectory: IPlatformFile): Book { //= trace("Dream parseDocFile") {
+    override fun parse(bookCacheDirectory: Path): Book { //= trace("Dream parseDocFile") {
         // Find root epub file in CONTAINER_PATH or attempt to manually find a .opf
         val opfFile = bookCacheDirectory.findOpfFile()
         val opfParent = opfFile.getParentFile()
