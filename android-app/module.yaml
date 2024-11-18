@@ -1,0 +1,10 @@
+product: android/app
+
+dependencies:
+    - ../feature/library
+
+settings:
+    android:
+        namespace: "com.pgillis.dream"
+#        signing: enabled
+    compose: enabled

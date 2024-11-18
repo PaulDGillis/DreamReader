@@ -1,0 +1,19 @@
+product:
+    type: lib
+    platforms: [android, jvm, iosSimulatorArm64]
+
+apply:
+    - ../../feature.module-template.yaml
+
+dependencies:
+    - ../../core/database
+    - ../../core/datastore
+    - ../../core/file
+    - ../../core/model
+#    - ../../shared
+    # Compose Placeholder
+    - $libs.compose.placeholder
+    # Compose File UI Picker
+    - $libs.filekit
+    # Compose Image Loading
+    - $libs.coil.compose

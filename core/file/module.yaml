@@ -1,0 +1,14 @@
+product:
+    type: lib
+    platforms: [android, jvm, iosSimulatorArm64]
+
+dependencies:
+    - ../model
+    - $libs.okio
+    - $libs.ksoup
+    - $libs.koin.core
+    - $libs.kotlinx.coroutines.core
+
+dependencies@android:
+    - $libs.document.file
+    - $libs.koin.android

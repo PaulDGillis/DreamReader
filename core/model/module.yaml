@@ -1,0 +1,7 @@
+product:
+    type: lib
+    platforms: [android, jvm, iosSimulatorArm64]
+
+settings:
+    kotlin:
+        serialization: json

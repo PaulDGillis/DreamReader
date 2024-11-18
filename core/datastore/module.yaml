@@ -1,0 +1,9 @@
+product:
+    type: lib
+    platforms: [android, jvm, iosSimulatorArm64]
+
+dependencies:
+    - ../model
+    - $libs.koin.core
+    - $libs.androidx.datastore.core.okio
+    - $libs.androidx.datastore.preferences.core

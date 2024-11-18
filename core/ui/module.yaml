@@ -1,0 +1,16 @@
+product:
+    type: lib
+    platforms: [android, jvm, iosSimulatorArm64]
+
+dependencies:
+    - $compose.runtime
+    - $compose.foundation
+    - $compose.material
+    - $compose.ui
+    - $compose.uiTooling
+    - $compose.preview
+dependencies@jvm:
+    - $compose.desktop.currentOs
+
+settings:
+    compose: enabled

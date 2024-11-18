@@ -25,7 +25,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 class KoinConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply(libs.findPlugin("ksp").get().get().pluginId)
+//            pluginManager.apply(libs.findPlugin("ksp").get().get().pluginId)
 
             // Add support for Jvm Module, base on org.jetbrains.kotlin.jvm
             pluginManager.withPlugin(libs.findPlugin("kotlin.multiplatform").get().get().pluginId) {

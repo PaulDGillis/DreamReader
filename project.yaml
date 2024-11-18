@@ -1,0 +1,12 @@
+modules:
+    - shared
+    - feature/library
+    - core/database
+    - core/datastore
+    - core/designsystem
+    - core/file
+    - core/model
+#    - core/ui
+    - android-app
+    - desktop-app
+    - ios-app

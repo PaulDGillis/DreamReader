@@ -1,0 +1,24 @@
+product:
+    type: lib
+    platforms: [android, jvm, iosSimulatorArm64]
+
+dependencies:
+    - ../model
+    - $libs.koin.core
+    - $libs.room.runtime
+    - $libs.sqlite.bundled
+dependencies@android:
+    - $libs.room.ktx
+    - $libs.koin.android
+
+settings:
+    kotlin:
+        serialization: json
+settings@android:
+    kotlin:
+        ksp:
+            processors:
+                - $libs.room.compiler
+            processorOptions:
+                room.generateKotlin: true
+                room.schemaLocation: ./schemas
