@@ -1,15 +1,13 @@
 package com.pgillis.dream
 
 import androidx.compose.runtime.Composable
-import com.pgillis.dream.core.database.di.DatabaseModule
-import com.pgillis.dream.core.datastore.di.SettingsStoreModule
+import com.pgillis.dream.core.database.di.databaseModule
+import com.pgillis.dream.core.datastore.di.settingsStoreModule
 import com.pgillis.dream.core.designsystem.theme.DreamReaderTheme
-import com.pgillis.dream.core.file.di.FileManagerModule
+import com.pgillis.dream.core.file.di.fileManagerModule
+import com.pgillis.dream.di.appModule
 import com.pgillis.dream.feature.library.LibraryScreen
-import io.github.vinceglb.filekit.core.PlatformDirectory
 import org.koin.compose.KoinApplication
-import org.koin.ksp.generated.defaultModule
-import org.koin.ksp.generated.module
 
 @Composable
 fun App() {
@@ -17,10 +15,11 @@ fun App() {
         KoinApplication(
             application = {
                 modules(
-                    defaultModule,
-                    DatabaseModule().module,
-                    SettingsStoreModule().module,
-                    FileManagerModule().module
+//                    defaultModule(),
+                    appModule,
+                    databaseModule,
+                    settingsStoreModule,
+                    fileManagerModule
                 )
             }
         ) {

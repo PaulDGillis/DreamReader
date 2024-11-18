@@ -29,23 +29,31 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("androidx.room")
+//                apply("androidx.room")
                 apply("com.google.devtools.ksp")
             }
 
             extensions.configure<KspExtension> {
                 arg("room.generateKotlin", "true")
+                arg("room.schemaLocation", "$projectDir/schemas")
             }
 
-            extensions.configure<RoomExtension> {
+//            extensions.configure<RoomExtension> {
                 // The schemas directory contains a schema file for each version of the Room database.
                 // This is required to enable Room auto migrations.
                 // See https://developer.android.com/reference/kotlin/androidx/room/AutoMigration.
-                schemaDirectory("$projectDir/schemas")
-            }
+//                schemaDirectory("$projectDir/schemas")
+//            }
 
             dependencies {
-                kspTargets.forEach {
+                listOf(
+//                    "kspCommonMainMetadata",
+                    "kspDesktop",
+                    "kspAndroid",
+                    "kspIosX64",
+                    "kspIosArm64",
+                    "kspIosSimulatorArm64"
+                ).forEach {
                     add(it, libs.findLibrary("room.compiler").get())
                 }
             }

@@ -13,11 +13,9 @@ import okio.Path.Companion.toPath
 import okio.buffer
 import okio.openZip
 import okio.use
-import org.koin.core.annotation.Single
 
 expect fun createFileSystemAt(path: String): FileSystem
 
-@Single
 class FileManager(
     private val parser: EpubParser
 ) {

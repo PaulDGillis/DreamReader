@@ -1,6 +1,5 @@
 package com.pgillis.dream.core.datastore.di
 
-import com.pgillis.dream.core.datastore.di.SettingsStoreModule.Companion.dataStoreFileName
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSFileManager

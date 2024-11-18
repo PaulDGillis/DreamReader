@@ -25,9 +25,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import okio.Path
 import okio.Path.Companion.toPath
-import org.koin.android.annotation.KoinViewModel
 
-@KoinViewModel
 class LibraryViewModel(
     private val settingsStore: SettingsStore,
     private val bookDao: BookDao,

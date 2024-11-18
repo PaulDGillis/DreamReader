@@ -34,7 +34,7 @@ class KoinConventionPlugin : Plugin<Project> {
                         commonMain.dependencies {
                             implementation(libs.findLibrary("koin.compose").get())
                             implementation(libs.findLibrary("koin.compose.viewmodel").get())
-                            api(libs.findLibrary("koin.annotations").get())
+//                            api(libs.findLibrary("koin.annotations").get())
 //                        implementation(libs.findLibrary("koin.compose.viewmodel.navigation").get())
                         }
                         androidMain.dependencies {
@@ -44,16 +44,16 @@ class KoinConventionPlugin : Plugin<Project> {
                 }
             }
 
-            dependencies.apply {
-                kspTargets.forEach {
-                    add(it, libs.findLibrary("koin.ksp.compiler").get())
-                }
-            }
-
-            extensions.configure<KspExtension> {
-                arg("KOIN_CONFIG_CHECK","true")
-                arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
-            }
+//            dependencies.apply {
+//                kspTargets.forEach {
+//                    add(it, libs.findLibrary("koin.ksp.compiler").get())
+//                }
+//            }
+//
+//            extensions.configure<KspExtension> {
+//                arg("KOIN_CONFIG_CHECK","true")
+//                arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
+//            }
         }
     }
 }

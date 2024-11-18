@@ -1,6 +1,5 @@
 package com.pgillis.dream.core.datastore.di
 
-import com.pgillis.dream.core.datastore.di.SettingsStoreModule.Companion.dataStoreFileName
 import java.io.File
 
 actual fun producePath(): String {
