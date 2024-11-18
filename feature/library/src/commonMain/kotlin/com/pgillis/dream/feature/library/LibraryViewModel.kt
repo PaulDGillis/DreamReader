@@ -12,11 +12,6 @@ import com.pgillis.dream.core.datastore.SettingsStore
 import com.pgillis.dream.core.file.FileManager
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.Settings
-import com.pgillis.dream.shared.Platform
-import com.pgillis.dream.shared.IPlatform
-import dev.zwander.kotlin.file.FileUtils
-import dev.zwander.kotlin.file.IPlatformFile
-import dev.zwander.kotlin.file.filekit.toKmpFile
 import io.github.vinceglb.filekit.core.PlatformDirectory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -28,6 +23,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import okio.Path
+import okio.Path.Companion.toPath
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
@@ -49,22 +46,20 @@ class LibraryViewModel(
 
     init {
         viewModelScope.launch {
-            val libraryDir = settings.first().libraryDir?.asIPlatformFile() ?: return@launch
+            val libraryDir = settings.first().libraryDir?.toPath() ?: return@launch
             updateLibrary(libraryDir)
         }
     }
 
     fun onDirectorySelected(directory: PlatformDirectory) {
-        val libraryDirectory = if (Platform == IPlatform.Ios) {
-            directory.path?.asIPlatformFile() ?: return
-        } else directory.toKmpFile()
+        val libraryDirectory = directory.toPath()
         viewModelScope.launch(Dispatchers.IO) {
-            settingsStore.update { it.copy(libraryDir = libraryDirectory.getPath()) }
+            settingsStore.update { it.copy(libraryDir = libraryDirectory.toString()) }
         }
         updateLibrary(libraryDirectory)
     }
 
-    private fun updateLibrary(libraryDirectory: IPlatformFile) = viewModelScope.launch(Dispatchers.IO) {
+    private fun updateLibrary(libraryDirectory: Path) = viewModelScope.launch(Dispatchers.IO) {
         val idsToKeep = mutableSetOf<String>()
         fileManager.loadLibrary(libraryDirectory).collect { book ->
             idsToKeep.add(book.id)
@@ -76,7 +71,4 @@ class LibraryViewModel(
         }
         bookDao.deleteOldBooks(idsToKeep)
     }
-
-    private fun String.asIPlatformFile(isDirectory: Boolean = true) =
-        FileUtils.fromString(this, isDirectory)
 }

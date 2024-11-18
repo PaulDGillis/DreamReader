@@ -1,30 +1,23 @@
 package com.pgillis.dream.core.file.parser
 
-//import androidx.tracing.trace
 import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.io.SourceReader
 import com.fleeksoft.ksoup.io.from
 import com.fleeksoft.ksoup.parser.Parser
-import com.pgillis.dream.core.file.findChildByPath
-import com.pgillis.dream.core.file.listFilesRecursively
 import com.pgillis.dream.core.model.Book
 import com.pgillis.dream.core.model.MetaData
+import okio.FileSystem
 import okio.Path
+import okio.Path.Companion.toPath
 import okio.use
 
 class KsoupParser: EpubParser {
-    override fun parse(bookCacheDirectory: Path): Book { //= trace("Dream parseDocFile") {
+    override fun parse(fs: FileSystem, bookCacheDirectory: Path): Book {
         // Find root epub file in CONTAINER_PATH or attempt to manually find a .opf
-        val opfFile = bookCacheDirectory.findOpfFile()
-        val opfParent = opfFile.getParentFile()
+        val opfFile = bookCacheDirectory.parseMetaForOpfFile(fs)
+        val opfParent = opfFile.parent!!
         // Open/Close opfFile and parse into Ksoup Document
-        val opfDocument = opfFile.openInputStream()?.toOkioSource()?.use { source ->
-            Ksoup.parse(
-                sourceReader = SourceReader.from(source),
-                baseUri = "${opfParent?.getName()}",
-                parser = Parser.xmlParser()
-            )
-        } ?: throw Exception("Unable to open rootFile")
+        val opfDocument = opfFile.parseToDocument(fs)
 
         // Parse opfDoc into Metadata
         val metadata = MetaData(
@@ -52,17 +45,15 @@ class KsoupParser: EpubParser {
         val spineItems = opfDocument.selectFirst("spine")
             ?.children()
             ?.map { element -> element.attr("idref") }
-            ?: throw Exception("Can't find spine in .cache/${bookCacheDirectory.nameWithoutExtension}/${opfFile.getName()}")
+            ?: throw Exception("Can't find spine in $bookCacheDirectory/${opfFile.name}")
 
-        val spine = LinkedHashSet<String>(spineItems)
+        val spine = LinkedHashSet(spineItems)
 
         val bookId = opfDocument.selectFirst("metadata > dc\\:identifier")?.text()!!
 
         val coverFile = manifestItems[coverManifestId]?.let { opfRelativePath ->
-            opfParent?.findChildByPath(opfRelativePath)
-        } ?: manifestItems[propertyCover]?.let { opfRelativePath ->
-            opfParent?.findChildByPath(opfRelativePath)
-        }
+            opfParent.resolve(opfRelativePath)
+        } ?: manifestItems[propertyCover]?.let(opfParent::resolve)
 
         // Off to read it
         return Book(
@@ -70,19 +61,23 @@ class KsoupParser: EpubParser {
             metadata,
             manifestItems,
             spine,
-            coverFile?.getPath()
+            coverFile?.toString()
         )
     }
 
-    private fun IPlatformFile.findOpfFile() = findChildByPath("META-INF/container.xml") // Check CONTAINER_PATH exists in epub
-        ?.openInputStream() // Open Input Stream if it does, try to make it an okio one
-        ?.toOkioSource()
-        ?.use { source -> // Open and close file and parse into Ksoup Document
-            Ksoup.parse(SourceReader.from(source), "", parser = Parser.xmlParser())
-        }?.let { rootXmlDocument -> // If successfully parsed try to pull the opf file path from container.xml
-            rootXmlDocument.selectFirst("rootfile[full-path]")
-                ?.attr("full-path")
-                ?.let { findChildByPath(it) }
-        } ?: listFilesRecursively() // If any null in the chain, default to manual search for .opf in bookCacheDir
-                .first { it.getName().contains(".opf") }
+    private fun Path.parseToDocument(fs: FileSystem) = fs.source(this).use { source ->
+        Ksoup.parse(SourceReader.from(source), "", parser = Parser.xmlParser())
+    }
+
+    private fun Path.parseMetaForOpfFile(fs: FileSystem): Path {
+        val metaContainer = "META-INF/container.xml".toPath()
+        val fileToParse = this.resolve(metaContainer)
+        val metaContainerXmlDocument = fileToParse.parseToDocument(fs)
+        return metaContainerXmlDocument.selectFirst("rootfile[full-path]")
+            ?.attr("full-path")
+            ?.let { this / it.toPath() }
+            ?: fs.listRecursively(this).first {
+                it.name.contains(".opf")
+            }
+    }
 }

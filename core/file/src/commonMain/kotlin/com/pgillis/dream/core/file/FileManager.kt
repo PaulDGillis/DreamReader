@@ -2,10 +2,17 @@ package com.pgillis.dream.core.file
 
 import com.pgillis.dream.core.file.parser.EpubParser
 import com.pgillis.dream.core.model.Book
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.launch
-import okio.*
+import okio.FileSystem
+import okio.Path
 import okio.Path.Companion.toPath
+import okio.buffer
+import okio.openZip
+import okio.use
 import org.koin.core.annotation.Single
 
 expect fun createFileSystemAt(path: String): FileSystem
@@ -16,23 +23,23 @@ class FileManager(
 ) {
     private val Path.nameWithoutExtension
         get() = name.substringBeforeLast(".")
-    fun loadLibrary(libraryDir: String): Flow<Book> {
-        val libraryDirPath = libraryDir.toPath()
-        val libraryCacheFolder = libraryDirPath / ".cache".toPath()
-        val fs = createFileSystemAt(libraryDir)
+    fun loadLibrary(libraryDir: Path): Flow<Book> {
+        val fs = createFileSystemAt(libraryDir.toString())
+        val libraryCacheFolder = libraryDir / ".cache".toPath()
         if (!fs.exists(libraryCacheFolder)) {
             fs.createDirectory(libraryCacheFolder)
         }
 
         return channelFlow {
-            fs.listRecursively(libraryDirPath)
+            fs.listRecursively(libraryDir)
+                .filter { it.name != ".cache" && it.name.contains(".epub") }
                 .forEach { file ->
                     launch {
                         val bookCacheFolder = libraryCacheFolder / file.nameWithoutExtension
-                        decompressOrFind(file, bookCacheFolder)
+                        decompressOrFind(fs, file, bookCacheFolder)
                             .mapNotNull { bookFile ->
                                 try {
-                                    parser.parse(bookFile)
+                                    parser.parse(fs, bookFile)
                                 } catch (e: Exception) {
                                     // TODO log
                                     e.printStackTrace()
@@ -45,15 +52,13 @@ class FileManager(
     }
 
     private fun decompressOrFind(
+        fs: FileSystem,
         file: Path,
         bookCacheFolder: Path
     ): Flow<Path> {
-        val fileSystem = createFileSystemAt(file.toString()) //DocumentTreeFileSystem(context, file.getPath())
-        val bookCacheFS = createFileSystemAt(bookCacheFolder.toString()) // DocumentTreeFileSystem(context, bookCacheFolder.getPath())
-
         val zipFileSystem: FileSystem?
         try {
-            zipFileSystem = fileSystem.openZip(file)
+            zipFileSystem = fs.openZip(file)
         } catch (e: Exception) {
             e.printStackTrace()
             return flowOf()
@@ -70,8 +75,8 @@ class FileManager(
                             val relativeFilePath = zipFilePath.toString().trimStart('/').toPath()
                             val fileToWrite = bookCacheFolder.resolve(relativeFilePath)
 
-                            bookCacheFS.createParentDirectories(fileToWrite)
-                            bookCacheFS.sink(fileToWrite).buffer().use { sink ->
+                            fs.createParentDirectories(fileToWrite)
+                            fs.sink(fileToWrite).buffer().use { sink ->
                                 val bytes = sink.writeAll(source)
                                 println("Unzipped: $relativeFilePath; $bytes bytes written")
                             }

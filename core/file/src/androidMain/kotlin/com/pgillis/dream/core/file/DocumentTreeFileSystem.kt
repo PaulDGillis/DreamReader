@@ -20,16 +20,19 @@ class DocumentTreeFileSystem(
     private val context: Context,
     private val rootFilePathStr: String
 ): FileSystem() {
-    private val rootDocumentFile = DocumentFile.fromTreeUri(context, rootFilePathStr.toUri())!!
+    private val rootDocumentFile = DocumentFile.fromTreeUri(context, rootFilePathStr.replace(":/", "://").toUri())!!
+    private val rootDocumentFilePathStr by lazy {
+        rootDocumentFile.uri.toString()
+    }
 
     private fun String.convertToRelativePath(): String {
         return if (contains("content")) {
-            substringAfterLast(rootFilePathStr)
+            substringAfterLast(rootDocumentFilePathStr).substringAfterLast(rootFilePathStr)
         } else this
     }
 
     private fun Path.convertToRelativePath(): Path {
-        val contentCorrection = toString().replace(":/", "://").convertToRelativePath()
+        val contentCorrection = toString().convertToRelativePath() // .replace(":/", "://")
         val result = if (contentCorrection.firstOrNull() == '/') {
             contentCorrection.substring(1)
         } else contentCorrection
@@ -56,8 +59,9 @@ class DocumentTreeFileSystem(
         var current = this
         path.pathPartsAsNames.forEach { pathPart ->
             if (pathPart.isEmpty()) return@forEach
-            current = current.listFiles().firstOrNull { it.fileName == pathPart }
-                ?: throw DTFSException("Can't find directory with name $pathPart at $path")
+            current = current.listFiles().firstOrNull {
+                it.fileName == pathPart
+            } ?: throw DTFSException("Can't find directory with name $pathPart at $path")
         }
         return current
     }
@@ -106,7 +110,9 @@ class DocumentTreeFileSystem(
         val ioPath = dir.convertToRelativePath()
         val docFile = rootDocumentFile.findFile(ioPath)
         if (docFile.isDirectory.not()) throw DTFSException("$dir is not a directory!")
-        return docFile.listFiles().map { it.uri.toString().toPath() }
+        return docFile.listFiles().map {
+            it.uri.toString().toPath()
+        }
     }
 
     override fun listOrNull(dir: Path): List<Path>? {

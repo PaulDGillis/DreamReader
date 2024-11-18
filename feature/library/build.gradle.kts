@@ -21,8 +21,6 @@ kotlin {
 
             // Compose File UI Picker
             implementation(libs.filekit)
-            implementation(libs.kmpfile)
-            implementation(libs.kmpfile.filekit)
 
             // Compose Image Loading
             implementation(libs.coil.compose)
