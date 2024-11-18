@@ -22,19 +22,19 @@ class DocumentTreeFileSystem(
 ): FileSystem() {
     private val rootDocumentFile = DocumentFile.fromTreeUri(context, rootFilePathStr.replace(":/", "://").toUri())!!
     private val rootDocumentFilePathStr by lazy {
-        rootDocumentFile.uri.toString()
+        rootDocumentFile.uri.path!!
     }
 
     private fun String.convertToRelativePath(): String {
-        return if (contains("content")) {
-            substringAfterLast(rootDocumentFilePathStr).substringAfterLast(rootFilePathStr)
-        } else this
+//        return if (contains("content")) {
+        return substringAfterLast(rootDocumentFilePathStr).substringAfterLast(rootFilePathStr)
+//        } else this
     }
 
     private fun Path.convertToRelativePath(): Path {
         val contentCorrection = toString().convertToRelativePath() // .replace(":/", "://")
         val result = if (contentCorrection.firstOrNull() == '/') {
-            contentCorrection.substring(1)
+            contentCorrection.trimStart('/')
         } else contentCorrection
         return result.toPath()
     }
@@ -111,7 +111,7 @@ class DocumentTreeFileSystem(
         val docFile = rootDocumentFile.findFile(ioPath)
         if (docFile.isDirectory.not()) throw DTFSException("$dir is not a directory!")
         return docFile.listFiles().map {
-            it.uri.toString().toPath()
+            it.uri.path!!.toPath()
         }
     }
 

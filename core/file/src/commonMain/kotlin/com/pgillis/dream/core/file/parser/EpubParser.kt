@@ -5,5 +5,5 @@ import okio.FileSystem
 import okio.Path
 
 interface EpubParser {
-    fun parse(fs: FileSystem, bookCacheDirectory: Path): Book
+    fun parse(fs: FileSystem, libraryDir: Path, bookCacheDirectory: Path): Book
 }

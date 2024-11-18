@@ -12,7 +12,7 @@ import okio.Path.Companion.toPath
 import okio.use
 
 class KsoupParser: EpubParser {
-    override fun parse(fs: FileSystem, bookCacheDirectory: Path): Book {
+    override fun parse(fs: FileSystem, libraryDir: Path, bookCacheDirectory: Path): Book {
         // Find root epub file in CONTAINER_PATH or attempt to manually find a .opf
         val opfFile = bookCacheDirectory.parseMetaForOpfFile(fs)
         val opfParent = opfFile.parent!!
@@ -55,13 +55,18 @@ class KsoupParser: EpubParser {
             opfParent.resolve(opfRelativePath)
         } ?: manifestItems[propertyCover]?.let(opfParent::resolve)
 
+        val cover = when {
+            coverFile != null -> libraryDir.resolve(coverFile)
+            else -> null
+        }
+
         // Off to read it
         return Book(
             bookId,
             metadata,
             manifestItems,
             spine,
-            coverFile?.toString()
+            cover?.toString()
         )
     }
 

@@ -35,11 +35,11 @@ class FileManager(
                 .filter { it.name != ".cache" && it.name.contains(".epub") }
                 .forEach { file ->
                     launch {
-                        val bookCacheFolder = libraryCacheFolder / file.nameWithoutExtension
+                        val bookCacheFolder = ".cache".toPath() / file.nameWithoutExtension
                         decompressOrFind(fs, file, bookCacheFolder)
                             .mapNotNull { bookFile ->
                                 try {
-                                    parser.parse(fs, bookFile)
+                                    parser.parse(fs, libraryDir, bookFile)
                                 } catch (e: Exception) {
                                     // TODO log
                                     e.printStackTrace()
