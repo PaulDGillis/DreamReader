@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.dream.kotlin.multiplatform)
-    alias(libs.plugins.dream.android.room)
+    alias(libs.plugins.dream.kotlin)
+    alias(libs.plugins.dream.room)
     alias(libs.plugins.dream.koin)
     id("kotlinx-serialization")
 }

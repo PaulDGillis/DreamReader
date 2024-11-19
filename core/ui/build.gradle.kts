@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.dream.kotlin.multiplatform)
-    alias(libs.plugins.dream.compose.multiplatform)
+    alias(libs.plugins.dream.kotlin)
+    alias(libs.plugins.dream.compose)
 }
 
 android {

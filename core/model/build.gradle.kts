@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.dream.kotlin.multiplatform)
+    alias(libs.plugins.dream.kotlin)
     id("kotlinx-serialization")
 }
 

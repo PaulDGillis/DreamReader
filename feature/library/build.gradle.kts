@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.dream.compose.feature)
+    alias(libs.plugins.dream.feature)
 }
 
 android {

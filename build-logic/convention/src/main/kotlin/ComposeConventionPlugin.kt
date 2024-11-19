@@ -14,35 +14,23 @@
  *   limitations under the License.
  */
 
+import com.pgillis.dream.configureKotlinComposeMultiplatform
 import com.pgillis.dream.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-class KmpFeatureConventionPlugin : Plugin<Project> {
+class ComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply {
-                apply(libs.findPlugin("dream.kotlin.multiplatform").get().get().pluginId)
-                apply(libs.findPlugin("dream.compose.multiplatform").get().get().pluginId)
-                apply(libs.findPlugin("dream.koin").get().get().pluginId)
-                apply(libs.findPlugin("kotlin.serialization").get().get().pluginId)
+            with(pluginManager) {
+                apply(libs.findPlugin("compose.multiplatform").get().get().pluginId)
+                apply(libs.findPlugin("compose.compiler").get().get().pluginId)
             }
 
-//            extensions.configure<LibraryExtension> {
-//                testOptions.animationsDisabled = true
-//                configureGradleManagedDevices(this)
-//            }
-
             extensions.configure<KotlinMultiplatformExtension> {
-                sourceSets.apply {
-                    commonMain.dependencies {
-                        implementation(project(":core:ui"))
-                        implementation(project(":core:designsystem"))
-                        implementation(libs.findLibrary("kotlinx.serialization.json").get())
-                    }
-                }
+                configureKotlinComposeMultiplatform(this)
             }
         }
     }

@@ -1,9 +1,8 @@
 
-import com.pgillis.dream.NiaBuildType
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    id("dream.multiplatform.application")
+    id("dream.android.app")
 //    alias(libs.plugins.dream.android.application.compose)
 //    alias(libs.plugins.dream.android.application.flavors)
     id("dream.koin")
@@ -29,11 +28,10 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix = NiaBuildType.DEBUG.applicationIdSuffix
+            applicationIdSuffix = ".debug"
         }
         release {
             isMinifyEnabled = true
-            applicationIdSuffix = NiaBuildType.RELEASE.applicationIdSuffix
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
 
             // To publish on the Play store a private signing key is required, but to allow anyone

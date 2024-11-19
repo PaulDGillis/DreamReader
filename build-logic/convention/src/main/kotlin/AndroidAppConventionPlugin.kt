@@ -15,18 +15,15 @@
  */
 
 import com.android.build.api.dsl.ApplicationExtension
-import com.android.build.api.variant.ApplicationAndroidComponentsExtension
-import com.pgillis.dream.configureGradleManagedDevices
 import com.pgillis.dream.configureKotlinAndroid
 import com.pgillis.dream.configureKotlinMultiplatform
-import com.pgillis.dream.configurePrintApksTask
 import com.pgillis.dream.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-class MultiplatformApplicationConventionPlugin : Plugin<Project> {
+class AndroidAppConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
@@ -39,7 +36,7 @@ class MultiplatformApplicationConventionPlugin : Plugin<Project> {
             }
 
             with(pluginManager) {
-                apply(libs.findPlugin("dream.compose.multiplatform").get().get().pluginId)
+                apply(libs.findPlugin("dream.compose").get().get().pluginId)
                 apply(libs.findPlugin("dream.koin").get().get().pluginId)
             }
 
@@ -48,12 +45,6 @@ class MultiplatformApplicationConventionPlugin : Plugin<Project> {
                 defaultConfig.targetSdk = 34
                 @Suppress("UnstableApiUsage")
                 testOptions.animationsDisabled = true
-                configureGradleManagedDevices(this)
-            }
-
-            extensions.configure<ApplicationAndroidComponentsExtension> {
-                configurePrintApksTask(this)
-//                configureBadgingTasks(extensions.getByType<BaseExtension>(), this)
             }
         }
     }

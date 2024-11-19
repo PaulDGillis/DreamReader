@@ -44,29 +44,29 @@ tasks {
 
 gradlePlugin {
     plugins {
-        register("multiplatformApplication") {
-            id = "dream.multiplatform.application"
-            implementationClass = "MultiplatformApplicationConventionPlugin"
+        register("androidApp") {
+            id = "dream.android.app"
+            implementationClass = "AndroidAppConventionPlugin"
         }
-        register("kotlinFeature") {
-            id = "dream.compose.feature"
-            implementationClass = "KmpFeatureConventionPlugin"
+        register("feature") {
+            id = "dream.feature"
+            implementationClass = "FeatureConventionPlugin"
         }
         register("koin") {
             id = "dream.koin"
             implementationClass = "KoinConventionPlugin"
         }
-        register("androidRoom") {
-            id = "dream.android.room"
-            implementationClass = "AndroidRoomConventionPlugin"
+        register("room") {
+            id = "dream.room"
+            implementationClass = "RoomConventionPlugin"
         }
-        register("kotlinMultiplatform"){
-            id = "dream.kotlin.multiplatform"
-            implementationClass = "KotlinMultiplatformConventionPlugin"
+        register("kotlin"){
+            id = "dream.kotlin"
+            implementationClass = "KotlinConventionPlugin"
         }
-        register("composeMultiplatform"){
-            id = "dream.compose.multiplatform"
-            implementationClass = "ComposeMultiplatformConventionPlugin"
+        register("compose"){
+            id = "dream.compose"
+            implementationClass = "ComposeConventionPlugin"
         }
     }
 }
