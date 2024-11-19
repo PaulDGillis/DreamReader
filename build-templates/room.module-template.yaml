@@ -1,0 +1,15 @@
+dependencies:
+    - $libs.room.runtime: runtime-only
+#    - $libs.sqlite.bundled
+
+#dependencies@android:
+#    - $libs.room.ktx
+
+settings:
+    kotlin:
+        ksp:
+            processorOptions:
+                room.generateKotlin: true
+                room.schemaLocation: ./schemas
+            processors:
+                - $libs.room.compiler

@@ -1,0 +1,6 @@
+dependencies:
+    - $libs.koin.compose
+    - $libs.koin.compose.viewmodel
+
+dependencies@android:
+    - $libs.koin.android

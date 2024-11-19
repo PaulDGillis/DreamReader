@@ -1,0 +1,21 @@
+dependencies:
+    - $compose.runtime
+    - $compose.foundation
+    - $compose.ui
+    - $compose.uiTooling
+    - $compose.components.resources
+    - $compose.preview
+    - $compose.material3
+    - $compose.materialIconsExtended
+    - $libs.androidx.lifecycle.runtime.compose
+    - $libs.androidx.lifecycle.viewmodel.compose
+
+dependencies@jvm:
+    - $compose.desktop.currentOs
+
+dependencies@android:
+    - $compose.preview
+    - $libs.androidx.activity.compose
+
+settings:
+    compose: enabled

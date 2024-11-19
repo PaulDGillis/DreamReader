@@ -1,21 +1,19 @@
 product:
     type: lib
     platforms: [android, jvm, iosSimulatorArm64]
+module:
+    layout: gradle-kmp
+    
+apply:
+    - ../../build-templates/koin.module-template.yaml
 
 dependencies:
     - ../model
-    - $libs.koin.core
     - $libs.room.runtime
-    - $libs.sqlite.bundled
-dependencies@android:
-    - $libs.room.ktx
-    - $libs.koin.android
 
 settings:
     kotlin:
         serialization: json
-settings@android:
-    kotlin:
         ksp:
             processors:
                 - $libs.room.compiler

@@ -1,0 +1,8 @@
+dependencies:
+#  - ./core/ui
+  - ../core/designsystem
+
+settings:
+  compose: enabled
+  kotlin:
+    serialization: json

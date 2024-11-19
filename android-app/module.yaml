@@ -1,10 +1,27 @@
 product: android/app
 
+#apply:
+#    - ../build-templates/koin.module-template.yaml
+#    - ../build-templates/compose.module-template.yaml
+
 dependencies:
+    - ../core/database
+    - ../core/datastore
+    - ../core/designsystem
+    - ../core/file
+    - ../shared
     - ../feature/library
+    - $libs.koin.compose
+    - $libs.koin.compose.viewmodel
+    - $libs.koin.android
+    - $libs.androidx.activity.compose
+    - $libs.kotlinx.coroutines.android
+    - $libs.filekit
 
 settings:
     android:
         namespace: "com.pgillis.dream"
+        minSdk: 29
+        targetSdk: 34
 #        signing: enabled
     compose: enabled

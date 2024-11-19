@@ -3,6 +3,7 @@ product: jvm/app
 dependencies:
   - ../shared
   - $compose.desktop.currentOs
+  - $libs.kotlinx.coroutines.swing
 
 settings:
   compose: enabled

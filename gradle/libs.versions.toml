@@ -5,7 +5,7 @@ androidxDatastore = "1.1.1"
 androidxComposeRuntimeTracing = "1.7.5"
 androidxCore = "1.15.0"
 androidxCoreSplashscreen = "1.0.1"
-androidxNavigation = "2.8.3"
+androidxNavigation = "2.8.4"
 androidxLifecycle = "2.8.3"
 androidxTracing = "1.2.0"
 coil = "3.0.2"
@@ -16,7 +16,7 @@ filekit = "0.8.7"
 kmpfile = "0.6.2"
 kotlinx-io = "0.5.4"
 koin = "4.0.0"
-koin-annotations = "2.0.0-Beta1"
+koin-annotations = "2.0.0-Beta2"
 ksoup = "0.2.0"
 kotlinxCoroutines = "1.9.0"
 moduleGraph = "2.7.1"
@@ -94,6 +94,7 @@ accompanist-permissions = { group = "com.google.accompanist", name = "accompanis
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+sqlite-core = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 
 # Datastores

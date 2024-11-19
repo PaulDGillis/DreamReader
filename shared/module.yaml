@@ -2,15 +2,13 @@ product:
   type: lib
   platforms: [android, jvm, iosSimulatorArm64]
 
+apply:
+  - ../build-templates/koin.module-template.yaml
+  - ../build-templates/compose.module-template.yaml
+
 dependencies:
   - ../core/database
   - ../core/datastore
   - ../core/designsystem
   - ../core/file
   - ../feature/library
-  - $compose.foundation
-  - $libs.koin.compose
-  - $libs.koin.compose.viewmodel
-
-settings:
-  compose: enabled

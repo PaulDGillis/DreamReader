@@ -3,14 +3,15 @@ product:
     platforms: [android, jvm, iosSimulatorArm64]
 
 apply:
-    - ../../feature.module-template.yaml
+    - ../../build-templates/compose.module-template.yaml
+    - ../../build-templates/feature.module-template.yaml
+    - ../../build-templates/koin.module-template.yaml
 
 dependencies:
     - ../../core/database
     - ../../core/datastore
     - ../../core/file
     - ../../core/model
-#    - ../../shared
     # Compose Placeholder
     - $libs.compose.placeholder
     # Compose File UI Picker
