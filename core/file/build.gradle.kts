@@ -20,6 +20,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(projects.core.model)
+            api(projects.shared.platform)
             implementation(libs.okio)
             implementation(libs.ksoup)
 
@@ -33,7 +34,4 @@ kotlin {
             implementation(libs.document.file)
         }
     }
-}
-dependencies {
-    implementation(project(":shared"))
 }
